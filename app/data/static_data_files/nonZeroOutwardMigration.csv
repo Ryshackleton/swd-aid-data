@@ -1,0 +1,1239 @@
+Origin,Destination,Total
+Wisconsin,Vermont,1
+Kansas,Louisiana,1
+Utah,Oregon,1
+District of Columbia,Maine,2
+Texas,Michigan,3
+North Dakota,Indiana,4
+North Dakota,District of Columbia,5
+District of Columbia,Kansas,5
+Kansas,North Dakota,6
+New York,Nevada,7
+South Carolina,Michigan,7
+Iowa,Wisconsin,7
+North Dakota,Massachusetts,8
+Hawaii,Nebraska,8
+District of Columbia,Nebraska,10
+Vermont,Montana,10
+Minnesota,Kansas,10
+Delaware,Nebraska,11
+New Hampshire,Wyoming,11
+West Virginia,Delaware,11
+New York,Mississippi,11
+Arkansas,Maine,12
+Maryland,Nevada,13
+Mississippi,South Dakota,14
+District of Columbia,New Hampshire,14
+New Jersey,Wyoming,15
+Wyoming,Kansas,16
+Iowa,District of Columbia,17
+Indiana,Wyoming,18
+Maine,Nevada,18
+Nebraska,Nevada,18
+Kentucky,Oklahoma,18
+Oregon,Delaware,19
+Hawaii,Montana,20
+Alaska,Pennsylvania,20
+Ohio,Oregon,20
+Iowa,New Hampshire,21
+Maine,Illinois,21
+Nebraska,Colorado,21
+Michigan,Vermont,22
+Vermont,Oklahoma,23
+District of Columbia,Oregon,23
+Maine,Kansas,24
+North Dakota,Nebraska,24
+Georgia,North Dakota,26
+Virginia,Maine,27
+Minnesota,Vermont,29
+Nevada,Wisconsin,29
+New Hampshire,Mississippi,30
+Utah,New Hampshire,30
+Nevada,West Virginia,30
+New Hampshire,Minnesota,31
+District of Columbia,Wisconsin,31
+Texas,Wyoming,31
+Utah,Delaware,32
+South Dakota,Vermont,32
+West Virginia,Maine,33
+Idaho,Rhode Island,34
+North Carolina,South Carolina,34
+Florida,Oregon,35
+District of Columbia,Oklahoma,36
+Arizona,Vermont,36
+Massachusetts,West Virginia,36
+Oregon,Vermont,36
+Maine,Oklahoma,37
+New Jersey,Montana,37
+North Carolina,Rhode Island,37
+New Mexico,Maine,38
+Alaska,Arkansas,38
+Idaho,New Mexico,38
+Michigan,New Mexico,39
+New Mexico,Texas,39
+North Dakota,Arkansas,40
+Rhode Island,Arizona,40
+Indiana,Delaware,41
+Kentucky,Maine,41
+Connecticut,West Virginia,41
+Georgia,Vermont,42
+Idaho,Maryland,42
+New Mexico,Delaware,44
+Iowa,Massachusetts,44
+Vermont,Delaware,45
+Mississippi,Alaska,45
+Missouri,Rhode Island,46
+North Carolina,Wyoming,46
+District of Columbia,Montana,47
+Arkansas,Hawaii,48
+West Virginia,Vermont,48
+Alabama,South Dakota,48
+Alaska,North Dakota,49
+Georgia,Montana,51
+Massachusetts,Oklahoma,51
+New Mexico,South Dakota,52
+Wisconsin,Montana,52
+Maine,Iowa,54
+Idaho,Kansas,54
+Hawaii,Rhode Island,54
+Tennessee,South Dakota,54
+Alabama,Montana,54
+Ohio,New Mexico,54
+Indiana,Alaska,55
+Maine,Vermont,55
+Minnesota,Oregon,55
+South Dakota,Massachusetts,56
+New York,Wyoming,56
+Vermont,Tennessee,56
+Missouri,Kentucky,56
+Alabama,Arkansas,57
+Nevada,Indiana,57
+Ohio,Maine,58
+Nebraska,Georgia,58
+Rhode Island,Illinois,59
+Delaware,District of Columbia,59
+New Mexico,Vermont,60
+Idaho,Alabama,60
+North Carolina,Maine,60
+Kansas,Vermont,61
+Wyoming,Louisiana,61
+New Jersey,North Dakota,61
+Maine,Alaska,62
+Illinois,West Virginia,64
+Nevada,Vermont,64
+Oklahoma,Wyoming,64
+Hawaii,North Carolina,64
+Hawaii,Wisconsin,66
+Maryland,Illinois,66
+New Hampshire,Nebraska,67
+South Dakota,South Carolina,67
+Wyoming,Connecticut,67
+Delaware,Mississippi,68
+New Mexico,District of Columbia,68
+Oklahoma,Pennsylvania,68
+New York,Wisconsin,68
+Maryland,Wyoming,69
+Ohio,Nebraska,70
+Montana,Kansas,71
+Alabama,Minnesota,71
+Louisiana,Delaware,73
+South Dakota,Kentucky,73
+South Carolina,Vermont,73
+Texas,North Dakota,73
+Missouri,Minnesota,73
+Vermont,Utah,74
+Nebraska,New Mexico,75
+New Hampshire,Montana,76
+Wyoming,Oregon,76
+New Hampshire,New Mexico,77
+Minnesota,Maine,77
+Oklahoma,South Dakota,78
+Rhode Island,Ohio,78
+West Virginia,Washington,78
+Nebraska,Kentucky,78
+District of Columbia,Minnesota,80
+Rhode Island,South Carolina,82
+Indiana,Oregon,82
+Arkansas,South Dakota,83
+Hawaii,Vermont,83
+Nebraska,Alaska,83
+Nebraska,Pennsylvania,83
+South Dakota,Washington,84
+Vermont,Kentucky,85
+Rhode Island,Nevada,85
+Ohio,South Dakota,85
+Mississippi,Colorado,85
+Oklahoma,New York,85
+West Virginia,Montana,86
+Delaware,Minnesota,86
+Connecticut,Arizona,86
+Pennsylvania,Michigan,86
+District of Columbia,South Carolina,87
+Nebraska,Vermont,88
+Maine,South Dakota,89
+California,Delaware,89
+West Virginia,Missouri,90
+Missouri,Delaware,90
+Maine,Idaho,90
+Oregon,Maine,90
+Rhode Island,New Hampshire,90
+Rhode Island,West Virginia,91
+Iowa,Kentucky,91
+Rhode Island,Iowa,92
+New Hampshire,Wisconsin,93
+Connecticut,Wisconsin,94
+Virginia,West Virginia,94
+Delaware,Iowa,95
+Wyoming,Hawaii,96
+Hawaii,Delaware,96
+South Dakota,Idaho,96
+Oklahoma,New Jersey,96
+Hawaii,Indiana,97
+Arkansas,Virginia,97
+Pennsylvania,Wyoming,98
+North Dakota,South Dakota,98
+Indiana,Maine,99
+Wyoming,Nebraska,99
+Florida,Maine,99
+Michigan,Rhode Island,100
+North Carolina,Nebraska,100
+Maine,Rhode Island,100
+Montana,Kentucky,101
+Maryland,Michigan,101
+Montana,Nebraska,104
+West Virginia,Louisiana,104
+Arkansas,District of Columbia,105
+Delaware,Wisconsin,105
+North Dakota,Kentucky,106
+Arkansas,New Hampshire,107
+Rhode Island,Alaska,107
+Iowa,Mississippi,107
+New Hampshire,Missouri,107
+Vermont,Maryland,108
+South Carolina,Oklahoma,108
+Maine,Maryland,109
+Alaska,Kentucky,109
+Maryland,Montana,110
+Arkansas,Massachusetts,110
+Delaware,Maine,111
+Idaho,Oklahoma,111
+Arkansas,Nevada,112
+Oklahoma,Maryland,112
+Washington,North Dakota,113
+Maine,Michigan,116
+Alabama,District of Columbia,116
+Texas,Kentucky,116
+Montana,Massachusetts,117
+Minnesota,West Virginia,117
+District of Columbia,Utah,117
+Idaho,West Virginia,119
+Montana,North Carolina,119
+Alaska,West Virginia,121
+District of Columbia,Nevada,121
+Georgia,South Dakota,121
+Montana,Louisiana,121
+Indiana,Connecticut,121
+Oklahoma,Georgia,121
+Rhode Island,Minnesota,123
+Nebraska,West Virginia,123
+Nebraska,Massachusetts,123
+Louisiana,Nebraska,124
+Ohio,California,124
+Montana,Tennessee,125
+Indiana,Montana,125
+Alaska,New Jersey,125
+Kansas,Ohio,125
+Delaware,Idaho,126
+North Dakota,New Mexico,126
+Oklahoma,North Dakota,126
+Kansas,Wisconsin,126
+Tennessee,Alaska,127
+Arizona,Maine,128
+Louisiana,Alaska,128
+Hawaii,Oklahoma,129
+Indiana,Idaho,130
+New Hampshire,Oregon,130
+Connecticut,Alabama,130
+South Dakota,Virginia,130
+New Mexico,Maryland,131
+Michigan,South Dakota,132
+Connecticut,Utah,134
+Oklahoma,Wisconsin,134
+New Jersey,South Dakota,135
+Washington,Missouri,135
+New Hampshire,Alabama,136
+Michigan,Arkansas,136
+North Dakota,Nevada,137
+Massachusetts,Mississippi,138
+Virginia,Missouri,138
+Minnesota,Idaho,139
+District of Columbia,Ohio,139
+Pennsylvania,Idaho,140
+Washington,Minnesota,141
+Maryland,Mississippi,142
+Connecticut,Mississippi,145
+Iowa,Louisiana,145
+New York,West Virginia,145
+Alaska,Wyoming,146
+Vermont,Iowa,147
+Minnesota,Colorado,148
+Louisiana,Vermont,149
+North Dakota,Louisiana,149
+Massachusetts,Maryland,149
+Connecticut,Iowa,150
+Maine,Montana,150
+Alaska,New Hampshire,151
+Nevada,Montana,152
+Massachusetts,Tennessee,152
+Pennsylvania,New Hampshire,152
+South Dakota,Missouri,153
+Nebraska,Connecticut,154
+Rhode Island,Kentucky,154
+New Mexico,Arkansas,156
+Utah,Ohio,156
+Mississippi,District of Columbia,157
+Maine,Texas,157
+Maryland,Alabama,157
+Kansas,Indiana,157
+Oregon,Iowa,158
+Rhode Island,Oregon,159
+Arkansas,Connecticut,160
+Alabama,Wyoming,160
+Ohio,Louisiana,160
+Texas,Virginia,160
+Idaho,District of Columbia,161
+Tennessee,Hawaii,161
+Idaho,Nebraska,161
+Maine,Mississippi,162
+Ohio,Wisconsin,163
+Michigan,Hawaii,165
+Mississippi,Rhode Island,166
+Tennessee,New Hampshire,167
+Delaware,North Dakota,167
+Louisiana,Pennsylvania,167
+Nebraska,South Carolina,168
+Tennessee,Nevada,168
+Tennessee,Nebraska,169
+South Dakota,Colorado,169
+Utah,South Dakota,170
+Vermont,New York,171
+Maryland,Kansas,172
+Illinois,Nevada,172
+North Dakota,Michigan,173
+Minnesota,Arkansas,174
+Arkansas,Rhode Island,175
+Michigan,Alaska,176
+Arizona,Alabama,176
+Alaska,South Dakota,177
+Vermont,Texas,177
+Indiana,Massachusetts,177
+Washington,Wyoming,178
+Montana,Ohio,179
+Pennsylvania,Alabama,179
+Wisconsin,Rhode Island,181
+Wyoming,Ohio,182
+Wisconsin,Idaho,182
+New Jersey,Iowa,183
+South Dakota,Florida,183
+New Jersey,Arkansas,184
+Wyoming,Tennessee,184
+Montana,Mississippi,184
+Vermont,New Hampshire,184
+Oklahoma,West Virginia,186
+Montana,Iowa,186
+Vermont,District of Columbia,186
+North Dakota,Connecticut,187
+Arizona,District of Columbia,187
+Tennessee,Idaho,187
+Oregon,Pennsylvania,187
+Alabama,Maine,190
+Alabama,Iowa,190
+Virginia,Rhode Island,190
+South Carolina,Nevada,192
+Mississippi,South Carolina,193
+Tennessee,Ohio,193
+Alaska,Utah,195
+Utah,Pennsylvania,195
+New Jersey,New Mexico,196
+South Dakota,New Hampshire,196
+Maryland,Iowa,196
+Mississippi,Nevada,196
+Missouri,Arkansas,199
+North Dakota,New York,202
+Illinois,Mississippi,202
+Alaska,Vermont,203
+North Carolina,South Dakota,203
+District of Columbia,Hawaii,203
+Maryland,Minnesota,203
+New Jersey,West Virginia,205
+South Carolina,New Mexico,206
+South Dakota,Iowa,206
+Louisiana,Nevada,207
+Ohio,Oklahoma,207
+Nebraska,Arkansas,208
+Utah,Rhode Island,211
+Wyoming,Mississippi,212
+Virginia,North Dakota,212
+Oklahoma,New Hampshire,214
+Rhode Island,New Mexico,214
+Rhode Island,Oklahoma,216
+Nevada,Wyoming,216
+New Hampshire,West Virginia,217
+Minnesota,Kentucky,217
+Kansas,Hawaii,218
+Colorado,Vermont,218
+New York,South Dakota,220
+Mississippi,Ohio,221
+Hawaii,Kentucky,222
+Oregon,Arkansas,223
+North Carolina,Oklahoma,223
+Oregon,Connecticut,224
+New Jersey,Louisiana,225
+Pennsylvania,Kansas,225
+West Virginia,California,226
+West Virginia,Oregon,227
+Vermont,Missouri,228
+Hawaii,New Jersey,228
+Maine,Washington,228
+Georgia,West Virginia,229
+Hawaii,North Dakota,230
+North Dakota,Maryland,230
+Louisiana,Rhode Island,233
+Vermont,North Carolina,233
+Kentucky,District of Columbia,234
+Tennessee,Oregon,234
+Hawaii,Connecticut,235
+New Mexico,Alabama,237
+Alabama,South Carolina,237
+Kentucky,Idaho,238
+Massachusetts,Alabama,238
+Oregon,Montana,238
+Oregon,Kentucky,239
+Delaware,Wyoming,240
+Montana,Missouri,240
+Indiana,New Hampshire,242
+Mississippi,Minnesota,242
+Wyoming,Missouri,243
+Florida,Mississippi,245
+Colorado,District of Columbia,246
+Indiana,Rhode Island,247
+New Hampshire,Kentucky,247
+Tennessee,Rhode Island,248
+New Hampshire,Michigan,248
+Wyoming,Florida,248
+New Hampshire,Georgia,250
+New Jersey,Minnesota,250
+Arkansas,Georgia,250
+Idaho,New Jersey,251
+Wyoming,Illinois,251
+Wyoming,Wisconsin,253
+Alabama,Nebraska,253
+Idaho,Ohio,253
+South Carolina,Arkansas,255
+Oregon,North Dakota,255
+Missouri,Oregon,255
+Alabama,Oklahoma,256
+Tennessee,Wisconsin,256
+South Carolina,Iowa,257
+New Hampshire,Washington,259
+Wyoming,New Mexico,260
+Mississippi,Kansas,260
+Idaho,Montana,260
+Mississippi,Idaho,261
+Wisconsin,Nebraska,262
+Idaho,South Carolina,263
+Oregon,Alabama,265
+Minnesota,Wyoming,265
+Wyoming,Kentucky,266
+Massachusetts,Oregon,266
+South Carolina,Oregon,267
+Colorado,Georgia,269
+South Carolina,Alaska,270
+Tennessee,West Virginia,270
+New York,New Mexico,271
+Georgia,Rhode Island,273
+North Dakota,Illinois,274
+Kansas,Massachusetts,275
+New Mexico,Hawaii,275
+Nebraska,Maine,276
+Nebraska,Virginia,280
+Oklahoma,Oregon,280
+Louisiana,Idaho,281
+Alabama,North Carolina,281
+New Mexico,Indiana,282
+Louisiana,Utah,283
+Michigan,Nebraska,283
+Missouri,Nevada,285
+Wisconsin,North Dakota,286
+District of Columbia,West Virginia,287
+Delaware,Connecticut,289
+North Dakota,Colorado,291
+South Dakota,Montana,292
+Alaska,New York,292
+Utah,Maine,293
+Louisiana,Minnesota,294
+Oklahoma,Delaware,295
+Rhode Island,District of Columbia,296
+Missouri,District of Columbia,296
+Hawaii,Idaho,299
+Oklahoma,Connecticut,301
+Virginia,Indiana,302
+Wisconsin,Maryland,304
+West Virginia,Arizona,305
+Maryland,South Dakota,306
+Nebraska,New Jersey,306
+Hawaii,New Hampshire,307
+Hawaii,Louisiana,307
+Louisiana,Connecticut,309
+Pennsylvania,Montana,311
+Kentucky,Virginia,312
+Rhode Island,Maryland,313
+Idaho,Illinois,313
+Utah,West Virginia,314
+Alabama,Washington,316
+Michigan,New Jersey,316
+District of Columbia,North Carolina,316
+North Dakota,Ohio,317
+Idaho,Arkansas,317
+Maryland,Utah,317
+Hawaii,Minnesota,319
+Kentucky,Mississippi,319
+Vermont,Ohio,320
+Delaware,South Carolina,320
+Iowa,North Dakota,320
+Tennessee,Utah,320
+Vermont,Washington,322
+Kentucky,Nevada,324
+New Hampshire,Maine,324
+Florida,Colorado,324
+Delaware,Ohio,326
+Maine,South Carolina,327
+Vermont,Virginia,327
+Arizona,Tennessee,328
+Delaware,Tennessee,330
+Maine,Tennessee,331
+West Virginia,Wisconsin,334
+Oregon,New Jersey,334
+New Hampshire,Kansas,338
+New Jersey,Wisconsin,338
+Rhode Island,Vermont,339
+Arkansas,Illinois,339
+Colorado,Michigan,340
+South Dakota,Texas,342
+Oklahoma,Tennessee,343
+Minnesota,Georgia,344
+Iowa,New Mexico,346
+Nebraska,Indiana,347
+New Mexico,Pennsylvania,348
+Minnesota,South Carolina,349
+California,Vermont,351
+Michigan,Louisiana,352
+Mississippi,North Dakota,354
+Utah,Alabama,354
+New York,Alabama,354
+Nebraska,South Dakota,355
+Wisconsin,Arkansas,357
+North Carolina,Wisconsin,358
+New Mexico,Kansas,359
+Mississippi,Utah,361
+Louisiana,District of Columbia,361
+Maryland,Louisiana,362
+Michigan,District of Columbia,363
+New Mexico,Massachusetts,364
+Wisconsin,Alabama,364
+California,Louisiana,365
+Montana,Oklahoma,366
+Mississippi,Oregon,367
+West Virginia,Iowa,368
+Florida,Hawaii,368
+Michigan,Delaware,369
+Ohio,Alaska,369
+Kansas,Alabama,370
+South Dakota,Indiana,372
+Kentucky,Massachusetts,375
+Alaska,Virginia,376
+New Mexico,Missouri,376
+Tennessee,Indiana,377
+Massachusetts,Hawaii,381
+Minnesota,Pennsylvania,381
+Rhode Island,New York,381
+New Hampshire,Arizona,388
+Alaska,Nevada,391
+Rhode Island,Washington,391
+Oklahoma,Indiana,392
+Michigan,Nevada,392
+Mississippi,New Mexico,394
+South Dakota,Kansas,397
+New York,Montana,398
+Colorado,Maine,401
+Montana,Rhode Island,403
+Kansas,West Virginia,405
+Minnesota,Alaska,406
+Connecticut,Michigan,407
+Utah,Iowa,408
+New Jersey,Maine,408
+Massachusetts,Virginia,410
+Utah,Indiana,411
+Connecticut,Kansas,412
+Michigan,West Virginia,413
+Michigan,Idaho,414
+Nebraska,Arizona,414
+South Carolina,Utah,417
+Pennsylvania,Nevada,417
+Wyoming,South Dakota,418
+New Jersey,Kentucky,418
+Colorado,West Virginia,421
+Hawaii,Pennsylvania,421
+Arkansas,Louisiana,422
+New Jersey,Vermont,425
+Kansas,North Carolina,425
+Washington,Wisconsin,425
+Alaska,Massachusetts,428
+Georgia,Kentucky,428
+Georgia,District of Columbia,430
+Nevada,Oklahoma,433
+Iowa,Indiana,435
+New York,Louisiana,438
+Pennsylvania,Wisconsin,440
+Missouri,Idaho,442
+Massachusetts,South Carolina,443
+Wisconsin,Massachusetts,444
+Connecticut,Vermont,446
+New Mexico,Minnesota,447
+Florida,Montana,447
+Florida,West Virginia,448
+Utah,Arizona,450
+Mississippi,Wisconsin,451
+Illinois,Alaska,453
+Iowa,Alaska,454
+Louisiana,Maine,455
+Virginia,Montana,456
+Iowa,Wyoming,457
+Minnesota,Virginia,458
+Indiana,District of Columbia,460
+Arkansas,Tennessee,460
+Washington,Arkansas,465
+South Carolina,Colorado,465
+Maryland,Nebraska,466
+South Carolina,North Dakota,470
+Virginia,Ohio,470
+Wyoming,North Dakota,472
+Pennsylvania,Maine,473
+Florida,Idaho,474
+North Carolina,Tennessee,476
+Tennessee,North Dakota,478
+West Virginia,North Carolina,479
+Florida,Iowa,479
+Utah,Arkansas,480
+Oregon,Nebraska,482
+Alabama,Delaware,484
+Utah,Idaho,484
+California,South Carolina,484
+Hawaii,South Dakota,486
+Minnesota,Nebraska,488
+Kansas,Missouri,488
+Idaho,New York,490
+New Jersey,Tennessee,494
+Alaska,Florida,494
+Washington,Tennessee,494
+Missouri,Massachusetts,494
+Alaska,Kansas,498
+Nebraska,Washington,498
+New Jersey,New Hampshire,500
+Colorado,Missouri,501
+New Mexico,Oregon,502
+Illinois,New York,502
+North Dakota,Missouri,503
+South Dakota,Oregon,505
+Virginia,Idaho,505
+Montana,South Carolina,506
+South Dakota,Illinois,509
+Vermont,Indiana,512
+Iowa,Hawaii,513
+Maryland,Kentucky,514
+Delaware,Nevada,517
+Arkansas,Iowa,517
+Alabama,Alaska,518
+Maryland,Tennessee,520
+Alabama,Louisiana,522
+Nevada,Massachusetts,525
+Minnesota,Montana,526
+New Jersey,Nevada,527
+Nevada,Iowa,534
+Minnesota,Massachusetts,534
+Delaware,Kentucky,537
+Virginia,Wyoming,538
+Rhode Island,Colorado,538
+Washington,Iowa,538
+Alaska,Connecticut,540
+Nevada,Kansas,540
+Wyoming,Michigan,542
+Alaska,Colorado,543
+Nevada,Virginia,544
+Alaska,Montana,545
+Georgia,Michigan,545
+New Hampshire,Louisiana,548
+Virginia,Michigan,548
+Washington,Texas,550
+Connecticut,Nevada,551
+West Virginia,Indiana,552
+Florida,North Dakota,553
+Rhode Island,Pennsylvania,558
+New York,Nebraska,560
+Ohio,Washington,560
+Texas,New Hampshire,562
+Alaska,Georgia,564
+Maryland,New Hampshire,570
+Hawaii,Utah,570
+North Dakota,North Carolina,571
+Alaska,Idaho,571
+Connecticut,Kentucky,572
+New Hampshire,South Carolina,574
+Florida,District of Columbia,577
+Idaho,Oregon,578
+Arizona,Maryland,581
+Louisiana,New Mexico,586
+New Mexico,Wisconsin,587
+Georgia,Oregon,590
+Kentucky,Pennsylvania,593
+Delaware,Virginia,597
+Louisiana,Massachusetts,598
+Illinois,Hawaii,602
+Nebraska,Kansas,602
+Oregon,Michigan,606
+Utah,Kansas,614
+South Dakota,Pennsylvania,618
+Delaware,Colorado,620
+Louisiana,Colorado,620
+Michigan,Montana,626
+South Dakota,Nevada,626
+North Dakota,Montana,627
+Wyoming,Georgia,630
+North Carolina,Utah,630
+Tennessee,Colorado,630
+Alaska,Oklahoma,631
+Louisiana,Virginia,632
+Alaska,Maryland,636
+Wyoming,Vermont,643
+Washington,Mississippi,643
+Arkansas,Ohio,644
+Utah,Michigan,646
+Illinois,Utah,650
+New Mexico,Virginia,650
+Illinois,Montana,652
+California,Rhode Island,655
+New Hampshire,Ohio,658
+Illinois,New Hampshire,658
+Missouri,Maine,659
+Wisconsin,Oregon,662
+Pennsylvania,North Dakota,664
+Michigan,California,664
+Illinois,New Mexico,665
+Connecticut,Pennsylvania,674
+Arizona,New Mexico,674
+Nebraska,Illinois,675
+Wisconsin,Minnesota,682
+Utah,Massachusetts,685
+Connecticut,Georgia,685
+New York,Washington,688
+Minnesota,Nevada,690
+Alabama,Kentucky,694
+Iowa,Ohio,696
+Massachusetts,Illinois,697
+Oregon,Nevada,699
+Louisiana,South Carolina,703
+Arkansas,Arizona,703
+Michigan,Arizona,703
+New Jersey,Utah,707
+Mississippi,Arizona,708
+Arkansas,Wyoming,710
+Virginia,Wisconsin,710
+Rhode Island,Alabama,713
+Montana,Washington,714
+Oklahoma,Utah,715
+Georgia,Utah,715
+Kansas,Florida,715
+Illinois,Alabama,717
+Wisconsin,Kentucky,718
+Pennsylvania,Georgia,718
+Louisiana,Wisconsin,728
+Idaho,Massachusetts,732
+Delaware,Arizona,734
+Connecticut,Maryland,734
+Tennessee,District of Columbia,735
+Connecticut,District of Columbia,735
+Illinois,Delaware,737
+Alabama,Hawaii,751
+Florida,Rhode Island,751
+Montana,New Mexico,755
+Iowa,Virginia,761
+New Mexico,Tennessee,762
+Louisiana,Kentucky,762
+Ohio,Hawaii,768
+Oklahoma,Michigan,770
+Wisconsin,South Carolina,770
+Hawaii,Mississippi,771
+Connecticut,Minnesota,772
+Mississippi,Virginia,774
+Illinois,Louisiana,776
+Kansas,Iowa,776
+Wyoming,Arizona,777
+Iowa,Colorado,778
+Arkansas,Montana,781
+Minnesota,Oklahoma,782
+Kansas,Colorado,782
+Maryland,Washington,784
+Alabama,Ohio,785
+New Mexico,North Carolina,786
+Maryland,West Virginia,789
+Indiana,Maryland,794
+Indiana,Michigan,794
+Kansas,Arkansas,796
+Indiana,Missouri,800
+Washington,Nevada,805
+Oklahoma,Nebraska,807
+West Virginia,Mississippi,812
+New York,Kansas,815
+Pennsylvania,West Virginia,817
+Delaware,Georgia,818
+Tennessee,Iowa,818
+Texas,West Virginia,822
+Iowa,Oklahoma,823
+Oregon,North Carolina,823
+New Mexico,Connecticut,825
+North Dakota,Alabama,825
+Kansas,South Carolina,826
+Pennsylvania,Iowa,826
+Wisconsin,South Dakota,829
+West Virginia,Alabama,831
+New York,Oregon,833
+New York,District of Columbia,837
+Colorado,Idaho,839
+North Carolina,New Hampshire,840
+Kansas,New Jersey,842
+North Carolina,Iowa,849
+New Hampshire,Virginia,850
+Texas,Delaware,855
+Delaware,North Carolina,859
+Georgia,Massachusetts,860
+Massachusetts,Pennsylvania,862
+New Mexico,Nevada,866
+New York,Maine,867
+Alaska,Arizona,868
+New Jersey,Texas,869
+Hawaii,Missouri,873
+Ohio,Michigan,879
+Kentucky,Arkansas,880
+Louisiana,Tennessee,881
+Wyoming,Colorado,881
+Utah,Nebraska,887
+Georgia,Nevada,892
+Louisiana,Indiana,896
+New York,Kentucky,899
+Massachusetts,Texas,899
+Kansas,Kentucky,900
+Maine,Wisconsin,904
+New Hampshire,Colorado,904
+Georgia,Indiana,905
+Mississippi,Louisiana,908
+Texas,Montana,919
+New Jersey,Missouri,925
+Arkansas,New York,926
+Massachusetts,Colorado,928
+Mississippi,Pennsylvania,933
+Ohio,Indiana,933
+New Jersey,Alabama,934
+Connecticut,Washington,936
+Hawaii,New York,936
+Texas,Missouri,939
+Louisiana,Missouri,940
+Arizona,Georgia,940
+Delaware,Washington,943
+California,Wyoming,949
+California,Alaska,950
+Indiana,Arkansas,958
+New Jersey,Mississippi,964
+South Carolina,Hawaii,964
+Minnesota,Iowa,964
+Kansas,Oregon,965
+Texas,Rhode Island,970
+Kentucky,South Carolina,971
+Michigan,Massachusetts,977
+Hawaii,Arizona,985
+Wyoming,Utah,989
+Nevada,New Hampshire,993
+Mississippi,North Carolina,994
+Nebraska,Mississippi,996
+North Carolina,Washington,997
+Maine,California,1000
+North Carolina,Arkansas,1002
+Idaho,Iowa,1005
+Virginia,Arizona,1006
+Kansas,Tennessee,1008
+Maryland,Arkansas,1015
+Oklahoma,Arkansas,1019
+Minnesota,North Carolina,1032
+Texas,Indiana,1033
+Washington,Kentucky,1034
+California,Kentucky,1035
+North Dakota,Idaho,1042
+Alaska,North Carolina,1056
+South Dakota,Arizona,1056
+Idaho,Nevada,1061
+Indiana,Colorado,1062
+Connecticut,Maine,1063
+Virginia,Utah,1064
+Kentucky,Utah,1068
+Florida,Nebraska,1077
+Utah,Wisconsin,1077
+Iowa,Arizona,1077
+Indiana,Alabama,1079
+Alaska,Missouri,1081
+Idaho,Washington,1082
+Kansas,Michigan,1087
+Indiana,North Carolina,1099
+Kansas,Arizona,1102
+Indiana,Minnesota,1105
+Indiana,New York,1106
+Kentucky,Indiana,1106
+Georgia,Maine,1109
+Connecticut,Rhode Island,1133
+New Mexico,Colorado,1137
+Florida,Nevada,1144
+Alabama,Colorado,1146
+Wyoming,Idaho,1147
+Texas,Idaho,1149
+Ohio,South Carolina,1153
+Connecticut,Illinois,1163
+Montana,Utah,1164
+Arizona,South Carolina,1166
+Iowa,Missouri,1168
+Vermont,Florida,1171
+Oregon,Colorado,1174
+Missouri,Connecticut,1176
+New Jersey,Illinois,1181
+Delaware,Massachusetts,1186
+Missouri,Georgia,1190
+Colorado,Arkansas,1191
+Ohio,Texas,1192
+Arizona,North Carolina,1195
+Louisiana,Oregon,1196
+North Carolina,Idaho,1197
+Maryland,Oregon,1197
+California,New Hampshire,1202
+Colorado,Utah,1208
+New Mexico,Kentucky,1215
+Tennessee,Minnesota,1234
+District of Columbia,Washington,1235
+West Virginia,Kentucky,1236
+Maryland,Colorado,1238
+Massachusetts,Ohio,1239
+Louisiana,South Dakota,1241
+Massachusetts,District of Columbia,1250
+Illinois,Vermont,1266
+New Mexico,Oklahoma,1269
+Illinois,Oklahoma,1273
+Texas,Tennessee,1274
+California,Nebraska,1288
+New York,Minnesota,1301
+Connecticut,Ohio,1307
+California,Kansas,1309
+Missouri,Utah,1310
+Indiana,Mississippi,1317
+Minnesota,Utah,1324
+Texas,Connecticut,1335
+Iowa,Michigan,1339
+New York,Tennessee,1341
+Ohio,Minnesota,1342
+Massachusetts,Arizona,1352
+Tennessee,South Carolina,1352
+Missouri,Mississippi,1357
+Texas,North Carolina,1367
+New Mexico,Utah,1370
+Vermont,Pennsylvania,1370
+Kentucky,Arizona,1375
+Alaska,Texas,1378
+Idaho,Georgia,1381
+Alabama,California,1387
+New Mexico,Georgia,1388
+Connecticut,New Jersey,1394
+Georgia,Iowa,1396
+Nebraska,Missouri,1397
+Wisconsin,Colorado,1405
+Alaska,New Mexico,1406
+Mississippi,Michigan,1406
+California,Mississippi,1410
+Alabama,Texas,1410
+Pennsylvania,Washington,1412
+Maryland,South Carolina,1414
+New Jersey,Ohio,1424
+Connecticut,Colorado,1430
+Georgia,Hawaii,1433
+New York,Utah,1436
+Kansas,Washington,1448
+Virginia,Colorado,1455
+Maryland,North Carolina,1462
+Mississippi,Oklahoma,1469
+Louisiana,Oklahoma,1481
+Wisconsin,Indiana,1483
+Oklahoma,Washington,1489
+Ohio,Nevada,1495
+Kentucky,Tennessee,1496
+Missouri,Tennessee,1499
+Arkansas,Florida,1503
+Alabama,Tennessee,1505
+Michigan,Wisconsin,1508
+District of Columbia,Pennsylvania,1515
+Iowa,California,1538
+Nevada,Utah,1538
+New Jersey,Maryland,1544
+Texas,Arkansas,1545
+Texas,District of Columbia,1551
+Virginia,North Carolina,1556
+Louisiana,North Carolina,1560
+Colorado,Montana,1566
+Hawaii,Oregon,1568
+Alaska,Oregon,1576
+Wisconsin,Missouri,1580
+Kentucky,Colorado,1581
+California,New Mexico,1585
+Missouri,North Carolina,1588
+New Mexico,Washington,1593
+Maryland,Ohio,1598
+Washington,Indiana,1611
+Maryland,Missouri,1618
+Illinois,Kansas,1628
+Georgia,Tennessee,1641
+Kansas,Oklahoma,1651
+Louisiana,Arizona,1654
+Pennsylvania,Missouri,1654
+North Carolina,Kentucky,1697
+Wisconsin,Florida,1697
+Oklahoma,Colorado,1706
+Wisconsin,Georgia,1707
+Missouri,Michigan,1726
+Illinois,District of Columbia,1731
+New Jersey,Rhode Island,1734
+Kansas,Virginia,1742
+Iowa,New York,1744
+Louisiana,Washington,1778
+New Mexico,Florida,1782
+Michigan,North Carolina,1790
+Ohio,Missouri,1794
+Nevada,Alabama,1798
+Colorado,Washington,1798
+West Virginia,Ohio,1799
+California,Georgia,1819
+California,North Dakota,1828
+Kansas,Texas,1835
+Connecticut,Tennessee,1847
+Alabama,Michigan,1848
+New York,Arizona,1848
+Virginia,South Carolina,1855
+Mississippi,Alabama,1862
+California,Arkansas,1863
+Oregon,Washington,1863
+Oklahoma,Florida,1890
+Mississippi,Arkansas,1920
+New Jersey,District of Columbia,1928
+Hawaii,Colorado,1928
+Ohio,Colorado,1935
+Virginia,Alabama,1936
+North Dakota,Utah,1937
+New York,Virginia,1937
+New Jersey,Indiana,1952
+Ohio,Arizona,1952
+Illinois,Pennsylvania,1957
+Minnesota,California,1969
+Alabama,Missouri,1974
+Massachusetts,Vermont,1975
+California,Colorado,1976
+Indiana,South Carolina,1978
+Louisiana,Florida,1999
+Illinois,Minnesota,2011
+Massachusetts,Washington,2018
+Hawaii,Washington,2018
+Montana,Arizona,2050
+Connecticut,Virginia,2054
+Pennsylvania,Colorado,2054
+Wisconsin,Texas,2068
+Illinois,South Carolina,2070
+Arizona,Texas,2082
+Illinois,North Carolina,2090
+Wisconsin,Alaska,2111
+Florida,Texas,2115
+Pennsylvania,Delaware,2122
+New York,New Hampshire,2126
+Nevada,Arizona,2139
+North Dakota,Arizona,2161
+Iowa,Nebraska,2186
+Texas,Nebraska,2187
+Missouri,Florida,2190
+Wisconsin,Arizona,2195
+California,South Dakota,2196
+Missouri,South Carolina,2207
+North Carolina,Colorado,2252
+Nevada,Texas,2253
+Michigan,Washington,2262
+Maryland,Virginia,2263
+California,Oklahoma,2284
+Hawaii,Virginia,2291
+Hawaii,Texas,2298
+Maryland,California,2309
+Georgia,Maryland,2316
+Indiana,Pennsylvania,2326
+Utah,Washington,2333
+Pennsylvania,Arkansas,2347
+Illinois,Kentucky,2348
+Kentucky,Michigan,2355
+New York,Delaware,2361
+Missouri,Arizona,2375
+Illinois,Virginia,2388
+Pennsylvania,South Carolina,2394
+North Carolina,Nevada,2396
+Connecticut,South Carolina,2408
+Pennsylvania,Tennessee,2428
+Indiana,Arizona,2433
+New Jersey,Delaware,2463
+California,Tennessee,2466
+Idaho,Arizona,2468
+Connecticut,New Hampshire,2474
+Missouri,New York,2486
+Virginia,Washington,2488
+Delaware,Florida,2496
+West Virginia,South Carolina,2499
+South Carolina,Washington,2500
+Oklahoma,Virginia,2532
+Hawaii,Maryland,2538
+Virginia,Georgia,2548
+New Jersey,Washington,2567
+District of Columbia,Virginia,2579
+South Carolina,Georgia,2583
+Utah,Texas,2595
+California,Montana,2638
+Washington,Arizona,2659
+Wyoming,Montana,2697
+Hawaii,Nevada,2706
+Kansas,Georgia,2723
+Georgia,Washington,2726
+South Dakota,Minnesota,2734
+Iowa,Texas,2771
+Tennessee,Mississippi,2806
+Indiana,Florida,2806
+Michigan,Tennessee,2832
+Massachusetts,Connecticut,2864
+Texas,South Carolina,2878
+Maryland,Texas,2903
+Oklahoma,Arizona,2925
+Illinois,Ohio,2940
+Florida,Arizona,2945
+Louisiana,Georgia,2997
+Oklahoma,Missouri,3030
+Virginia,Oregon,3055
+District of Columbia,California,3055
+Pennsylvania,Arizona,3066
+Illinois,Michigan,3120
+Connecticut,California,3128
+Illinois,Oregon,3148
+Minnesota,Texas,3186
+New Jersey,Virginia,3242
+Minnesota,North Dakota,3265
+Texas,Oregon,3324
+Ohio,Georgia,3339
+Georgia,Mississippi,3349
+New Hampshire,Florida,3401
+New Jersey,Arizona,3431
+Kentucky,Florida,3444
+Massachusetts,Maine,3468
+Michigan,Minnesota,3489
+Ohio,North Carolina,3512
+Pennsylvania,North Carolina,3592
+Oregon,Arizona,3763
+Texas,Georgia,3787
+Massachusetts,Rhode Island,3862
+Connecticut,North Carolina,3870
+Alaska,Washington,3879
+Hawaii,California,3933
+Illinois,Washington,4002
+Massachusetts,California,4029
+Ohio,Kentucky,4058
+New Jersey,Colorado,4067
+New York,Georgia,4067
+California,Missouri,4077
+Minnesota,Florida,4102
+Florida,Washington,4135
+Illinois,Iowa,4160
+Florida,South Carolina,4202
+Georgia,North Carolina,4208
+New York,Michigan,4249
+New Jersey,Massachusetts,4273
+Maryland,Delaware,4293
+New Jersey,Georgia,4295
+Massachusetts,North Carolina,4389
+Pennsylvania,Ohio,4432
+Minnesota,Arizona,4506
+Wisconsin,California,4607
+Connecticut,Florida,4660
+Michigan,Florida,4690
+Colorado,Nevada,4718
+Florida,Alabama,4782
+California,Indiana,4906
+Pennsylvania,Virginia,4933
+New Jersey,California,4938
+Utah,Florida,5019
+New York,Maryland,5039
+Pennsylvania,California,5146
+Texas,Colorado,5189
+New York,Ohio,5294
+New York,Colorado,5456
+Pennsylvania,Texas,5458
+New York,South Carolina,5460
+Illinois,Colorado,5480
+Colorado,Arizona,6045
+Mississippi,Texas,6143
+California,Florida,6308
+New Jersey,South Carolina,6370
+Illinois,Missouri,6620
+Virginia,California,6653
+Massachusetts,Florida,6713
+Georgia,Alabama,7093
+California,Utah,7095
+Ohio,Florida,7103
+Virginia,Tennessee,7218
+Illinois,Tennessee,7290
+Florida,Tennessee,7447
+Maryland,Pennsylvania,7583
+Illinois,Georgia,7605
+New York,Massachusetts,8007
+Florida,Georgia,8235
+New Jersey,North Carolina,8408
+Illinois,Arizona,8936
+California,North Carolina,8946
+New York,California,9296
+Massachusetts,New Hampshire,9317
+Florida,North Carolina,10324
+Virginia,Florida,10368
+New York,Texas,10606
+Louisiana,Texas,11026
+Illinois,California,11071
+Maryland,Florida,11152
+New York,Connecticut,11202
+Pennsylvania,Florida,11413
+Texas,Oklahoma,11857
+District of Columbia,Maryland,11976
+Illinois,Indiana,12528
+Illinois,Texas,14572
+Illinois,Wisconsin,14689
+New York,North Carolina,15031
+New York,Pennsylvania,15266
+California,Idaho,15746
+New Jersey,Pennsylvania,17358
+Illinois,Florida,18118
+New Jersey,Florida,18854
+California,Washington,19341
+California,Texas,22175
+New York,New Jersey,22282
+California,Nevada,23745
+California,Oregon,29561
+California,Arizona,32326
+New York,Florida,35577

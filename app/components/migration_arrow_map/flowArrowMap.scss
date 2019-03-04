@@ -1,0 +1,11 @@
+.flow-arrow-map {
+  height: 80vh;
+}
+.flow-arrow-map svg {
+  background: #e6e6e6;
+}
+
+@media all and (max-width: 1000px) {
+  .flow-arrow-map svg {
+  }
+}

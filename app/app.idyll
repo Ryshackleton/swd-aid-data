@@ -1,0 +1,39 @@
+[meta title:"SWD Challenge" description:"An exploration of AidData on global donations" /]
+
+[Header
+  title:"SWD: AidData Challenge"
+  subtitle:"Storytelling with Data's Monthly challenge to analyze donation flows across the globe"
+  author:"Ryan Shackleton"
+  authorLink:"https://github.com/Ryshackleton" /]
+
+// Initialize data
+[data name:'nonZeroOutwardMigration' /]
+[data name:'populationChange' /]
+[data name:'topology' /]
+
+[FlowArrowMap
+    fullWidth:true
+    className: 'flow-arrow-map'
+    topology: topology
+    featureSet: 'states'
+    topojsonLocationPropName: 'location_name'
+    chartState: `{
+      colorRadiusData: populationChange,
+      // chart view states
+      isCartogram: true,
+      isDisplayingVoronoi: true,
+
+      // color data array
+      colorRadiusData: populationChange, // pick from props
+      geographyPropName: 'state',
+      d3ColorScaleName: 'scaleLinear',
+      colorRange: ["#d4a1a9", "#a7c9db"],
+      radiusRange: [10, 30],
+
+      // flow data array
+      flowData: nonZeroOutwardMigration,
+      arrowOriginPropName: 'Origin',
+      arrowDestinationPropName: 'Destination',
+      colorPropName: 'Percent Change',
+    }`
+/]

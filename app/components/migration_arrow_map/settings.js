@@ -1,6 +1,6 @@
 import { geoPath } from 'd3';
 
-export const defaultProps = {
+export const defaultSettings = {
   bubbleDefaultOpacity: 0.9,
   css: {
     containerDivId: '', // for use outside of observable
@@ -14,7 +14,7 @@ export const defaultProps = {
     },
   },
   path: geoPath(),
-  transition: { duration: 500 },
+  transition: { duration: 1000 },
   // topojson props
   topoJSONBaseWidth: 900, // width scaling associated with the topojson
   topoJSONBaseHeight: 550, // width scaling associated with the topojson
@@ -23,4 +23,4 @@ export const defaultProps = {
   topojsonLocationPropName: 'location_name',
 };
 
-export const propKeys = Object.keys(defaultProps);
+export const settingsKeys = Object.keys(defaultSettings);

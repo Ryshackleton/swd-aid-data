@@ -1,6 +1,6 @@
 import { feature } from 'topojson';
 
-export default function drawGeography(selection, props, state) {
+export default function drawGeography(selection, settings, state) {
   const {
     bubbleDefaultOpacity,
     featureSet,
@@ -8,7 +8,7 @@ export default function drawGeography(selection, props, state) {
     topology,
     topojsonLocationPropName,
     transition: { duration },
-  } = props;
+  } = settings;
   const {
     isCartogram,
     colorAccessor,
@@ -43,5 +43,6 @@ export default function drawGeography(selection, props, state) {
     .exit()
     .transition()
     .duration(duration)
+    .style('opacity', 0)
     .remove();
 }

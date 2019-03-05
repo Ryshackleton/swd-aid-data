@@ -1,11 +1,11 @@
 import { select } from 'd3';
 
-export default function renderSvg(parentNode, props) {
+export default function renderSvg(parentNode, settings) {
   const {
     css,
     topoJSONBaseWidth: width,
     topoJSONBaseHeight: height,
-  } = props;
+  } = settings;
 
   const svg = select(parentNode).append('svg')
     .attr('width', '100%')

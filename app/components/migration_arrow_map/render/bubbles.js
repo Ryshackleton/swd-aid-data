@@ -1,4 +1,4 @@
-export default function drawBubbles(selection, props, state) {
+export default function drawBubbles(selection, settings, state) {
   const {
     isCartogram,
     colorRadiusData,
@@ -11,7 +11,7 @@ export default function drawBubbles(selection, props, state) {
   } = state;
   const {
     transition: { duration },
-  } = props;
+  } = settings;
   const bubbles = selection
     .selectAll('circle')
     .data(isCartogram ? colorRadiusData : []);
@@ -40,5 +40,6 @@ export default function drawBubbles(selection, props, state) {
     .exit()
     .transition()
     .duration(duration)
+    .style('opacity', 0)
     .remove();
 }

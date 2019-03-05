@@ -5,8 +5,8 @@ import { feature } from 'topojson';
 import { cleanCssName } from '../utils/utils';
 import { forcePackNodesToRadii } from '../utils/forcePack';
 
-function locationNameFunction(datum, props, state) {
-  const { topojsonLocationPropName } = props;
+function locationNameFunction(datum, settings, state) {
+  const { topojsonLocationPropName } = settings;
   const { geographyPropName } = state;
   return get( // try to get name from the data prop array
     datum,
@@ -15,13 +15,13 @@ function locationNameFunction(datum, props, state) {
   );
 }
 
-function getGeoCentroidLookup(props) {
+function getGeoCentroidLookup(settings) {
   const {
     featureSet,
     path,
     topology,
     topojsonLocationPropName,
-  } = props;
+  } = settings;
 
   return feature(topology, topology.objects[featureSet]).features
     .reduce((acc, eachFeature) => {
@@ -30,7 +30,7 @@ function getGeoCentroidLookup(props) {
     }, {});
 }
 
-function getRadiusAndColorAccessors(props, state) {
+function getRadiusAndColorAccessors(settings, state) {
   const {
     colorPropName,
     colorRadiusData,
@@ -61,15 +61,15 @@ function getRadiusAndColorAccessors(props, state) {
   }, {});
 
   return {
-    colorAccessor: d => (colorFromGeoName[locationNameFunction(d, props, state)]),
-    radiusAccessor: d => (radiusFromGeoName[locationNameFunction(d, props, state)]),
+    colorAccessor: d => (colorFromGeoName[locationNameFunction(d, settings, state)]),
+    radiusAccessor: d => (radiusFromGeoName[locationNameFunction(d, settings, state)]),
   };
 }
 
-function getBubbleCentroidLookup(props, state, radiusAccessor) {
+function getBubbleCentroidLookup(settings, state, radiusAccessor) {
   const { geographyPropName } = state;
   // shape data for force packing
-  const nodes = map(getGeoCentroidLookup(props, state),
+  const nodes = map(getGeoCentroidLookup(settings, state),
     (coords, geoname) => ({
       x: coords[0],
       y: coords[1],
@@ -91,26 +91,26 @@ function getBubbleCentroidLookup(props, state, radiusAccessor) {
     }, {});
 }
 
-function getGeographyClassAccessor(props, state) {
-  return datum => (cleanCssName(locationNameFunction(datum, props, state)));
+function getGeographyClassAccessor(settings, state) {
+  return datum => (cleanCssName(locationNameFunction(datum, settings, state)));
 }
 
-export function buildAccessors(props, state) {
+export function buildAccessors(settings, state) {
   const {
     geographyPropName,
     isCartogram,
   } = state;
 
-  const { radiusAccessor, colorAccessor } = getRadiusAndColorAccessors(props, state);
+  const { radiusAccessor, colorAccessor } = getRadiusAndColorAccessors(settings, state);
 
   const centroidLookup = isCartogram
-    ? getBubbleCentroidLookup(props, state, radiusAccessor)
-    : getGeoCentroidLookup(props, state);
+    ? getBubbleCentroidLookup(settings, state, radiusAccessor)
+    : getGeoCentroidLookup(settings, state);
 
   return {
     colorAccessor,
     radiusAccessor,
-    geographyClassAccessor: getGeographyClassAccessor(props, state),
+    geographyClassAccessor: getGeographyClassAccessor(settings, state),
     xAccessor: datum => centroidLookup[datum[geographyPropName]][0],
     yAccessor: datum => centroidLookup[datum[geographyPropName]][1],
   };

@@ -13,4 +13,3 @@ export const state = {
   arrowDestinationPropName: 'Destination',
   colorPropName: 'Percent Change',
 };
-export const stateKeys = Object.keys(state);

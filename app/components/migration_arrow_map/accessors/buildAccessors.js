@@ -1,9 +1,10 @@
-import { extent } from 'd3';
+import { extent, nest } from 'd3';
 import * as d3Scale from 'd3-scale'
 import { get, map } from 'lodash';
 import { feature } from 'topojson';
 import { cleanCssName } from '../utils/utils';
 import { forcePackNodesToRadii } from '../utils/forcePack';
+import getArrowAccessors from './arrowAccessors';
 
 function locationNameFunction(datum, settings, state) {
   const { topojsonLocationPropName } = settings;
@@ -95,19 +96,46 @@ function getGeographyClassAccessor(settings, state) {
   return datum => (cleanCssName(locationNameFunction(datum, settings, state)));
 }
 
-export function buildAccessors(settings, state) {
+function getCssNameLookup(settings, state) {
+  const {
+    colorRadiusData,
+    geographyPropName,
+  } = state;
+
+  return nest()
+    .key(d => d.state)
+    .rollup(leafGeometry => cleanCssName(leafGeometry[0][geographyPropName]))
+    .object(colorRadiusData);
+}
+
+export default function buildAccessors(settings, state) {
   const {
     geographyPropName,
     isCartogram,
   } = state;
 
-  const { radiusAccessor, colorAccessor } = getRadiusAndColorAccessors(settings, state);
+  const {
+    radiusAccessor,
+    colorAccessor,
+  } = getRadiusAndColorAccessors(settings, state);
 
   const centroidLookup = isCartogram
     ? getBubbleCentroidLookup(settings, state, radiusAccessor)
     : getGeoCentroidLookup(settings, state);
 
+  const cssNameLookup = getCssNameLookup(settings, state);
+
   return {
+    ...getArrowAccessors(
+      settings,
+      {
+        ...state,
+        radiusAccessor,
+        centroidLookup,
+        cssNameLookup,
+      },
+    ),
+    cssNameLookup,
     colorAccessor,
     radiusAccessor,
     geographyClassAccessor: getGeographyClassAccessor(settings, state),

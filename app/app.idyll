@@ -6,22 +6,24 @@
   author:"Ryan Shackleton"
   authorLink:"https://github.com/Ryshackleton" /]
 
+[var name:'isCarto' value:false /]
+[Boolean value:isCarto /]
+[Display value:`isCarto ? 'Show bubbles' : 'Show geography'` /]
+
+[var name:'isVoronoi' value:false /]
+[Boolean value:isVoronoi /]
+[Display value:`isVoronoi ? 'Show voronoi' : 'Show show voronoi'` /]
+
 // Initialize data
 [data name:'nonZeroOutwardMigration' /]
 [data name:'populationChange' /]
 [data name:'topology' /]
-
-[FlowArrowMap
-    fullWidth:true
-    className: 'flow-arrow-map'
-    topology: topology
-    featureSet: 'states'
-    topojsonLocationPropName: 'location_name'
-    chartState: `{
+// initialize state
+[derived name:'state' value:`{
       colorRadiusData: populationChange,
       // chart view states
-      isCartogram: true,
-      isDisplayingVoronoi: true,
+      isCartogram: isCarto,
+      isDisplayingVoronoi: isVoronoi,
 
       // color data array
       colorRadiusData: populationChange, // pick from props
@@ -35,5 +37,14 @@
       arrowOriginPropName: 'Origin',
       arrowDestinationPropName: 'Destination',
       colorPropName: 'Percent Change',
-    }`
+    }` 
 /]
+
+[FlowArrowMap
+    fullWidth:true
+    className: 'flow-arrow-map'
+    topology: topology
+    featureSet: 'states'
+    topojsonLocationPropName: 'location_name'
+    chartState: state
+    /]

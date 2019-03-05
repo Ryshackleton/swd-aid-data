@@ -1,13 +1,14 @@
 import D3Component from 'idyll-d3-component';
 import { pick } from 'lodash';
 import renderSvg from './render/svg';
-import { buildAccessors } from './accessors/buildAccessors';
+import buildAccessors from './accessors/buildAccessors';
+import drawArrows from './render/arrows';
 import drawBubbles from './render/bubbles';
 import drawGeography from './render/geography';
 import drawVoronoi from './render/voronoi';
 
 import { defaultSettings, settingsKeys } from './settings';
-import { state as defaultState } from './state';
+import defaultState from './state';
 
 import './flowArrowMap.scss';
 
@@ -20,24 +21,19 @@ export default class FlowArrowMap extends D3Component {
     this.update(props);
   }
 
-  update(props, oldProps) {
+  update(props /* , oldProps */) {
     if (!props.chartState) {
       return;
     }
     this.setState({
       ...defaultState,
       ...props.chartState,
-      ...buildAccessors(this.settings, props.chartState),
+      ...buildAccessors(this.settings, { ...defaultState, ...props.chartState }),
     }, () => {
       drawBubbles(this.selections.bubbles, this.settings, this.state);
       drawGeography(this.selections.geography, this.settings, this.state);
-      drawVoronoi(this.selections.voronoi, this.settings, this.state); // arrows, bubbles, stateLabels)
+      drawVoronoi(this.selections.voronoi, this.settings, this.state, this.selections);
+      drawArrows(this.selections.arrows, this.settings, this.state);
     });
-
-  //     drawArrows(arrows);
-  // isCartogram
-  //   ? bubbleDrawFunction(bubbles, svg)
-  //   : drawStates(states);
-  // drawStateLabels(stateLabels);
   }
 }

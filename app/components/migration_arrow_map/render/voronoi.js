@@ -1,20 +1,31 @@
 import { voronoi } from 'd3';
 
-export default function drawVoronoi(selection, settings, state) {
+export default function drawVoronoi(selection, settings, state, selections) {
   const {
     topoJSONBaseWidth: width,
     topoJSONBaseHeight: height,
     transition: { duration },
   } = settings;
   const {
+    arrowConnectedGeographiesCssSeletor,
+    arrowDefaultOpacity,
+    arrowHighlightOpacity,
+    bubbleDefaultOpacity,
+    bubbleHiddenOpacity,
     colorRadiusData,
+    cssNameLookup,
     isDisplayingVoronoi,
     xAccessor,
     yAccessor,
   } = state;
+  const {
+    arrows,
+    bubbles,
+    // labels,
+  } = selections;
 
-  // always rebuild voronoi
-  selection.selectAll('path')
+  selection
+    .selectAll('path')
     .remove();
 
   // voronoi
@@ -24,7 +35,7 @@ export default function drawVoronoi(selection, settings, state) {
     .extent([[0, 0], [width, height]])
     .polygons(colorRadiusData);
 
-  selection
+  const paths = selection
     .selectAll('path')
     .data(cells)
     .enter()
@@ -32,53 +43,56 @@ export default function drawVoronoi(selection, settings, state) {
     .attr('d', d => (`M${d.join('L')}Z`))
     .style('pointer-events', 'all')
     .style('fill', 'transparent')
-    .style('opacity', 0)
+    .style('opacity', 0);
+
+  paths
     .transition()
     .duration(duration)
     .style('stroke', isDisplayingVoronoi ? 'gray' : 'transparent')
     .style('opacity', 1);
 
-  //   .on('mouseover', (polygon) => {
-  //     arrowGroup.selectAll(`:not(.${cssNameLookup[polygon.data.state]})`)
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', 0);
-  //     arrowGroup.selectAll(`.${cssNameLookup[polygon.data.state]}`)
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', arrowHighlightOpacity);
-  //
-  //     bubbleGroup
-  //       .selectAll('circle')
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', bubbleHiddenOpacity);
-  //     bubbleGroup.selectAll(`${connectedStatesLookup[polygon.data.state]}`)
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', bubbleDefaultOpacity);
-  //
-  //     labelGroup.selectAll('*')
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', bubbleHiddenOpacity);
-  //     labelGroup.selectAll(`${connectedStatesLookup[polygon.data.state]}`)
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', labelDefaultOpacity);
-  // })
-  //   .on('mouseout', () => {
-  //     bubbleGroup.selectAll('circle')
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', bubbleDefaultOpacity);
-  //     labelGroup.selectAll('*')
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', labelDefaultOpacity);
-  //     arrowGroup.selectAll(`*`)
-  //       .transition()
-  //       .duration(duration)
-  //       .style('opacity', arrowDefaultOpacity);
-  // });
+  paths
+    .on('mouseover', (polygon) => {
+      arrows.selectAll(`:not(.${cssNameLookup[polygon.data.state]})`)
+        .transition()
+        .duration(duration)
+        .style('opacity', 0);
+      arrows.selectAll(`.${cssNameLookup[polygon.data.state]}`)
+        .transition()
+        .duration(duration)
+        .style('opacity', arrowHighlightOpacity);
+
+      bubbles
+        .selectAll('circle')
+        .transition()
+        .duration(duration)
+        .style('opacity', bubbleHiddenOpacity);
+      bubbles.selectAll(`${arrowConnectedGeographiesCssSeletor[polygon.data.state]}`)
+        .transition()
+        .duration(duration)
+        .style('opacity', bubbleDefaultOpacity);
+
+      // labels.selectAll('*')
+      //   .transition()
+      //   .duration(duration)
+      //   .style('opacity', bubbleHiddenOpacity);
+      // labels.selectAll(`${connectedStatesLookup[polygon.data.state]}`)
+      //   .transition()
+      //   .duration(duration)
+      //   .style('opacity', labelDefaultOpacity);
+    })
+    .on('mouseout', () => {
+      bubbles.selectAll('circle')
+        .transition()
+        .duration(duration)
+        .style('opacity', bubbleDefaultOpacity);
+      // labels.selectAll('*')
+      //   .transition()
+      //   .duration(duration)
+      //   .style('opacity', labelDefaultOpacity);
+      arrows.selectAll(`*`)
+        .transition()
+        .duration(duration)
+        .style('opacity', arrowDefaultOpacity);
+    });
 }

@@ -20,9 +20,9 @@ export default function drawBubbles(selection, settings, state) {
     .enter()
     .append('circle')
     .attr('class', geographyClassAccessor)
+    .style('opacity', 0)
     .style('stroke', 'lightgray')
     .style('stroke-width', '1px')
-    .style('opacity', 0)
     .attr('cx', xAccessor)
     .attr('cy', yAccessor);
 

@@ -16,11 +16,27 @@ export const forcePackNodesToRadii = ({
   yStrength = 0.2,
 }) => {
   const force = forceSimulation(nodes)
-    .force('x', forceX().x((d) => { return xAccessor(d); }).strength(xStrength))
-    .force('y', forceY().y((d) => { return yAccessor(d); }).strength(yStrength))
-    .force('collide', forceCollide().strength(collideStrength).radius((d) => {
-      return radiusAccessor(d) + radiusPadding;
-    }))
+    .force('x',
+      forceX()
+        .x((d) => {
+          return xAccessor(d);
+        })
+        .strength(xStrength),
+    )
+    .force('y',
+      forceY()
+        .y((d) => {
+          return yAccessor(d);
+        })
+        .strength(yStrength),
+    )
+    .force('collide',
+      forceCollide()
+        .strength(collideStrength)
+        .radius((d) => {
+          return radiusAccessor(d) + radiusPadding;
+        }),
+    )
     .stop();
 
   let i = 0;

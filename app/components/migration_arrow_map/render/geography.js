@@ -19,7 +19,7 @@ export default function drawGeography(selection, settings, state) {
     .selectAll('path')
     .data(
       isCartogram ? [] : feature(topology, topology.objects[featureSet]).features,
-      datum => (datum.properties[topojsonLocationPropName])
+      datum => (datum.properties[topojsonLocationPropName]),
     );
 
   const enter = paths

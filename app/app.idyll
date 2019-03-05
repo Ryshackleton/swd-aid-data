@@ -14,16 +14,22 @@
 [Boolean value:isVoronoi /]
 [Display value:`isVoronoi ? 'Show voronoi' : 'Show show voronoi'` /]
 
+[var name:'isArrow' value:false /]
+[Boolean value:isArrow /]
+[Display value:`isArrow ? 'Show arrows' : 'Show show arrows'` /]
+
 // Initialize data
 [data name:'nonZeroOutwardMigration' /]
 [data name:'populationChange' /]
 [data name:'topology' /]
+
 // initialize state
 [derived name:'state' value:`{
       colorRadiusData: populationChange,
       // chart view states
       isCartogram: isCarto,
       isDisplayingVoronoi: isVoronoi,
+      isDisplayingArrows: isArrow, 
 
       // color data array
       colorRadiusData: populationChange, // pick from props
@@ -36,6 +42,7 @@
       flowData: nonZeroOutwardMigration,
       arrowOriginPropName: 'Origin',
       arrowDestinationPropName: 'Destination',
+      arrowFlowPropName: 'Total',
       colorPropName: 'Percent Change',
     }` 
 /]

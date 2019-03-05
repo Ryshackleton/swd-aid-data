@@ -1,17 +1,21 @@
 import { voronoi } from 'd3';
 
-export default function drawVoronoi(selection, props, state) {
+export default function drawVoronoi(selection, settings, state) {
   const {
     topoJSONBaseWidth: width,
     topoJSONBaseHeight: height,
-  } = props;
+    transition: { duration },
+  } = settings;
   const {
     colorRadiusData,
     isDisplayingVoronoi,
     xAccessor,
     yAccessor,
-    geographyClassAccessor,
   } = state;
+
+  // always rebuild voronoi
+  selection.selectAll('path')
+    .remove();
 
   // voronoi
   const cells = voronoi()
@@ -25,10 +29,14 @@ export default function drawVoronoi(selection, props, state) {
     .data(cells)
     .enter()
     .append('path')
+    .attr('d', d => (`M${d.join('L')}Z`))
     .style('pointer-events', 'all')
-    .style('stroke', isDisplayingVoronoi ? 'gray' : 'transparent')
     .style('fill', 'transparent')
-    .attr('d', d => (`M${d.join('L')}Z`));
+    .style('opacity', 0)
+    .transition()
+    .duration(duration)
+    .style('stroke', isDisplayingVoronoi ? 'gray' : 'transparent')
+    .style('opacity', 1);
 
   //   .on('mouseover', (polygon) => {
   //     arrowGroup.selectAll(`:not(.${cssNameLookup[polygon.data.state]})`)

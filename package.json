@@ -14,6 +14,7 @@
     "acorn": "^6.0.5",
     "ajv": "^6.7.0",
     "d3": "^5.0.0-rc.4",
+    "d3-scale": "^2.2.2",
     "idyll": "^3.12.4",
     "idyll-components": "^3.5.1",
     "idyll-d3-component": "^2.0.0",
@@ -25,6 +26,7 @@
     "react-emotion": "^9.2.9",
     "react-spinners": "^0.4.5",
     "topojson": "^3.0.2",
+    "victor": "^1.1.0",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {

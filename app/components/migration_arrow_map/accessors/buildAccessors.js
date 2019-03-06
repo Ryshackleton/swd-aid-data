@@ -135,10 +135,10 @@ export default function buildAccessors(settings, state) {
         cssNameLookup,
       },
     ),
-    cssNameLookup,
     colorAccessor,
-    radiusAccessor,
+    cssNameLookup,
     geographyClassAccessor: getGeographyClassAccessor(settings, state),
+    radiusAccessor,
     xAccessor: datum => centroidLookup[datum[geographyPropName]][0],
     yAccessor: datum => centroidLookup[datum[geographyPropName]][1],
   };

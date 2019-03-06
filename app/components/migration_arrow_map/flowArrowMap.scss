@@ -2,7 +2,19 @@
   height: 80vh;
 }
 .flow-arrow-map svg {
-  background: #e6e6e6;
+  background: "white";
+}
+
+.checkboxes-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 @media all and (max-width: 1000px) {

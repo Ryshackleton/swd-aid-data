@@ -6,17 +6,29 @@
   author:"Ryan Shackleton"
   authorLink:"https://github.com/Ryshackleton" /]
 
-[var name:'isCarto' value:false /]
-[Boolean value:isCarto /]
-[Display value:`isCarto ? 'Show bubbles' : 'Show geography'` /]
-
+[var name:'isCarto' value:true /]
 [var name:'isVoronoi' value:false /]
-[Boolean value:isVoronoi /]
-[Display value:`isVoronoi ? 'Show voronoi' : 'Show show voronoi'` /]
+[var name:'isArrow' value:true /]
+[var name:'isOriginFocus' value:true /]
 
-[var name:'isArrow' value:false /]
-[Boolean value:isArrow /]
-[Display value:`isArrow ? 'Show arrows' : 'Show show arrows'` /]
+[div className: 'checkboxes-horizontal']
+    [div]
+      [Boolean value:isCarto /]
+      [Display value:`isCarto ? 'Show bubbles' : 'Show geography'` /]
+    [/div]
+    [div]
+      [Boolean value:isVoronoi /]
+      [Display value:`isVoronoi ? 'Hide voronoi' : 'Show voronoi'` /]
+    [/div]
+    [div]
+      [Boolean value:isArrow /]
+      [Display value:`isArrow ? 'Hide arrows' : 'Show arrows'` /]
+    [/div]
+    [div]
+      [Boolean value:isOriginFocus/]
+      [Display value:`isOriginFocus ? 'Switch to Destination Focus' : 'Switch to Origin Focus'` /]
+    [/div]
+[/div]
 
 // Initialize data
 [data name:'nonZeroOutwardMigration' /]
@@ -29,7 +41,7 @@
       // chart view states
       isCartogram: isCarto,
       isDisplayingVoronoi: isVoronoi,
-      isDisplayingArrows: isArrow, 
+      isDisplayingArrows: isArrow,
 
       // color data array
       colorRadiusData: populationChange, // pick from props
@@ -44,7 +56,11 @@
       arrowDestinationPropName: 'Destination',
       arrowFlowPropName: 'Total',
       colorPropName: 'Percent Change',
-    }` 
+      isOriginFocused: isOriginFocus,
+
+      // labels
+
+    }`
 /]
 
 [FlowArrowMap
@@ -54,4 +70,4 @@
     featureSet: 'states'
     topojsonLocationPropName: 'location_name'
     chartState: state
-    /]
+/]

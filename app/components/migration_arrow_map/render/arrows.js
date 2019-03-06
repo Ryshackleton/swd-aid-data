@@ -10,11 +10,11 @@ export default function drawArrows(selection, settings, state) {
     arrowScalesForNodes,
     flowData,
     isDisplayingArrows,
-    isFlowingOriginToDestination,
+    isOriginFocused,
   } = state;
   const { transition: { duration } } = settings;
 
-  const dynamicOrigin = isFlowingOriginToDestination
+  const dynamicOrigin = isOriginFocused
     ? arrowOriginPropName
     : arrowDestinationPropName;
 

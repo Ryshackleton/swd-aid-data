@@ -5,6 +5,7 @@ import buildAccessors from './accessors/buildAccessors';
 import drawArrows from './render/arrows';
 import drawBubbles from './render/bubbles';
 import drawGeography from './render/geography';
+import drawNodeLabels from './render/labels';
 import drawVoronoi from './render/voronoi';
 
 import { defaultSettings, settingsKeys } from './settings';
@@ -34,6 +35,7 @@ export default class FlowArrowMap extends D3Component {
       drawGeography(this.selections.geography, this.settings, this.state);
       drawVoronoi(this.selections.voronoi, this.settings, this.state, this.selections);
       drawArrows(this.selections.arrows, this.settings, this.state);
+      drawNodeLabels(this.selections.labels, this.settings, this.state);
     });
   }
 }

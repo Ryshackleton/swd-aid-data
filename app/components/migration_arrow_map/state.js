@@ -23,5 +23,9 @@ export default {
   arrowScaleRangePixels: [10, 40],
   arrowScaleColorRange: ['lightgrey', '#333333'],
   destinationArrowPadding: 0.75,
-  isFlowingOriginToDestination: true,
+  isOriginFocused: true,
+
+  // labels
+  labelDefaultOpacity: 0.9,
+  labelPropName: 'map_id',
 };

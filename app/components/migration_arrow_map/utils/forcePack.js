@@ -14,6 +14,8 @@ export const forcePackNodesToRadii = ({
   yAccessor,
   xStrength = 0.2,
   yStrength = 0.2,
+  width,
+  height,
 }) => {
   const force = forceSimulation(nodes)
     .force('x',
@@ -39,8 +41,22 @@ export const forcePackNodesToRadii = ({
     )
     .stop();
 
+  let x, y, r;
+  function tick() {
+    nodes.forEach((node) => {
+      x = xAccessor(node);
+      y = yAccessor(node);
+      r = radiusAccessor(node);
+      node.x = Math.max(r - radiusPadding, Math.min(width - r - radiusPadding, x));
+      node.y = Math.max(r - radiusPadding, Math.min(height - r - radiusPadding, y));
+    });
+  }
+
   let i = 0;
   while (force.alpha() > alphaMin && ++i !== maxTicks) {
+    if (width && height) {
+      tick();
+    }
     force.tick();
   }
 

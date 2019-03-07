@@ -74,14 +74,26 @@ function getRadiusAndColorAccessors(settings, state) {
 }
 
 function getBubbleCentroidLookup(settings, state, radiusAccessor) {
-  const { geographyPropName } = state;
+  const { geographyPropName, bubbleRadiusPadding } = state;
+  const {
+    topoJSONBaseWidth: width, // width scaling associated with the topojson
+    topoJSONBaseHeight: height, // width scaling associated with the topojson
+  } = settings;
   // shape data for force packing
-  const nodes = map(getGeoCentroidLookup(settings, state),
-    (coords, geoname) => ({
-      x: coords[0],
-      y: coords[1],
-      [geographyPropName]: geoname,
-    }));
+  const nodes = reduce(getGeoCentroidLookup(settings, state),
+    (acc, coords, geoname) => {
+      const x = coords[0];
+      const y = coords[1];
+      const lookup = { [geographyPropName]: geoname };
+      if (!isNaN(coords[0]) && !isNaN(coords[1]) && !isNil(radiusAccessor(lookup))) {
+        acc.push({
+          ...lookup,
+          x,
+          y,
+        });
+      }
+      return acc;
+    }, []);
 
   // pack
   return (forcePackNodesToRadii({
@@ -89,7 +101,9 @@ function getBubbleCentroidLookup(settings, state, radiusAccessor) {
     xAccessor: d => d.x,
     yAccessor: d => d.y,
     radiusAccessor,
-    radiusPadding: 5,
+    radiusPadding: bubbleRadiusPadding,
+    width,
+    height,
   }))
   // reshape back to the array format used in this notebook
     .reduce((acc, node) => {

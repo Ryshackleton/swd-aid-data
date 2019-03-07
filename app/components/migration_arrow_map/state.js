@@ -6,6 +6,7 @@ export default {
 
   bubbleDefaultOpacity: 0.9,
   bubbleHiddenOpacity: 0.15,
+  bubbleRadiusPadding: 3,
 
   // color data array
   colorRadiusData: [], // pick from props

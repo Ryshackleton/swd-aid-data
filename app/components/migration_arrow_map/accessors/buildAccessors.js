@@ -1,7 +1,6 @@
 import { extent, nest } from 'd3';
 import * as d3Scale from 'd3-scale'
-import { get, map } from 'lodash';
-import { feature } from 'topojson';
+import { get, isNaN, isNil, memoize, reduce } from 'lodash';
 import { cleanCssName } from '../utils/utils';
 import { forcePackNodesToRadii } from '../utils/forcePack';
 import getArrowAccessors from './arrowAccessors';
@@ -16,20 +15,27 @@ function locationNameFunction(datum, settings, state) {
   );
 }
 
-function getGeoCentroidLookup(settings) {
+function geoCentroidLookup(settings) {
   const {
-    featureSet,
+    features,
     path,
-    topology,
     topojsonLocationPropName,
   } = settings;
-
-  return feature(topology, topology.objects[featureSet]).features
+  return features
     .reduce((acc, eachFeature) => {
       acc[eachFeature.properties[topojsonLocationPropName]] = path.centroid(eachFeature);
       return acc;
     }, {});
 }
+
+const getGeoCentroidLookup = memoize(
+  geoCentroidLookup,
+  ({
+    featureSets,
+    path,
+    topojsonLocationPropName,
+  }) => (JSON.stringify({ featureSets, path, topojsonLocationPropName })),
+);
 
 function getRadiusAndColorAccessors(settings, state) {
   const {
@@ -103,12 +109,12 @@ function getCssNameLookup(settings, state) {
   } = state;
 
   return nest()
-    .key(d => d.state)
+    .key(d => d[geographyPropName])
     .rollup(leafGeometry => cleanCssName(leafGeometry[0][geographyPropName]))
     .object(colorRadiusData);
 }
 
-export default function buildAccessors(settings, state) {
+function buildAccessors(settings, state) {
   const {
     geographyPropName,
     isCartogram,
@@ -143,3 +149,8 @@ export default function buildAccessors(settings, state) {
     yAccessor: datum => centroidLookup[datum[geographyPropName]][1],
   };
 }
+
+export default memoize(
+  buildAccessors,
+  (_, { flowData, colorRadiusData, ...rest }) => (JSON.stringify(rest)),
+);

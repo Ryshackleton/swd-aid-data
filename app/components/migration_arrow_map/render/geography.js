@@ -1,11 +1,9 @@
-import { feature } from 'topojson';
 
 export default function drawGeography(selection, settings, state) {
   const {
     bubbleDefaultOpacity,
-    featureSet,
+    features,
     path,
-    topology,
     topojsonLocationPropName,
     transition: { duration },
   } = settings;
@@ -18,7 +16,7 @@ export default function drawGeography(selection, settings, state) {
   const paths = selection
     .selectAll('path')
     .data(
-      isCartogram ? [] : feature(topology, topology.objects[featureSet]).features,
+      isCartogram ? [] : features,
       datum => (datum.properties[topojsonLocationPropName]),
     );
 
@@ -27,7 +25,7 @@ export default function drawGeography(selection, settings, state) {
     .append('path')
     .attr('class', geographyClassAccessor)
     .attr('d', path)
-    .style('fill', colorAccessor)
+    .style('fill', d => (colorAccessor(d) || 'transparent'))
     .style('stroke', 'gray')
     .style('stroke-width', '0.25px')
     .style('opacity', 0);
@@ -37,7 +35,7 @@ export default function drawGeography(selection, settings, state) {
     .transition()
     .duration(duration)
     .style('opacity', bubbleDefaultOpacity)
-    .style('fill', colorAccessor);
+    .style('fill', d => (colorAccessor(d) || 'transparent'));
 
   paths
     .exit()

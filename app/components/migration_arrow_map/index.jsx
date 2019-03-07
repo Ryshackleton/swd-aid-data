@@ -7,6 +7,7 @@ import drawBubbles from './render/bubbles';
 import drawGeography from './render/geography';
 import drawNodeLabels from './render/labels';
 import drawVoronoi from './render/voronoi';
+import { getFeatureArray } from './utils/utils';
 
 import { defaultSettings, settingsKeys } from './settings';
 import defaultState from './state';
@@ -16,6 +17,8 @@ import './flowArrowMap.scss';
 export default class FlowArrowMap extends D3Component {
   initialize(node, props) {
     this.settings = { ...defaultSettings, ...pick(props, settingsKeys) };
+
+    this.settings.features = getFeatureArray(this.settings);
 
     this.selections = renderSvg(node, this.settings);
 
@@ -33,9 +36,9 @@ export default class FlowArrowMap extends D3Component {
     }, () => {
       drawBubbles(this.selections.bubbles, this.settings, this.state);
       drawGeography(this.selections.geography, this.settings, this.state);
+      drawNodeLabels(this.selections.labels, this.settings, this.state);
       drawVoronoi(this.selections.voronoi, this.settings, this.state, this.selections);
       drawArrows(this.selections.arrows, this.settings, this.state);
-      drawNodeLabels(this.selections.labels, this.settings, this.state);
     });
   }
 }

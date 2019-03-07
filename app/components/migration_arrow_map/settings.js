@@ -19,7 +19,7 @@ export const defaultSettings = {
   topoJSONBaseWidth: 900, // width scaling associated with the topojson
   topoJSONBaseHeight: 550, // width scaling associated with the topojson
   topology: {}, // picked off of props
-  featureSet: 'states',
+  featureSets: ['states'],
   topojsonLocationPropName: 'location_name',
 };
 

@@ -31,35 +31,35 @@
 [/div]
 
 // Initialize data
-[data name:'nonZeroOutwardMigration' /]
-[data name:'populationChange' /]
+[data name:'flowDataAllProps' /]
+[data name:'nodeMonetaryDonationFlows' /]
 [data name:'topology' /]
 
 // initialize state
 [derived name:'state' value:`{
-      colorRadiusData: populationChange,
       // chart view states
       isCartogram: isCarto,
       isDisplayingVoronoi: isVoronoi,
       isDisplayingArrows: isArrow,
+      isOriginFocused: isOriginFocus,
 
       // color data array
-      colorRadiusData: populationChange, // pick from props
-      geographyPropName: 'state',
+      colorRadiusData: nodeMonetaryDonationFlows,
+      geographyPropName: 'location_id',
       d3ColorScaleName: 'scaleLinear',
       colorRange: ["#d4a1a9", "#a7c9db"],
       radiusRange: [10, 30],
 
       // flow data array
-      flowData: nonZeroOutwardMigration,
-      arrowOriginPropName: 'Origin',
-      arrowDestinationPropName: 'Destination',
-      arrowFlowPropName: 'Total',
-      colorPropName: 'Percent Change',
-      isOriginFocused: isOriginFocus,
+      flowData: flowDataAllProps,
+      arrowOriginPropName: 'donor_location_id',
+      arrowDestinationPropName: 'recipient_location_id',
+      arrowFlowPropName: 'total_donation',
+      colorPropName: isOriginFocus ? 'total_donated' : 'total_received',
 
       // labels
-
+      labelDefaultOpacity: 0.9,
+      labelPropName: 'map_id',
     }`
 /]
 
@@ -67,7 +67,7 @@
     fullWidth:true
     className: 'flow-arrow-map'
     topology: topology
-    featureSet: 'states'
-    topojsonLocationPropName: 'location_name'
+    featureSets: `['admin0']`
+    topojsonLocationPropName: 'loc_id'
     chartState: state
 /]

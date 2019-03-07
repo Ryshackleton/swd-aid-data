@@ -1,7 +1,7 @@
 export default function drawBubbles(selection, settings, state) {
   const {
     isCartogram,
-    colorRadiusData,
+    nodeData,
     bubbleDefaultOpacity,
     xAccessor,
     yAccessor,
@@ -14,7 +14,7 @@ export default function drawBubbles(selection, settings, state) {
   } = settings;
   const bubbles = selection
     .selectAll('circle')
-    .data(isCartogram ? colorRadiusData : []);
+    .data(isCartogram ? nodeData : []);
 
   const enter = bubbles
     .enter()

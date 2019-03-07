@@ -44,7 +44,7 @@
       isOriginFocused: isOriginFocus,
 
       // color data array
-      colorRadiusData: nodeMonetaryDonationFlows,
+      nodeData: nodeMonetaryDonationFlows,
       geographyPropName: 'location_id',
       d3ColorScaleName: 'scaleLinear',
       colorRange: ["#d4a1a9", "#a7c9db"],

@@ -9,9 +9,9 @@ export default {
   bubbleRadiusPadding: 3,
 
   // color data array
-  colorRadiusData: [], // pick from props
-  geographyPropName: 'state',
-  colorPropName: 'Percent Change',
+  nodeData: [], // pick from props
+  geographyPropName: 'location_id',
+  colorPropName: 'colorProp',
 
   // flow data array
   flowData: [], // pick from props

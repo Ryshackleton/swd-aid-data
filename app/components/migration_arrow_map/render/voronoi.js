@@ -12,7 +12,7 @@ export default function drawVoronoi(selection, settings, state, selections) {
     arrowHighlightOpacity,
     bubbleDefaultOpacity,
     bubbleHiddenOpacity,
-    colorRadiusData,
+    nodeData,
     cssNameLookup,
     isDisplayingVoronoi,
     geographyPropName,
@@ -35,7 +35,7 @@ export default function drawVoronoi(selection, settings, state, selections) {
     .x(xAccessor)
     .y(yAccessor)
     .extent([[0, 0], [width * 2, height * 2]])
-    .polygons(colorRadiusData);
+    .polygons(nodeData);
 
   const paths = selection
     .selectAll('path')

@@ -1,6 +1,6 @@
 export default function drawNodeLabels(selection, settings, state) {
   const {
-    colorRadiusData,
+    nodeData,
     geographyClassAccessor,
     labelDefaultOpacity,
     labelPropName,
@@ -12,7 +12,7 @@ export default function drawNodeLabels(selection, settings, state) {
   } = settings;
 
   const join = selection.selectAll('text')
-    .data(colorRadiusData);
+    .data(nodeData);
 
   const enter = join
     .enter()

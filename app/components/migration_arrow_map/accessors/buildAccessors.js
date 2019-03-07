@@ -40,7 +40,7 @@ const getGeoCentroidLookup = memoize(
 function getRadiusAndColorAccessors(settings, state) {
   const {
     colorPropName,
-    colorRadiusData,
+    nodeData,
     colorRange,
     d3ColorScaleName,
     geographyPropName,
@@ -49,7 +49,7 @@ function getRadiusAndColorAccessors(settings, state) {
 
   const valueAccessor = d => d[colorPropName];
 
-  const colorPropDomain = extent(colorRadiusData, valueAccessor);
+  const colorPropDomain = extent(nodeData, valueAccessor);
   const colorScale = d3Scale[d3ColorScaleName]()
     .domain(colorPropDomain)
     .range(colorRange);
@@ -58,11 +58,11 @@ function getRadiusAndColorAccessors(settings, state) {
     .range(radiusRange)
     .clamp(true);
 
-  const radiusFromGeoName = colorRadiusData.reduce((acc, datum) => {
+  const radiusFromGeoName = nodeData.reduce((acc, datum) => {
     acc[datum[geographyPropName]] = radiusScale(valueAccessor(datum));
     return acc;
   }, {});
-  const colorFromGeoName = colorRadiusData.reduce((acc, datum) => {
+  const colorFromGeoName = nodeData.reduce((acc, datum) => {
     acc[datum[geographyPropName]] = colorScale(valueAccessor(datum));
     return acc;
   }, {});
@@ -118,14 +118,14 @@ function getGeographyClassAccessor(settings, state) {
 
 function getCssNameLookup(settings, state) {
   const {
-    colorRadiusData,
+    nodeData,
     geographyPropName,
   } = state;
 
   return nest()
     .key(d => d[geographyPropName])
     .rollup(leafGeometry => cleanCssName(leafGeometry[0][geographyPropName]))
-    .object(colorRadiusData);
+    .object(nodeData);
 }
 
 function buildAccessors(settings, state) {
@@ -166,5 +166,5 @@ function buildAccessors(settings, state) {
 
 export default memoize(
   buildAccessors,
-  (_, { flowData, colorRadiusData, ...rest }) => (JSON.stringify(rest)),
+  (_, { flowData, nodeData, ...rest }) => (JSON.stringify(rest)),
 );

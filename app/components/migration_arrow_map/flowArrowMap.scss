@@ -5,6 +5,10 @@
   background: "white";
 }
 
+.flow-arrow-map.geography path {
+  fill: transparent;
+}
+
 .checkboxes-horizontal {
   display: flex;
   flex-direction: row;

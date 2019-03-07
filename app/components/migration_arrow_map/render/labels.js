@@ -25,17 +25,22 @@ export default function drawNodeLabels(selection, settings, state) {
     .style('fill', 'gray')
     .style('font-size', 14)
     .style('font-weight', 'bold')
-    .style('font', 'Arial');
+    .style('font', 'Arial')
+    .attr('transform', (datum) => {
+      const x = xAccessor(datum);
+      const y = yAccessor(datum);
+      return `translate(${x},${y})`;
+    });
 
   join.merge(enter)
+    .text(datum => (datum[labelPropName] ? datum[labelPropName] : ''))
+    .transition()
+    .duration(duration)
     .attr('transform', (datum) => {
       const x = xAccessor(datum);
       const y = yAccessor(datum);
       return `translate(${x},${y})`;
     })
-    .text(datum => (datum[labelPropName] ? datum[labelPropName] : ''))
-    .transition()
-    .duration(duration)
     .style('opacity', labelDefaultOpacity);
 
   join

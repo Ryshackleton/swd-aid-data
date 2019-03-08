@@ -1,0 +1,76 @@
+.hed {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 20px 0 20px;
+  font-weight: bold;
+  width: 150%;
+  max-width: 90vw;
+}
+
+.dek {
+  margin: 0;
+  display: block;
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  color: black;
+  margin-top: 1rem;
+  max-width: 90vw;
+}
+
+.byline {
+  font-size: .95rem;
+  line-height: 1rem;
+  color: black;
+  margin-top: 1rem;
+}
+
+a, a:visited, a:hover {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  /*border-bottom: 1px solid #EAE7D6;*/
+  box-shadow: inset 0 -4px 0 #EAE7D6;
+  transition: box-shadow 0.25s ease-out;
+}
+
+a:hover {
+  color: black;
+  /*background: #EAE7D6;*/
+  box-shadow: inset 0 -20px 0 #EAE7D6;
+}
+
+pre {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+pre code {
+  background: #F2F3F2;
+  color: black;
+  padding: 20px 15px;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  font-size: 12px;
+  text-align: initial;
+  font-style: normal;
+}
+code {
+  background: #F2F3F2;
+  color: black;
+  padding: 1px 5px;
+}
+
+
+
+span.action {
+  border-color: #5601FF;
+  border-width: 2px;
+  border-style: none none solid none;
+  color: #5601FF;
+  /*font-size: 0.9em;*/
+  padding: -4px 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+

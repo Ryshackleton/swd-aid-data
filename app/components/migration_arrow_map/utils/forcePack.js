@@ -32,9 +32,10 @@ export const forcePackNodesToRadii = ({
         .radius(d => radiusAccessor(d) + radiusPadding))
     .stop();
 
-  let x; let y; let
-    r;
-  function tick() {
+  let x;
+  let y;
+  let r;
+  function boundaryConstrain() {
     nodes.forEach((node) => {
       x = xAccessor(node);
       y = yAccessor(node);
@@ -47,7 +48,7 @@ export const forcePackNodesToRadii = ({
   let i = 0;
   while (force.alpha() > alphaMin && ++i !== maxTicks) {
     if (width && height) {
-      tick();
+      boundaryConstrain();
     }
     force.tick();
   }

@@ -1,4 +1,3 @@
-import D3Component from 'idyll-d3-component';
 import { pick } from 'lodash';
 import renderSvg from './render/svg';
 import buildAccessors from './accessors/buildAccessors';
@@ -14,15 +13,19 @@ import defaultState from './state';
 
 import './flowArrowMap.scss';
 
-export default class FlowArrowMap extends D3Component {
-  initialize(node, props) {
-    this.settings = { ...defaultSettings, ...pick(props, settingsKeys) };
+export default class FlowArrowMap {
+  constructor(node, settings) {
+    this.settings = { ...defaultSettings, ...pick(settings, settingsKeys) };
 
     this.settings.features = getFeatureArray(this.settings);
 
     this.selections = renderSvg(node, this.settings);
 
-    this.update(props);
+    this.update(settings);
+  }
+
+  setState(newState) {
+    this.state = newState;
   }
 
   update(props /* , oldProps */) {

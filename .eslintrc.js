@@ -3,7 +3,6 @@ module.exports = {
   parser: 'babel-eslint', // not necessary because of webpack parser?
   extends: 'airbnb',
   plugins: [
-    "react",
     "jsx-a11y",
     "import"
   ],
@@ -12,7 +11,6 @@ module.exports = {
     // 'no-debugger': 0,
     'arrow-body-style': [2, 'as-needed'],
     'no-underscore-dangle': 0,
-    'react/jsx-no-bind': 0,
     'require-jsdoc': ['off', {
       'require': {
         'FunctionDeclaration': true,

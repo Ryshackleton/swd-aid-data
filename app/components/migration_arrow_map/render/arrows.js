@@ -29,7 +29,6 @@ export default function drawArrows(selection, settings, state) {
     .enter()
     .append('path')
     .attr('class', datum => cleanCssName(datum[dynamicOrigin]))
-    // .style('opacity', 0)
     .style('pointer-events', 'none')
     .attr('stroke', 'lightgray')
     .style('stroke-width', '0.5px');

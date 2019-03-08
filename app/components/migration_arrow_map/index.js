@@ -15,6 +15,8 @@ import './flowArrowMap.scss';
 
 export default class FlowArrowMap {
   constructor(node, settings) {
+    this.draw = this.draw.bind(this);
+
     this.settings = { ...defaultSettings, ...pick(settings, settingsKeys) };
 
     this.settings.features = getFeatureArray(this.settings);
@@ -24,24 +26,25 @@ export default class FlowArrowMap {
     this.update(settings);
   }
 
-  setState(newState) {
+  setState(newState, done) {
     this.state = newState;
+    done();
   }
 
-  update(props /* , oldProps */) {
+  draw() {
+    drawBubbles(this.selections.bubbles, this.settings, this.state);
+    drawGeography(this.selections.geography, this.settings, this.state);
+    drawNodeLabels(this.selections.labels, this.settings, this.state);
+    drawVoronoi(this.selections.voronoi, this.settings, this.state, this.selections);
+    drawArrows(this.selections.arrows, this.settings, this.state);
+  }
+
+  update(props) {
     if (!props.chartState) {
       return;
     }
-    this.setState({
-      ...defaultState,
-      ...props.chartState,
-      ...buildAccessors(this.settings, { ...defaultState, ...props.chartState }),
-    }, () => {
-      drawBubbles(this.selections.bubbles, this.settings, this.state);
-      drawGeography(this.selections.geography, this.settings, this.state);
-      drawNodeLabels(this.selections.labels, this.settings, this.state);
-      drawVoronoi(this.selections.voronoi, this.settings, this.state, this.selections);
-      drawArrows(this.selections.arrows, this.settings, this.state);
-    });
+
+    const newState = { ...defaultState, ...this.state, ...props.chartState };
+    this.setState(buildAccessors(this.settings, newState), this.draw);
   }
 }

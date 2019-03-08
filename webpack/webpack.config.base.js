@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import Config, { environment } from 'webpack-config';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import path from 'path';
 
 const baseDir = environment.valueOf('dir');
 const env = environment.valueOf('env');
@@ -9,7 +10,7 @@ const env = environment.valueOf('env');
 export default new Config().merge({
   bail: true,
   entry: {
-    index: ['whatwg-fetch', './app/app.jsx'],
+    index: ['whatwg-fetch', './app/app.js'],
   },
   node: { // fix for module not found error: https://github.com/webpack-contrib/css-loader/issues/447
     fs: 'empty'
@@ -109,10 +110,21 @@ export default new Config().merge({
             outputPath: 'images/',
           }
         }
+      },
+      {
+        test: /\.(csv|tsv)/,
+        use: {
+          loader: 'csv-loader',
+          options: {
+          }
+        }
       }
     ]
   },
   resolve: {
+    alias: {
+      'scrolly-teller': path.resolve(__dirname, '../../scrolly-teller'),
+    },
     extensions: ['.js', '.jsx', '.css', '.scss', '.less']
   },
 });

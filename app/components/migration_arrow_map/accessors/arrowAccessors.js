@@ -15,7 +15,7 @@ function getMeanResultantVectorLookup(settings, state, centroidLookup) {
     .key(d => d[arrowOriginPropName])
     .rollup((all) => {
       // Victor.js - note that these Victor functions ALWAYS mutate unless the Victor is cloned
-      const mean = new Victor(0,0);
+      const mean = new Victor(0, 0);
       all.forEach((flowArrow) => {
         const origin = new Victor(...centroidLookup[flowArrow[arrowOriginPropName]]);
         const destination = new Victor(...centroidLookup[flowArrow[arrowDestinationPropName]]);
@@ -65,7 +65,7 @@ function getArrowPathFromDatumFunction(settings, state) {
 
   const arrowSize = scaleLinear()
     .domain(extent(flowData, flowSizeAccessor))
-    .range(arrowScaleRangePixels)
+    .range(arrowScaleRangePixels);
 
   const meanResultantVectorLookup = getMeanResultantVectorLookup(settings, state, centroidLookup);
 

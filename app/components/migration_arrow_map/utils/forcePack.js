@@ -20,28 +20,20 @@ export const forcePackNodesToRadii = ({
   const force = forceSimulation(nodes)
     .force('x',
       forceX()
-        .x((d) => {
-          return xAccessor(d);
-        })
-        .strength(xStrength),
-    )
+        .x(d => xAccessor(d))
+        .strength(xStrength))
     .force('y',
       forceY()
-        .y((d) => {
-          return yAccessor(d);
-        })
-        .strength(yStrength),
-    )
+        .y(d => yAccessor(d))
+        .strength(yStrength))
     .force('collide',
       forceCollide()
         .strength(collideStrength)
-        .radius((d) => {
-          return radiusAccessor(d) + radiusPadding;
-        }),
-    )
+        .radius(d => radiusAccessor(d) + radiusPadding))
     .stop();
 
-  let x, y, r;
+  let x; let y; let
+    r;
   function tick() {
     nodes.forEach((node) => {
       x = xAccessor(node);

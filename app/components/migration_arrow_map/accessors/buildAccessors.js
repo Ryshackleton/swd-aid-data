@@ -1,6 +1,8 @@
 import { extent, nest } from 'd3';
-import * as d3Scale from 'd3-scale'
-import { get, isNaN, isNil, memoize, reduce } from 'lodash';
+import * as d3Scale from 'd3-scale';
+import {
+  get, isNaN, isNil, memoize, reduce,
+} from 'lodash';
 import { cleanCssName } from '../utils/utils';
 import { forcePackNodesToRadii } from '../utils/forcePack';
 import getArrowAccessors from './arrowAccessors';
@@ -18,12 +20,11 @@ function locationNameFunction(datum, settings, state) {
 function geoCentroidLookup(settings) {
   const {
     features,
-    path,
-    topojsonLocationPropName,
+    topojsonLocationPropName: locPropName,
   } = settings;
   return features
     .reduce((acc, eachFeature) => {
-      acc[eachFeature.properties[topojsonLocationPropName]] = path.centroid(eachFeature);
+      acc[eachFeature.properties[locPropName]] = eachFeature.properties.poleOfInaccessibility;
       return acc;
     }, {});
 }
@@ -146,6 +147,7 @@ function buildAccessors(settings, state) {
   const cssNameLookup = getCssNameLookup(settings, state);
 
   return {
+    ...state,
     ...getArrowAccessors(
       settings,
       {

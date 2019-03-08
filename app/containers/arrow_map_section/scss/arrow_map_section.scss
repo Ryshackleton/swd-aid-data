@@ -1,0 +1,9 @@
+
+/* override defaults for a graph (for sizing, also override _medium.scss and _large.css) */
+.graph_default.graph_arrow_map_section,
+.graph_default.graph_arrow_map_section.active {
+  width: 100%;
+  height: 100%;
+  margin-right: 5%;
+}
+

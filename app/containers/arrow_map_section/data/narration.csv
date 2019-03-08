@@ -1,0 +1,6 @@
+narrationId,spaceAboveInVh,spaceBelowInVh,minHeightInVh,h2Text,paragraphText,hRef,hRefText,trigger,imageUrl,graphTitle,graphCaption,imageUrl
+0,50,0,50,fade in,,,,containerStyle.opacity:$progress;chartState.isCartogram:;,,,,
+right,40,40,80,Block,trigger,,,containerStyle.opacity:1:chartState.isCartogram:;,,,,
+left,40,40,80,Make cartogram,,,,chartState.isCartogram:true;chartState.isDisplayingArrows:;,,,,
+right,40,40,80,display arrows,,,,chartState.isDisplayingArrows:true;chartState.isOriginFocused:true;chartState.colorPropName:total_donated;,,,,
+0,40,40,80,Flip arrow direction,,,,chartState.isOriginFocused:;chartState.colorPropName:total_received;,,,,

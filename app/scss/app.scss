@@ -24,6 +24,11 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   align-content: space-between;
 }
 
+.article-header {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 /*  ------------- SCROLL -------------  */
 .scroll {
   grid-area: scroll;
@@ -58,18 +63,16 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
 #narration_left.narration,
 #narration_left.narration.active {
-  margin: 0 80% 0 2%;
+  margin: 0 75% 0 2%;
 }
 
 #narration_right.narration,
 #narration_right.narration.active {
-  margin: 0 2% 0 80%;
-  
+  margin: 0 2% 0 75%;
 }
 
-
 .narration-content {
-  background: azure;
+  background: #ebebeb;
   border: #302321 thin solid;
   border-radius: 20px;
   padding: 10px;

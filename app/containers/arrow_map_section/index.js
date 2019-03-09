@@ -65,7 +65,7 @@ export default {
           nodeData,
           geographyPropName: 'location_id',
           d3ColorScaleName: 'scaleLinear',
-          colorRange: ['#d4a1a9', '#a7c9db'],
+          colorRange: ['#fff', '#5f98ce'],
           radiusRange: [15, 50],
 
           // flow data array
@@ -75,7 +75,7 @@ export default {
           arrowDestinationPropName: 'recipient_location_id',
           arrowFlowPropName: 'total_donation',
           colorPropName: 'total_donated', // 'total_received', when destination focused
-          arrowHighlightOpacity: 0.85,
+          arrowHighlightOpacity: 0.95,
           arrowMidPointWeight: 0.4, // controls curvature of arrows 0 straight, 1 curved
           arrowScaleRangePixels: [10, 40],
           arrowScaleColorRange: ['lightgrey', '#333333'],
@@ -140,6 +140,10 @@ export default {
       sectionConfig: { graph },
     },
   ) {
-    graph.update({ chartState });
+    if (chartState.colorRange) {
+      graph.update({ chartState: { ...chartState, colorRange: chartState.colorRange.split('|') } });
+    } else {
+      graph.update({ chartState });
+    }
   },
 };

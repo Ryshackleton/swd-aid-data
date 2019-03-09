@@ -48,7 +48,11 @@ export default {
         topology,
         featureSets: ['admin0'],
         topojsonLocationPropName: 'loc_id',
+        topoJSONBaseWidth: 1000, // width scaling associated with the topojson
+        topoJSONBaseHeight: 520, // width scaling associated with the topojson
         transition: { duration: 700 },
+        viewBoxXPan: 0,
+        viewBoxYPan: -50,
         chartState: {
           // chart view states
           isCartogram: false,
@@ -61,7 +65,7 @@ export default {
           geographyPropName: 'location_id',
           d3ColorScaleName: 'scaleLinear',
           colorRange: ['#d4a1a9', '#a7c9db'],
-          radiusRange: [10, 30],
+          radiusRange: [15, 50],
 
           // flow data array
           flowData: arrowData,

@@ -34,7 +34,7 @@ export default function drawVoronoi(selection, settings, state, selections) {
   const cells = voronoi()
     .x(xAccessor)
     .y(yAccessor)
-    .extent([[0, 0], [width * 2, height * 2]])
+    .extent([[-width / 2, -height / 2], [width * 1.5, height * 1.5]])
     .polygons(nodeData);
 
   const paths = selection

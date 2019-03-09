@@ -5,16 +5,19 @@ export default function renderSvg(parentNode, settings) {
     css,
     topoJSONBaseWidth: width,
     topoJSONBaseHeight: height,
+    viewBoxXPan = 0,
+    viewBoxYPan = 0,
   } = settings;
 
-  const svg = select(parentNode).append('svg')
+  const parent = select(parentNode);
+  const svg = parent.append('svg')
     .attr('width', '100%')
     .attr('height', '100%')
-    .attr('viewBox', `0 0 ${width} ${height}`)
+    .attr('viewBox', `${viewBoxXPan} ${viewBoxYPan} ${width} ${height}`)
     .classed(css.svgClass, true);
 
   return {
-    parent: parentNode,
+    parent,
     svg,
     geography: svg.append('g').classed(css.groups.geography, true),
     arrows: svg.append('g').classed(css.groups.arrows, true),

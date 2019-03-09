@@ -15,9 +15,11 @@ export const defaultSettings = {
   },
   path: geoPath(),
   transition: { duration: 1000 },
+  viewBoxXPan: 0,
+  viewBoxYPan: 0,
   // topojson props
-  topoJSONBaseWidth: 900, // width scaling associated with the topojson
-  topoJSONBaseHeight: 550, // width scaling associated with the topojson
+  topoJSONBaseWidth: 1000, // width scaling associated with the topojson
+  topoJSONBaseHeight: 520, // width scaling associated with the topojson
   topology: {}, // picked off of props
   featureSets: ['states'],
   topojsonLocationPropName: 'location_name',

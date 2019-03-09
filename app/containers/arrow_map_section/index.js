@@ -59,6 +59,7 @@ export default {
           isDisplayingVoronoi: false,
           isDisplayingArrows: false,
           isOriginFocused: true,
+          nodeHoverState: 'NONE', // | HIGHLIGHT_CONNECTED
 
           // color data array
           nodeData,

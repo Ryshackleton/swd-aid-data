@@ -13,6 +13,7 @@ export default function drawVoronoi(selection, settings, state, selections) {
     bubbleDefaultOpacity,
     bubbleHiddenOpacity,
     nodeData,
+    nodeHoverState,
     cssNameLookup,
     isDisplayingVoronoi,
     geographyPropName,
@@ -53,48 +54,50 @@ export default function drawVoronoi(selection, settings, state, selections) {
     .style('stroke', isDisplayingVoronoi ? 'gray' : 'transparent')
     .style('opacity', 1);
 
-  paths
-    .on('mouseover', (polygon) => {
-      arrows.selectAll(`:not(.${cssNameLookup[polygon.data[geographyPropName]]})`)
-        .transition()
-        .duration(duration)
-        .style('opacity', 0);
-      arrows.selectAll(`.${cssNameLookup[polygon.data[geographyPropName]]}`)
-        .transition()
-        .duration(duration)
-        .style('opacity', arrowHighlightOpacity);
+  if (nodeHoverState === 'HIGHLIGHT_CONNECTED') {
+    paths
+      .on('mouseover', (polygon) => {
+        arrows.selectAll(`:not(.${cssNameLookup[polygon.data[geographyPropName]]})`)
+          .transition()
+          .duration(duration)
+          .style('opacity', 0);
+        arrows.selectAll(`.${cssNameLookup[polygon.data[geographyPropName]]}`)
+          .transition()
+          .duration(duration)
+          .style('opacity', arrowHighlightOpacity);
 
-      bubbles
-        .selectAll('circle')
-        .transition()
-        .duration(duration)
-        .style('opacity', bubbleHiddenOpacity);
-      bubbles.selectAll(`${arrowConnectedGeographiesCssSeletor[polygon.data[geographyPropName]]}`)
-        .transition()
-        .duration(duration)
-        .style('opacity', bubbleDefaultOpacity);
+        bubbles
+          .selectAll('circle')
+          .transition()
+          .duration(duration)
+          .style('opacity', bubbleHiddenOpacity);
+        bubbles.selectAll(`${arrowConnectedGeographiesCssSeletor[polygon.data[geographyPropName]]}`)
+          .transition()
+          .duration(duration)
+          .style('opacity', bubbleDefaultOpacity);
 
-      labels.selectAll('*')
-        .transition()
-        .duration(duration)
-        .style('opacity', bubbleHiddenOpacity);
-      labels.selectAll(`${arrowConnectedGeographiesCssSeletor[polygon.data[geographyPropName]]}`)
-        .transition()
-        .duration(duration)
-        .style('opacity', labelDefaultOpacity);
-    })
-    .on('mouseout', () => {
-      bubbles.selectAll('circle')
-        .transition()
-        .duration(duration)
-        .style('opacity', bubbleDefaultOpacity);
-      labels.selectAll('*')
-        .transition()
-        .duration(duration)
-        .style('opacity', labelDefaultOpacity);
-      arrows.selectAll('*')
-        .transition()
-        .duration(duration)
-        .style('opacity', arrowDefaultOpacity);
-    });
+        labels.selectAll('*')
+          .transition()
+          .duration(duration)
+          .style('opacity', bubbleHiddenOpacity);
+        labels.selectAll(`${arrowConnectedGeographiesCssSeletor[polygon.data[geographyPropName]]}`)
+          .transition()
+          .duration(duration)
+          .style('opacity', labelDefaultOpacity);
+      })
+      .on('mouseout', () => {
+        bubbles.selectAll('circle')
+          .transition()
+          .duration(duration)
+          .style('opacity', bubbleDefaultOpacity);
+        labels.selectAll('*')
+          .transition()
+          .duration(duration)
+          .style('opacity', labelDefaultOpacity);
+        arrows.selectAll('*')
+          .transition()
+          .duration(duration)
+          .style('opacity', arrowDefaultOpacity);
+      });
+  }
 }

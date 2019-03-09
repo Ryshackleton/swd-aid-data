@@ -11,6 +11,7 @@
     "build:watch": "NODE_ENV='development' $(npm bin)/babel-node $(npm bin)/webpack --progress --colors --watch"
   },
   "dependencies": {
+    "chroma-js": "^2.0.3",
     "d3": "^5.9.1",
     "d3-scale": "^2.2.2",
     "d3-selection": "^1.4.0",

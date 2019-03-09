@@ -1,7 +1,11 @@
+import chroma from 'chroma-js';
+
 export default function drawNodeLabels(selection, settings, state) {
   const {
+    colorAccessor,
     nodeData,
     geographyClassAccessor,
+    isCartogram,
     labelDefaultOpacity,
     labelPropName,
     xAccessor,
@@ -14,6 +18,16 @@ export default function drawNodeLabels(selection, settings, state) {
   const join = selection.selectAll('text')
     .data(nodeData);
 
+  const getOppositeColor = (d) => {
+    if (!isCartogram) {
+      return 'transparent';
+    }
+    const color = colorAccessor(d);
+    return chroma(color).luminance() < 0.5
+      ? chroma(color).brighten(2)
+      : chroma(color).darken(2);
+  };
+
   const enter = join
     .enter()
     .append('text')
@@ -22,7 +36,7 @@ export default function drawNodeLabels(selection, settings, state) {
     .style('pointer-events', 'none')
     .style('alignment-baseline', 'central')
     .style('text-anchor', 'middle')
-    .style('fill', 'gray')
+    .style('fill', getOppositeColor)
     .style('font-size', 14)
     .style('font-weight', 'bold')
     .style('font', 'Arial')
@@ -36,6 +50,7 @@ export default function drawNodeLabels(selection, settings, state) {
     .text(datum => (datum[labelPropName] ? datum[labelPropName] : ''))
     .transition()
     .duration(duration)
+    .style('fill', getOppositeColor)
     .attr('transform', (datum) => {
       const x = xAccessor(datum);
       const y = yAccessor(datum);

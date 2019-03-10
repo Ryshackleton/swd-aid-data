@@ -8,10 +8,14 @@ export default {
   bubbleHiddenOpacity: 0.15,
   bubbleRadiusPadding: 3,
 
-  // color data array
+  // all node data
   nodeData: [], // pick from props
+  // geography
   geographyPropName: 'location_id',
+  // color data array
   colorPropName: 'colorProp',
+  // radius
+  radiusPropName: 'radiusProp',
 
   // flow data array
   flowData: [], // pick from props

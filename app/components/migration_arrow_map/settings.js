@@ -6,6 +6,8 @@ export const defaultSettings = {
     containerDivId: '', // for use outside of observable
     svgClass: 'map',
     groups: {
+      colorLegend: 'colorLegend',
+      arrowLegend: 'arrowLegend',
       geography: 'geography',
       bubbles: 'bubbles',
       arrows: 'arrows',

@@ -43,6 +43,7 @@ function getColorAccessor(settings, state) {
   const {
     colorScale: userColorScale, // user override
     colorPropName,
+    colorLegendTitle,
     nodeData,
     colorRange,
     d3ColorScaleName,
@@ -52,16 +53,18 @@ function getColorAccessor(settings, state) {
   const colorExtent = extent(nodeData, valueAccessor);
 
   let colorScale;
+  let colorLegendHtml;
   if (userColorScale) {
-    const { scale } = quantizeColorScaleFactory(
+    const { scale, legend } = quantizeColorScaleFactory(
       userColorScale,
-      5,
+      11,
       'interpolateRdBu',
       800,
-      30,
-      '$,.0f',
+      10,
+      colorLegendTitle,
     );
     colorScale = scale;
+    colorLegendHtml = legend;
   } else {
     colorScale = d3Scale[d3ColorScaleName]()
       .domain(colorExtent)
@@ -73,7 +76,11 @@ function getColorAccessor(settings, state) {
     return acc;
   }, {});
 
-  return d => (colorFromGeoName[locationNameFunction(d, settings, state)]);
+  return {
+    colorAccessor: d => (colorFromGeoName[locationNameFunction(d, settings, state)]),
+    colorLegendHtml,
+    colorScale: userColorScale,
+  };
 }
 
 function getRadiusAccessors(settings, state) {
@@ -161,7 +168,7 @@ function buildAccessors(settings, state) {
   } = state;
 
   const radiusAccessor = getRadiusAccessors(settings, state);
-  const colorAccessor = getColorAccessor(settings, state);
+  const { colorScale, colorAccessor, colorLegendHtml } = getColorAccessor(settings, state);
 
   const centroidLookup = isCartogram
     ? getBubbleCentroidLookup(settings, state, radiusAccessor)
@@ -180,6 +187,8 @@ function buildAccessors(settings, state) {
         cssNameLookup,
       },
     ),
+    colorScale,
+    colorLegendHtml,
     colorAccessor,
     cssNameLookup,
     geographyClassAccessor: getGeographyClassAccessor(settings, state),

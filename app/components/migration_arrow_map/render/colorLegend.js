@@ -1,8 +1,8 @@
-import quantizeColorScaleFactory from '../utils/color';
 
 export default function drawColorLegend(selection, settings, state) {
   const {
-    colorScale,
+    colorLegendHtml,
+    isDisplayingColorLegend,
   } = state;
   const {
     transition: { duration },
@@ -10,7 +10,7 @@ export default function drawColorLegend(selection, settings, state) {
 
   const join = selection
     .selectAll('div.color')
-    .data([colorScale]);
+    .data(isDisplayingColorLegend ? [colorLegendHtml] : []);
 
   const enter = join
     .enter()
@@ -20,17 +20,7 @@ export default function drawColorLegend(selection, settings, state) {
 
   join
     .merge(enter)
-    .html((scaleFunction) => {
-      const { legend } = quantizeColorScaleFactory(
-        scaleFunction,
-        5,
-        'interpolateRdBu',
-        800,
-        30,
-        '$,.0f',
-      );
-      return legend;
-    })
+    .html(d => d)
     .transition()
     .duration(duration)
     .style('opacity', 1);

@@ -13,10 +13,10 @@ export function formatWithSuffixToPrecision(precision, num) {
 
   const suffixTable = {
     0: '', // * 1000^0
-    1: ' Thousand', // * 1000^1
-    2: ' Million', // * 1000^2
-    3: ' Billion', // * 1000^3
-    4: ' Trillion', // * 1000^4
+    1: 'T', // * 1000^1
+    2: 'M', // * 1000^2
+    3: 'B', // * 1000^3
+    4: 'T', // * 1000^4
   };
 
   const negativitiy = num / num;

@@ -6,6 +6,7 @@ import {
 import { cleanCssName } from '../utils/utils';
 import { forcePackNodesToRadii } from '../utils/forcePack';
 import getArrowAccessors from './arrowAccessors';
+import quantizeColorScaleFactory from '../utils/color';
 
 function locationNameFunction(datum, settings, state) {
   const { topojsonLocationPropName } = settings;
@@ -38,24 +39,55 @@ const getGeoCentroidLookup = memoize(
   }) => (JSON.stringify({ featureSets, path, topojsonLocationPropName })),
 );
 
-function getRadiusAndColorAccessors(settings, state) {
+function getColorAccessor(settings, state) {
   const {
+    colorScale: userColorScale, // user override
     colorPropName,
     nodeData,
     colorRange,
     d3ColorScaleName,
     geographyPropName,
+  } = state;
+  const valueAccessor = d => d[colorPropName];
+  const colorExtent = extent(nodeData, valueAccessor);
+
+  let colorScale;
+  if (userColorScale) {
+    const { scale } = quantizeColorScaleFactory(
+      userColorScale,
+      5,
+      'interpolateRdBu',
+      800,
+      30,
+      '$,.0f',
+    );
+    colorScale = scale;
+  } else {
+    colorScale = d3Scale[d3ColorScaleName]()
+      .domain(colorExtent)
+      .range(colorRange);
+  }
+
+  const colorFromGeoName = nodeData.reduce((acc, datum) => {
+    acc[datum[geographyPropName]] = colorScale(valueAccessor(datum));
+    return acc;
+  }, {});
+
+  return d => (colorFromGeoName[locationNameFunction(d, settings, state)]);
+}
+
+function getRadiusAccessors(settings, state) {
+  const {
+    radiusPropName,
+    nodeData,
+    geographyPropName,
     radiusRange,
   } = state;
 
-  const valueAccessor = d => d[colorPropName];
+  const valueAccessor = d => Math.abs(d[radiusPropName]);
 
-  const colorPropDomain = extent(nodeData, valueAccessor);
-  const colorScale = d3Scale[d3ColorScaleName]()
-    .domain(colorPropDomain)
-    .range(colorRange);
   const radiusScale = d3Scale.scaleSqrt()
-    .domain(colorPropDomain)
+    .domain(extent(nodeData, valueAccessor))
     .range(radiusRange)
     .clamp(true);
 
@@ -63,15 +95,8 @@ function getRadiusAndColorAccessors(settings, state) {
     acc[datum[geographyPropName]] = radiusScale(valueAccessor(datum));
     return acc;
   }, {});
-  const colorFromGeoName = nodeData.reduce((acc, datum) => {
-    acc[datum[geographyPropName]] = colorScale(valueAccessor(datum));
-    return acc;
-  }, {});
 
-  return {
-    colorAccessor: d => (colorFromGeoName[locationNameFunction(d, settings, state)]),
-    radiusAccessor: d => (radiusFromGeoName[locationNameFunction(d, settings, state)]),
-  };
+  return d => (radiusFromGeoName[locationNameFunction(d, settings, state)]);
 }
 
 function getBubbleCentroidLookup(settings, state, radiusAccessor) {
@@ -135,10 +160,8 @@ function buildAccessors(settings, state) {
     isCartogram,
   } = state;
 
-  const {
-    radiusAccessor,
-    colorAccessor,
-  } = getRadiusAndColorAccessors(settings, state);
+  const radiusAccessor = getRadiusAccessors(settings, state);
+  const colorAccessor = getColorAccessor(settings, state);
 
   const centroidLookup = isCartogram
     ? getBubbleCentroidLookup(settings, state, radiusAccessor)

@@ -122,7 +122,6 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  text-align: center;
   align-self: center;
   text {
     height: 3.6rem; // fix height to 2x line height so changes in title size don't trigger resize events

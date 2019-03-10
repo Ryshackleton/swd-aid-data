@@ -1,6 +1,9 @@
-import { json } from 'd3';
+import {
+  extent, csv, json, max, scaleLinear,
+} from 'd3';
 import './data/narration.csv';
 import './scss/arrow_map_section.scss';
+
 import FlowArrowMap from '../../components/migration_arrow_map';
 
 /** section configuration object with identifier, narration, and data (for the graph)  */
@@ -8,8 +11,8 @@ export default {
   sectionIdentifier: 'arrow_map_section',
   narration: 'app/containers/arrow_map_section/data/narration.csv',
   data: Promise.all([
-    json('app/containers/arrow_map_section/data/arrowData.json'),
-    json('app/containers/arrow_map_section/data/nodeData.json'),
+    csv('app/containers/arrow_map_section/data/arrowData.csv'),
+    csv('app/containers/arrow_map_section/data/nodeData.csv'),
     json('app/containers/arrow_map_section/data/world-topo-no-antarctica.json'),
   ]),
 
@@ -42,6 +45,8 @@ export default {
     graphId,
     { data: { topology, arrowData, nodeData } },
   ) {
+    const extentOfAllDonations = extent(nodeData, d => d.recipient_positive_flow);
+    const maxDonationOrReceipt = max(extentOfAllDonations, d => Math.abs(d));
     return new FlowArrowMap(
       `#${graphId}`,
       {
@@ -61,20 +66,21 @@ export default {
           isOriginFocused: true,
           nodeHoverState: 'NONE', // | HIGHLIGHT_CONNECTED
 
-          // color data array
+          // node data array
           nodeData,
-          geographyPropName: 'location_id',
-          d3ColorScaleName: 'scaleLinear',
-          colorRange: ['#fff', '#5f98ce'],
-          radiusRange: [15, 50],
+          geographyPropName: 'loc_id',
+          // make a color scale where zero donations/receipts are in the middle of the scale
+          colorScale: scaleLinear().domain([-maxDonationOrReceipt, maxDonationOrReceipt]),
+          radiusRange: [5, 40],
+          colorPropName: 'recipient_positive_flow',
+          radiusPropName: 'net_donated', // flip to net_received to make receiver bubbles bigger
 
           // flow data array
           flowData: arrowData,
           arrowDefaultOpacity: 0.075,
           arrowOriginPropName: 'donor_location_id',
           arrowDestinationPropName: 'recipient_location_id',
-          arrowFlowPropName: 'total_donation',
-          colorPropName: 'total_donated', // 'total_received', when destination focused
+          arrowFlowPropName: 'commitment_amount_usd_sum',
           arrowHighlightOpacity: 0.95,
           arrowMidPointWeight: 0.4, // controls curvature of arrows 0 straight, 1 curved
           arrowScaleRangePixels: [10, 40],
@@ -83,7 +89,7 @@ export default {
 
           // labels
           labelDefaultOpacity: 0.9,
-          labelPropName: 'map_id',
+          labelPropName: 'iso',
         },
       },
     );
@@ -135,15 +141,71 @@ export default {
   onActivateNarrationFunction: function onActivateNarration(
     {
       state: {
-        chartState = {},
+        viewState,
       },
       sectionConfig: { graph },
     },
   ) {
-    if (chartState.colorRange) {
-      graph.update({ chartState: { ...chartState, colorRange: chartState.colorRange.split('|') } });
-    } else {
-      graph.update({ chartState });
+    const viewStates = {
+      geoNoColor: {
+        isCartogram: false,
+        isDisplayingArrows: false,
+        isOriginFocused: true,
+        colorPropName: '',
+        nodeHoverState: 'NONE',
+      },
+      geoDonorColored: {
+        isCartogram: false,
+        isDisplayingArrows: false,
+        isOriginFocused: true,
+        colorPropName: 'recipient_positive_flow',
+        radiusPropName: 'net_donated',
+        nodeHoverState: 'NONE',
+      },
+      cartoDonorColored: {
+        isCartogram: true,
+        isDisplayingArrows: false,
+        isOriginFocused: false,
+        colorPropName: 'recipient_positive_flow',
+        radiusPropName: 'net_donated',
+        nodeHoverState: 'NONE',
+      },
+      cartoRecipientColored: {
+        isCartogram: true,
+        isDisplayingArrows: false,
+        isOriginFocused: true,
+        colorPropName: 'recipient_positive_flow',
+        radiusPropName: 'net_received',
+        nodeHoverState: 'NONE',
+      },
+      cartoArrowRecipientColored: {
+        isCartogram: true,
+        isDisplayingArrows: true,
+        isOriginFocused: true,
+        colorPropName: 'recipient_positive_flow',
+        radiusPropName: 'net_received',
+        nodeHoverState: 'NONE',
+      },
+      cartoArrowDonorColored: {
+        isCartogram: true,
+        isDisplayingArrows: true,
+        isOriginFocused: true,
+        colorPropName: 'recipient_positive_flow',
+        radiusPropName: 'net_received',
+        nodeHoverState: 'NONE',
+      },
+      cartoArrowDonorColorHighlightConnected: {
+        isCartogram: true,
+        isDisplayingArrows: true,
+        isOriginFocused: true,
+        colorPropName: 'recipient_positive_flow',
+        radiusPropName: 'net_received',
+        nodeHoverState: 'HIGHLIGHT_CONNECTED',
+      },
+    };
+    if (viewState && viewStates[viewState]) {
+      console.log(viewStates[viewState]);
+      graph.update({ chartState: viewStates[viewState] });
     }
   },
 };

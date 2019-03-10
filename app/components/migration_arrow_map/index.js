@@ -4,6 +4,7 @@ import buildAccessors from './accessors/buildAccessors';
 import drawArrows from './render/arrows';
 import drawBubbles from './render/bubbles';
 import drawGeography from './render/geography';
+import drawColorLegend from './render/colorLegend';
 import drawNodeLabels from './render/labels';
 import drawVoronoi from './render/voronoi';
 import { getFeatureArray } from './utils/utils';
@@ -35,6 +36,7 @@ export default class FlowArrowMap {
     drawBubbles(this.selections.bubbles, this.settings, this.state);
     drawGeography(this.selections.geography, this.settings, this.state);
     drawNodeLabels(this.selections.labels, this.settings, this.state);
+    drawColorLegend(this.selections.colorLegend, this.settings, this.state);
     drawVoronoi(this.selections.voronoi, this.settings, this.state, this.selections);
     drawArrows(this.selections.arrows, this.settings, this.state);
   }

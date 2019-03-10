@@ -19,6 +19,8 @@ export default function renderSvg(parentNode, settings) {
   return {
     parent,
     svg,
+    colorLegend: parent.append('div').classed(css.groups.colorLegend, true),
+    arrowLegend: parent.append('div').classed(css.groups.arrowLegend, true),
     geography: svg.append('g').classed(css.groups.geography, true),
     arrows: svg.append('g').classed(css.groups.arrows, true),
     bubbles: svg.append('g').classed(css.groups.bubbles, true),

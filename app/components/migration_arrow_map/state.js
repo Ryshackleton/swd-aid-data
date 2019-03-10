@@ -33,4 +33,5 @@ export default {
   // labels
   labelDefaultOpacity: 0.9,
   labelPropName: 'map_id',
+  labelLongName: 'short_name',
 };

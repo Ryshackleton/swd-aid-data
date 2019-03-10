@@ -6,6 +6,132 @@ import './scss/arrow_map_section.scss';
 
 import FlowArrowMap from '../../components/migration_arrow_map';
 
+const viewStates = {
+  geoNoColor: {
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: false,
+    isDisplayingArrows: false,
+    isDisplayingColorLegend: true,
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    nodeHoverState: 'NONE',
+  },
+  geoArrowWebNoColor: {
+    bubbleDefaultOpacity: 0,
+    labelDefaultOpacity: 0,
+    isCartogram: false,
+    isDisplayingArrows: true,
+    isDisplayingColorLegend: false,
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    colorPropName: '',
+    radiusPropName: 'net_donated',
+    nodeHoverState: 'NONE',
+  },
+  geoArrowWebColor: {
+    bubbleDefaultOpacity: 0,
+    labelDefaultOpacity: 0,
+    isCartogram: false,
+    isDisplayingArrows: true,
+    isDisplayingColorLegend: true,
+    colorPropName: 'recipient_positive_flow',
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    radiusPropName: 'net_donated',
+    nodeHoverState: 'NONE',
+  },
+  geoNoArrowColor: {
+    bubbleDefaultOpacity: 0,
+    labelDefaultOpacity: 0,
+    isCartogram: false,
+    isDisplayingArrows: false,
+    isDisplayingColorLegend: true,
+    colorPropName: 'recipient_positive_flow',
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    radiusPropName: 'net_donated',
+    nodeHoverState: 'NONE',
+  },
+  cartoDonorColored: {
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: true,
+    isDisplayingArrows: false,
+    isDisplayingColorLegend: true,
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    radiusPropName: 'net_donated',
+    nodeHoverState: 'NONE',
+  },
+  cartoRecipientColored: {
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: true,
+    isDisplayingArrows: false,
+    isDisplayingColorLegend: true,
+    isOriginFocused: false,
+    bubbleRadiusPadding: 3,
+    radiusPropName: 'net_received',
+    nodeHoverState: 'NONE',
+  },
+  cartoArrowRecipientColored: {
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: true,
+    isDisplayingArrows: true,
+    isDisplayingColorLegend: true,
+    isOriginFocused: false,
+    bubbleRadiusPadding: 3,
+    radiusPropName: 'net_received',
+    nodeHoverState: 'NONE',
+  },
+  cartoArrowDonorColored: {
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: true,
+    isDisplayingArrows: true,
+    isDisplayingColorLegend: true,
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    radiusPropName: 'net_donated',
+    nodeHoverState: 'NONE',
+  },
+  cartoArrowWeb: {
+    bubbleDefaultOpacity: 0,
+    labelDefaultOpacity: 0,
+    isCartogram: true,
+    isDisplayingArrows: true,
+    isDisplayingColorLegend: false,
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    radiusPropName: 'net_donated',
+    nodeHoverState: 'NONE',
+  },
+  cartoArrowDonorColorHotBuildConnected: {
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: true,
+    isDisplayingArrows: true,
+    isDisplayingColorLegend: true,
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    radiusPropName: 'net_donated',
+    nodeHoverState: 'HOT_BUILD_CONNECTED',
+  },
+  cartoArrowRecipientColorHotBuildConnected: {
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: true,
+    isDisplayingArrows: true,
+    isDisplayingColorLegend: true,
+    isOriginFocused: false,
+    bubbleRadiusPadding: 3,
+    radiusPropName: 'net_received',
+    nodeHoverState: 'HOT_BUILD_CONNECTED',
+  },
+};
+
 /** section configuration object with identifier, narration, and data (for the graph)  */
 export default {
   sectionIdentifier: 'arrow_map_section',
@@ -48,8 +174,8 @@ export default {
     const extentOfAllDonations = extent(nodeData, d => d.recipient_positive_flow);
     const maxDonationOrReceipt = max(extentOfAllDonations, d => Math.abs(d));
     return new FlowArrowMap(
-      `#${graphId}`,
-      {
+      `#${graphId}`, // container selector
+      { // props
         topology,
         featureSets: ['admin0'],
         topojsonLocationPropName: 'loc_id',
@@ -58,12 +184,13 @@ export default {
         transition: { duration: 700 },
         viewBoxXPan: 0,
         viewBoxYPan: -50,
-        chartState: {
+        chartState: { // initial state
           // chart view states
           isCartogram: false,
           isDisplayingVoronoi: false,
           isDisplayingArrows: false,
           isOriginFocused: true,
+          isDisplayingColorLegend: true,
           nodeHoverState: 'NONE', // | HIGHLIGHT_CONNECTED
 
           // node data array
@@ -71,9 +198,20 @@ export default {
           geographyPropName: 'loc_id',
           // make a color scale where zero donations/receipts are in the middle of the scale
           colorScale: scaleLinear().domain([-maxDonationOrReceipt, maxDonationOrReceipt]),
-          radiusRange: [5, 40],
+          radiusRange: [10, 40],
           colorPropName: 'recipient_positive_flow',
           radiusPropName: 'net_donated', // flip to net_received to make receiver bubbles bigger
+
+          // bubble styles
+          bubbleDefaultOpacity: 0.9,
+          bubbleHiddenOpacity: 0.15,
+          bubbleRadiusPadding: 10,
+          // label styles
+          labelDefaultOpacity: 0.9,
+          labelPropName: 'map_id',
+          labelLongName: 'short_name',
+          // color legend
+          colorLegendTitle: 'Net USD donated (-) or Received (+) in Billions from 1947-2013',
 
           // flow data array
           flowData: arrowData,
@@ -81,15 +219,14 @@ export default {
           arrowOriginPropName: 'donor_location_id',
           arrowDestinationPropName: 'recipient_location_id',
           arrowFlowPropName: 'commitment_amount_usd_sum',
-          arrowHighlightOpacity: 0.95,
+          arrowHighlightOpacity: 0.9,
           arrowMidPointWeight: 0.4, // controls curvature of arrows 0 straight, 1 curved
-          arrowScaleRangePixels: [10, 40],
+          arrowScaleRangePixels: [10, 50],
           arrowScaleColorRange: ['lightgrey', '#333333'],
           destinationArrowPadding: 0.75,
 
-          // labels
-          labelDefaultOpacity: 0.9,
-          labelPropName: 'iso',
+          // starting state
+          ...viewStates.geoArrowWebNoColor,
         },
       },
     );
@@ -146,58 +283,7 @@ export default {
       sectionConfig: { graph },
     },
   ) {
-    const viewStates = {
-      geoNoColor: {
-        isCartogram: false,
-        isDisplayingArrows: false,
-        isOriginFocused: true,
-        nodeHoverState: 'NONE',
-      },
-      geoDonorColored: {
-        isCartogram: false,
-        isDisplayingArrows: false,
-        isOriginFocused: true,
-        radiusPropName: 'net_donated',
-        nodeHoverState: 'NONE',
-      },
-      cartoDonorColored: {
-        isCartogram: true,
-        isDisplayingArrows: false,
-        isOriginFocused: false,
-        radiusPropName: 'net_donated',
-        nodeHoverState: 'NONE',
-      },
-      cartoRecipientColored: {
-        isCartogram: true,
-        isDisplayingArrows: false,
-        isOriginFocused: true,
-        radiusPropName: 'net_received',
-        nodeHoverState: 'NONE',
-      },
-      cartoArrowRecipientColored: {
-        isCartogram: true,
-        isDisplayingArrows: true,
-        isOriginFocused: true,
-        radiusPropName: 'net_received',
-        nodeHoverState: 'NONE',
-      },
-      cartoArrowDonorColored: {
-        isCartogram: true,
-        isDisplayingArrows: true,
-        isOriginFocused: true,
-        radiusPropName: 'net_received',
-        nodeHoverState: 'NONE',
-      },
-      cartoArrowDonorColorHighlightConnected: {
-        isCartogram: true,
-        isDisplayingArrows: true,
-        isOriginFocused: true,
-        radiusPropName: 'net_received',
-        nodeHoverState: 'HIGHLIGHT_CONNECTED',
-      },
-    };
     if (viewState && viewStates[viewState]) {
-      console.log(viewStates[viewState]);
       graph.update({ chartState: viewStates[viewState] });
     }
   },

@@ -1,53 +1,80 @@
 import Victor from 'victor';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { extent, nest, scaleLinear } from 'd3';
+import {
+  extent, nest, scaleLinear,
+} from 'd3';
+import { memoize, pick } from 'lodash';
+import { cleanCssName } from '../utils/utils';
 import curvedPath from '../lib/curvedPath';
 
-// TODO: weight these vectors by flow?
-function getMeanResultantVectorLookup(settings, state, centroidLookup) {
-  const {
-    arrowOriginPropName,
-    arrowDestinationPropName,
-    flowData,
-  } = state;
+export const getArrowMetadata = memoize(
+  (settings, state) => {
+    const {
+      arrowOriginPropName,
+      arrowDestinationPropName,
+      arrowFlowPropName,
+      arrowScaleColorRange,
+      centroidLookup,
+      flowData,
+      isOriginFocused,
+    } = state;
 
-  return nest()
-    .key(d => d[arrowOriginPropName])
-    .rollup((all) => {
-      // Victor.js - note that these Victor functions ALWAYS mutate unless the Victor is cloned
-      const mean = new Victor(0, 0);
-      all.forEach((flowArrow) => {
-        const origin = new Victor(...centroidLookup[flowArrow[arrowOriginPropName]]);
-        const destination = new Victor(...centroidLookup[flowArrow[arrowDestinationPropName]]);
-        mean.add(destination.clone().subtract(origin));
-      });
-      mean.normalize();
-      return mean;
-    })
-    .object(flowData);
-}
+    const originProp = isOriginFocused ? arrowOriginPropName : arrowDestinationPropName;
+    const destinationProp = isOriginFocused ? arrowDestinationPropName : arrowOriginPropName;
 
-function getArrowColorScalesForEachNode(settings, state) {
-  const {
-    arrowOriginPropName,
-    arrowDestinationPropName,
-    arrowFlowPropName,
-    arrowScaleColorRange,
-    flowData,
-    isOriginFocused,
-  } = state;
+    return nest()
+      .key(d => d[originProp])
+      .rollup((leafFeatures) => {
+        // compute connected opacity scales
+        const leafFlowExtent = extent(leafFeatures, d => Math.abs(d[arrowFlowPropName]));
+        const bubbleOpacityScale = scaleLinear()
+          .domain(leafFlowExtent)
+          .range([0.75, 1]);
+        const metadataObject = leafFeatures.reduce((acc, feature) => {
+          acc.connected_arrows.push(feature);
+          // names
+          const originLoc = feature[originProp];
+          const destLoc = feature[destinationProp];
+          // save connected names to array
+          acc.connected_css.push(cleanCssName(destLoc));
+          acc.connected_loc_opacity[destLoc] = bubbleOpacityScale(feature[arrowFlowPropName]);
+          acc.connected_loc_opacity[originLoc] = 1; // set my own opacity to 1
 
-  return nest()
-    .key(d => (isOriginFocused ? d[arrowOriginPropName] : d[arrowDestinationPropName]))
-    .rollup(all => (
-      scaleLinear()
-        .domain(extent(all, d => Math.abs(d[arrowFlowPropName])))
-        .range(arrowScaleColorRange)
-    ))
-    .object(flowData);
-}
+          // compute mean resultant
+          // Victor.js - note that these Victor functions ALWAYS mutate unless the Victor is cloned
+          const origin = new Victor(...centroidLookup[originLoc]);
+          const destination = new Victor(...centroidLookup[destLoc]);
+          const originToDest = destination.clone().subtract(origin);
+          acc.mean.add(originToDest);
 
-function getArrowPathFromDatumFunction(settings, state) {
+          return acc;
+        }, {
+          mean: new Victor(0, 0), connected_arrows: [], connected_css: [], connected_loc_opacity: {},
+        });
+
+        // normalize the mean
+        metadataObject.mean.normalize();
+
+        // compute color scales
+        metadataObject.colorScale = scaleLinear()
+          .domain(leafFlowExtent)
+          .range(arrowScaleColorRange);
+
+        return metadataObject;
+      })
+      .object(flowData);
+  },
+  (settings, state) => JSON.stringify(pick(state, [
+    'arrowOriginPropName',
+    'arrowDestinationPropName',
+    'arrowFlowPropName',
+    'arrowScaleColorRange',
+    'isOriginFocused',
+    'isCartogram',
+  ])),
+);
+
+function getArrowPathFromDatumFunction(settings, state, arrowMetadata) {
   const {
     arrowOriginPropName,
     arrowDestinationPropName,
@@ -58,6 +85,7 @@ function getArrowPathFromDatumFunction(settings, state) {
     destinationArrowPadding,
     flowData,
     geographyPropName,
+    isOriginFocused,
     radiusAccessor,
   } = state;
 
@@ -67,35 +95,33 @@ function getArrowPathFromDatumFunction(settings, state) {
     .domain(extent(flowData, flowSizeAccessor))
     .range(arrowScaleRangePixels);
 
-  const meanResultantVectorLookup = getMeanResultantVectorLookup(settings, state, centroidLookup);
+  const dynamicOrigin = isOriginFocused ? arrowOriginPropName : arrowDestinationPropName;
 
   return function arrowPathFromDatum(datum) {
     const origin = new Victor(...centroidLookup[datum[arrowOriginPropName]]).clone();
     const destination = new Victor(...centroidLookup[datum[arrowDestinationPropName]]);
 
     // compute the vector origin -> destination, and get its length
-    const vLength = destination
-      .clone()
-      .subtract(origin)
-      .length();
+    const vLength = destination.clone().subtract(origin).length();
 
     // get some distance along the length, weighted by arrowMidPointWeight
     const weightedLength = vLength * arrowMidPointWeight;
 
     // lookup the mean resultant vector from the origin (state),
     // and find the path midpoint by offsetting along the mean resultant by the weighted length
-    const vectorToMidPoint = meanResultantVectorLookup[datum[arrowOriginPropName]]
+    const meanResultant = arrowMetadata[datum[dynamicOrigin]].mean;
+    const vectorToMidPoint = meanResultant
       .clone()
       .multiply(new Victor(weightedLength, weightedLength));
 
     // this is the midpoint that adds some curve
-    const mid = origin.clone()
-      .add(vectorToMidPoint);
+    const mid = origin.clone().add(vectorToMidPoint);
 
     // offset the destination vector to avoid overlapping the destination bubble/label
     const halfRadius = radiusAccessor({
       [geographyPropName]: datum[arrowDestinationPropName], // look up by name of the destination
     }) * destinationArrowPadding;
+
     const displaceAwayFromDestination = mid.clone()
       .subtract(destination) // vector destination -> mid
       .normalize() // normalize to 1
@@ -139,9 +165,10 @@ function getConnectedGeographiesCssSelector(state) {
 }
 
 export default function arrowAccessors(settings, state) {
+  const arrowMetadata = getArrowMetadata(settings, state);
   return {
-    arrowPathFunction: getArrowPathFromDatumFunction(settings, state),
-    arrowScalesForNodes: getArrowColorScalesForEachNode(settings, state),
+    arrowMetadata,
+    arrowPathFunction: getArrowPathFromDatumFunction(settings, state, arrowMetadata),
     arrowConnectedGeographiesCssSeletor: getConnectedGeographiesCssSelector(state),
   };
 }

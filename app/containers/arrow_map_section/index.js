@@ -147,7 +147,29 @@ export default {
   /** optional function to reshape data after queries or parsing from a file */
   reshapeDataFunction:
     function reshapeData([arrowData, nodeData, topology]) {
-      return { arrowData, nodeData, topology };
+      return {
+        arrowData: arrowData.map(({
+          donor_location_id,
+          recipient_location_id,
+          commitment_amount_usd_sum,
+          ...rest
+        }) => ({
+          donor_location_id: Number(donor_location_id),
+          recipient_location_id: Number(recipient_location_id),
+          commitment_amount_usd_sum: Number(commitment_amount_usd_sum),
+          ...rest,
+        })),
+        nodeData: nodeData.map(({
+          loc_id, net_donated, net_received, recipient_positive_flow, ...rest
+        }) => ({
+          loc_id: Number(loc_id),
+          net_donated: Number(net_donated),
+          net_received: Number(net_received),
+          recipient_positive_flow: Number(recipient_positive_flow),
+          ...rest,
+        })),
+        topology,
+      };
     },
 
   /**
@@ -171,7 +193,7 @@ export default {
     graphId,
     { data: { topology, arrowData, nodeData } },
   ) {
-    const extentOfAllDonations = extent(nodeData, d => d.recipient_positive_flow);
+    const extentOfAllDonations = extent(nodeData, d => Number(d.recipient_positive_flow));
     const maxDonationOrReceipt = max(extentOfAllDonations, d => Math.abs(d));
     return new FlowArrowMap(
       `#${graphId}`, // container selector

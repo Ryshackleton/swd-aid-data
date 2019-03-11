@@ -1,188 +1,187 @@
 name,iso,region,loc_id,map_id,short_name,net_donated,net_received,recipient_positive_flow
-China,CN,Far East Asia,6,CHN,China,0,223672535562,223672535562
-"Korea, Democratic Republic of",KP,Far East Asia,7,PRK,N Korea,0,2531393283,2531393283
-Taiwan,TW,Far East Asia,8,TWN,Taiwan,1951297616,6311651906,4360354290
-Cambodia,KH,Far East Asia,10,KHM,Cambodia,0,16473515591,16473515591
-Indonesia,ID,Far East Asia,11,IDN,Indonesia,0,277973033920,277973033920
-Laos,LA,Far East Asia,12,LAO,Laos,0,12029395045,12029395045
-Malaysia,MY,Far East Asia,13,MYS,Malaysia,0,36284548020,36284548020
-Maldives,MV,South & Central Asia,14,MDV,Maldives,0,1953378865,1953378865
-Myanmar,MM,Far East Asia,15,MMR,Myanmar,0,24009907681,24009907681
-Philippines,PH,Far East Asia,16,PHL,Philippines,0,125321541362,125321541362
-Sri Lanka,LK,South & Central Asia,17,LKA,Sri Lanka,0,50067376591,50067376591
-Thailand,TH,Far East Asia,18,THA,Thailand,30069804,90074757546,90044687742
-Timor-Leste,TL,Far East Asia,19,TLS,Timor-Leste,0,4862731566,4862731566
-Viet Nam,VN,Far East Asia,20,VNM,Vietnam,0,89686850772,89686850772
-Fiji,FJ,Oceania,22,FJI,Fiji,0,3469142050,3469142050
-Kiribati,KI,Oceania,23,KIR,Kiribati,0,1307721837,1307721837
-Marshall Islands,MH,Oceania,24,MHL,Marshall,0,1163857314,1163857314
-"Micronesia, Federated States of",FM,Oceania,25,FSM,Micronesia,0,2050414810,2050414810
-Papua New Guinea,PG,Oceania,26,PNG,PNG,0,33650566591,33650566591
-Samoa,WS,Oceania,27,WSM,Samoa,0,2559018360,2559018360
-Solomon Islands,SB,Oceania,28,SLB,Solomon,0,5365254515,5365254515
-Tonga,TO,Oceania,29,TON,Tonga,0,1412030969,1412030969
-Vanuatu,VU,Oceania,30,VUT,Vanuatu,0,2279453529,2279453529
-Armenia,AM,South & Central Asia,33,ARM,Armenia,0,9392114986,9392114986
-Azerbaijan,AZ,South & Central Asia,34,AZE,Azerbaijan,0,12274281656,12274281656
-Georgia,GE,South & Central Asia,35,GEO,Georgia,0,13665338950,13665338950
-Kazakhstan,KZ,South & Central Asia,36,KAZ,Kazakhstan,0,21927048818,21927048818
-Kyrgyz Republic,KG,South & Central Asia,37,KGZ,Kyrgyzstan,0,7693548185,7693548185
-Mongolia,MN,Far East Asia,38,MNG,Mongolia,0,8134028385,8134028385
-Tajikistan,TJ,South & Central Asia,39,TJK,Tajikistan,0,6257424488,6257424488
-Turkmenistan,TM,South & Central Asia,40,TKM,Turkmenistan,0,2166561000,2166561000
-Uzbekistan,UZ,South & Central Asia,41,UZB,Uzbekistan,0,14574023118,14574023118
-Albania,AL,Europe,43,ALB,Albania,0,9993667233,9993667233
-Bosnia-Herzegovina,BA,Europe,44,BIH,Bosnia,0,17678923415,17678923415
-Bulgaria,BG,Europe,45,BGR,Bulgaria,0,15406596963,15406596963
-Croatia,HR,Europe,46,HRV,Croatia,0,13128246905,13128246905
-Czech Republic,CZ,Europe,47,CZE,Czech,477016364,12439590668,11962574304
-Hungary,HU,Europe,48,HUN,Hungary,21754886,30919012969,30897258083
-"Macedonia, FYR",MK,Europe,49,MKD,Macedonia,0,8047716775,8047716775
-Montenegro,ME,Europe,50,MNE,Montenegro,0,1257342217,1257342217
-Poland,PL,Europe,51,POL,Poland,0,87515779271,87515779271
-Romania,RO,Europe,52,ROU,Romania,6918790,46538592264,46531673474
-Serbia,RS,Europe,53,SRB,Serbia,0,24074191397,24074191397
-Slovak Republic,SK,Europe,54,SVK,Slovakia,73137211,5138891611,5065754400
-Slovenia,SI,Europe,55,SVN,Slovenia,0,2603091375,2603091375
-Belarus,BY,Europe,57,BLR,Belarus,0,4507262710,4507262710
-Estonia,EE,Europe,58,EST,Estonia,33487277,1906803216,1873315939
-Latvia,LV,Europe,59,LVA,Latvia,2359566,3927296448,3924936882
-Lithuania,LT,Europe,60,LTU,Lithuania,10298791,3539428028,3529129237
-Moldova,MD,Europe,61,MDA,Moldova,0,6896113785,6896113785
-Russia,RU,Europe,62,RUS,Russian Federation,0,125029135531,125029135531
-Ukraine,UA,Europe,63,UKR,Ukraine,0,48462728812,48462728812
-Brunei,BN,Far East Asia,66,BRN,Brunei,0,22156517,22156517
-Japan,JP,Far East Asia,67,JPN,Japan,499503416913,8720995491,-490782421422
-Korea,KR,Far East Asia,68,KOR,S Korea,24747787581,96536967294,71789179713
-Singapore,SG,Far East Asia,69,SGP,Singapore,0,4126565557,4126565557
-Australia,AU,Oceania,71,AUS,Australia,77103141900,5913517610,-71189624290
-New Zealand,NZ,Oceania,72,NZL,New Zealand,4257901992,1107319534,-3150582458
-Austria,AT,Europe,75,AUT,Austria,18658780039,1631919523,-17026860516
-Belgium,BE,Europe,76,BEL,Belgium,34960989026,801283659,-34159705367
-Cyprus,CY,Europe,77,CYP,Cyprus,19719481,2910367058,2890647577
-Denmark,DK,Europe,78,DNK,Denmark,44644859974,839240224,-43805619750
-Finland,FI,Europe,79,FIN,Finland,17052182759,2446657725,-14605525034
-France,FR,Europe,80,FRA,France,208491814832,2272053072,-206219761760
-Germany,DE,Europe,81,DEU,Germany,300828459642,28702,-300828430940
-Greece,GR,Europe,82,GRC,Greece,2571469749,21095691086,18524221337
-Iceland,IS,Europe,83,ISL,Iceland,146870115,1247889571,1101019456
-Ireland,IE,Europe,84,IRL,Ireland,6980225812,15322925620,8342699808
-Israel,IL,Middle East,85,ISR,Israel,0,43500992616,43500992616
-Italy,IT,Europe,86,ITA,Italy,67490102499,5543367550,-61946734949
-Luxembourg,LU,Europe,87,LUX,Luxembourg,3220901538,652363109,-2568538429
-Malta,MT,Europe,88,MLT,Malta,0,1008012221,1008012221
-Netherlands,NL,Europe,89,NLD,Netherlands,117928540741,1979329102,-115949211639
-Norway,NO,Europe,90,NOR,Norway,70648321630,1527481576,-69120840054
-Portugal,PT,Europe,91,PRT,Portugal,9786694928,20264281530,10477586602
-Spain,ES,Europe,92,ESP,Spain,47289500115,3472383828,-43817116287
-Sweden,SE,Europe,93,SWE,Sweden,79793796840,59757155,-79734039685
-Switzerland,CH,Europe,94,CHE,Switzerland,45916653272,326783,-45916326489
-United Kingdom,GB,Europe,95,GBR,UK,145752757999,978649397,-144774108602
-Argentina,AR,South America,97,ARG,Argentina,0,210437607825,210437607825
-Chile,CL,South America,98,CHL,Chile,11709324,35284211017,35272501693
-Uruguay,UY,South America,99,URY,Uruguay,0,27142428278,27142428278
-Canada,CA,North & Central America,101,CAN,Canada,98846169814,4073431141,-94772738673
-United States,US,North & Central America,102,USA,USA,791412057202,1070538201,-790341519001
-Antigua & Barbuda,AG,North & Central America,105,ATG,Antigua,0,546081707,546081707
-Bahamas,BS,North & Central America,106,BHS,Bahamas,0,1238247804,1238247804
-Barbados,BB,North & Central America,107,BRB,Barbados,0,2379806608,2379806608
-Belize,BZ,North & Central America,108,BLZ,Belize,0,2374948478,2374948478
-Cuba,CU,North & Central America,109,CUB,Cuba,0,3651339573,3651339573
-Dominica,DM,North & Central America,110,DMA,Dominica,0,2079137725,2079137725
-Dominican Republic,DO,North & Central America,111,DOM,Dominican Rep,0,22858287785,22858287785
-Grenada,GD,North & Central America,112,GRD,Grenada,0,1149782266,1149782266
-Guyana,GY,South America,113,GUY,Guyana,0,7570418040,7570418040
-Haiti,HT,North & Central America,114,HTI,Haiti,0,23835840550,23835840550
-Jamaica,JM,North & Central America,115,JAM,Jamaica,0,20200588022,20200588022
-St. Lucia,LC,North & Central America,116,LCA,St Lucia,0,1643094873,1643094873
-St.Vincent & Grenadines,VC,North & Central America,117,VCT,St Vincent,0,1140670910,1140670910
-Suriname,SR,South America,118,SUR,Suriname,0,3843388812,3843388812
-Trinidad & Tobago,TT,North & Central America,119,TTO,Trinidad Tobago,0,10952573968,10952573968
-Bolivia,BO,South America,121,BOL,Bolivia,0,47238219859,47238219859
-Ecuador,EC,South America,122,ECU,Ecuador,0,40082040155,40082040155
-Peru,PE,South America,123,PER,Peru,0,81996637777,81996637777
-Colombia,CO,South America,125,COL,Colombia,10888738,122226445610,122215556872
-Costa Rica,CR,North & Central America,126,CRI,Costa Rica,0,18395251659,18395251659
-El Salvador,SV,North & Central America,127,SLV,El Salvador,0,25988612709,25988612709
-Guatemala,GT,North & Central America,128,GTM,Guatemala,0,24555277412,24555277412
-Honduras,HN,North & Central America,129,HND,Honduras,0,26762799182,26762799182
-Mexico,MX,North & Central America,130,MEX,Mexico,0,262883049139,262883049139
-Nicaragua,NI,North & Central America,131,NIC,Nicaragua,0,28258133683,28258133683
-Panama,PA,North & Central America,132,PAN,Panama,0,18085373032,18085373032
-Venezuela,VE,South America,133,VEN,Venezuela,0,49038622550,49038622550
-Brazil,BR,South America,135,BRA,Brazil,196715160,329849955363,329653240203
-Paraguay,PY,South America,136,PRY,Paraguay,0,12548249850,12548249850
-Algeria,DZ,"Africa, North of Sahara",139,DZA,Algeria,0,42057434148,42057434148
-Bahrain,BH,Middle East,140,BHR,Bahrain,0,4079557967,4079557967
-Egypt,EG,"Africa, North of Sahara",141,EGY,Egypt,0,157739472373,157739472373
-Iran,IR,Middle East,142,IRN,Iran,0,17614947421,17614947421
-Iraq,IQ,Middle East,143,IRQ,Iraq,0,85718207940,85718207940
-Jordan,JO,Middle East,144,JOR,Jordan,0,38874948394,38874948394
-Kuwait,KW,Middle East,145,KWT,Kuwait,35956616601,7902393335,-28054223266
-Lebanon,LB,Middle East,146,LBN,Lebanon,0,16634841410,16634841410
-Libya,LY,"Africa, North of Sahara",147,LBY,Libya,0,1944038480,1944038480
-Morocco,MA,"Africa, North of Sahara",148,MAR,Morocco,0,90417902674,90417902674
-Palestinian Adm. Areas,PS,Middle East,149,PSE,Palestine,0,25102756387,25102756387
-Oman,OM,Middle East,150,OMN,Oman,0,6610407371,6610407371
-Qatar,QA,Middle East,151,QAT,Qatar,104519053,1076100001,971580948
-Saudi Arabia,SA,Middle East,152,SAU,Saudi Arabia,26789720540,5051914344,-21737806196
-Syria,SY,Middle East,153,SYR,Syria,0,22553145034,22553145034
-Tunisia,TN,"Africa, North of Sahara",154,TUN,Tunisia,0,57479771095,57479771095
-Turkey,TR,Europe,155,TUR,Turkey,0,209655807463,209655807463
-United Arab Emirates,AE,Middle East,156,ARE,UAE,23541810105,411974742,-23129835363
-Yemen,YE,Middle East,157,YEM,Yemen,0,27812501605,27812501605
-Afghanistan,AF,South & Central Asia,160,AFG,Afghanistan,0,69148909475,69148909475
-Bangladesh,BD,South & Central Asia,161,BGD,Bangladesh,0,124065071477,124065071477
-Bhutan,BT,South & Central Asia,162,BTN,Bhutan,0,3498101576,3498101576
-India,IN,South & Central Asia,163,IND,India,4011168939,367230275705,363219106766
-Nepal,NP,South & Central Asia,164,NPL,Nepal,0,28145587630,28145587630
-Pakistan,PK,South & Central Asia,165,PAK,Pakistan,0,164632032595,164632032595
-Angola,AO,"Africa, South of Sahara",168,AGO,Angola,0,15367791696,15367791696
-Central African Republic,CF,"Africa, South of Sahara",169,CAF,C African Rep,0,7050735862,7050735862
-"Congo, Republic of",CG,"Africa, South of Sahara",170,COG,Congo,0,11872707874,11872707874
-"Congo, Democratic Republic of",CD,"Africa, South of Sahara",171,COD,Congo DR,0,58258089124,58258089124
-Equatorial Guinea,GQ,"Africa, South of Sahara",172,GNQ,Eq Guinea,0,1611824124,1611824124
-Gabon,GA,"Africa, South of Sahara",173,GAB,Gabon,0,9267380388,9267380388
-Burundi,BI,"Africa, South of Sahara",175,BDI,Burundi,0,13409439503,13409439503
-Comoros,KM,"Africa, South of Sahara",176,COM,Comoros,0,2354944709,2354944709
-Djibouti,DJ,"Africa, South of Sahara",177,DJI,Djibouti,0,4437226631,4437226631
-Eritrea,ER,"Africa, South of Sahara",178,ERI,Eritrea,0,4450838086,4450838086
-Ethiopia,ET,"Africa, South of Sahara",179,ETH,Ethiopia,0,63795799420,63795799420
-Kenya,KE,"Africa, South of Sahara",180,KEN,Kenya,0,63282841555,63282841555
-Madagascar,MG,"Africa, South of Sahara",181,MDG,Madagascar,0,25721350848,25721350848
-Malawi,MW,"Africa, South of Sahara",182,MWI,Malawi,0,25296636821,25296636821
-Mauritius,MU,"Africa, South of Sahara",183,MUS,Mauritius,0,7910080254,7910080254
-Mozambique,MZ,"Africa, South of Sahara",184,MOZ,Mozambique,0,56346943556,56346943556
-Rwanda,RW,"Africa, South of Sahara",185,RWA,Rwanda,0,20705500140,20705500140
-Seychelles,SC,"Africa, South of Sahara",186,SYC,Seychelles,0,1529943863,1529943863
-Somalia,SO,"Africa, South of Sahara",187,SOM,Somalia,0,17293667864,17293667864
-Tanzania,TZ,"Africa, South of Sahara",189,TZA,Tanzania,0,75747991671,75747991671
-Uganda,UG,"Africa, South of Sahara",190,UGA,Uganda,0,41513629569,41513629569
-Zambia,ZM,"Africa, South of Sahara",191,ZMB,Zambia,0,43183045661,43183045661
-Botswana,BW,"Africa, South of Sahara",193,BWA,Botswana,0,11048968425,11048968425
-Lesotho,LS,"Africa, South of Sahara",194,LSO,Lesotho,0,6876589551,6876589551
-South Africa,ZA,"Africa, South of Sahara",196,ZAF,S Africa,240366337,35410284161,35169917824
-Swaziland,SZ,"Africa, South of Sahara",197,SWZ,Swaziland,0,3924602904,3924602904
-Zimbabwe,ZW,"Africa, South of Sahara",198,ZWE,Zimbabwe,0,23486423096,23486423096
-Benin,BJ,"Africa, South of Sahara",200,BEN,Benin,0,15201305729,15201305729
-Burkina Faso,BF,"Africa, South of Sahara",201,BFA,Burkina Faso,0,25371395870,25371395870
-Cameroon,CM,"Africa, South of Sahara",202,CMR,Cameroon,0,36085990109,36085990109
-Cape Verde,CV,"Africa, South of Sahara",203,CPV,Cape Verde,0,6214404613,6214404613
-Chad,TD,"Africa, South of Sahara",204,TCD,Chad,0,13977591546,13977591546
-Cote d`Ivoire,CI,"Africa, South of Sahara",205,CIV,Cote d'Ivoire,0,44170453999,44170453999
-Gambia,GM,"Africa, South of Sahara",206,GMB,Gambia,0,4573472471,4573472471
-Ghana,GH,"Africa, South of Sahara",207,GHA,Ghana,0,52048771846,52048771846
-Guinea,GN,"Africa, South of Sahara",208,GIN,Guinea,0,16536487595,16536487595
-Guinea-Bissau,GW,"Africa, South of Sahara",209,GNB,Guinea-Bissau,0,5294049776,5294049776
-Liberia,LR,"Africa, South of Sahara",210,LBR,Liberia,0,12950261612,12950261612
-Mali,ML,"Africa, South of Sahara",211,MLI,Mali,0,30622256049,30622256049
-Mauritania,MR,"Africa, South of Sahara",212,MRT,Mauritania,0,15493995598,15493995598
-Niger,NE,"Africa, South of Sahara",213,NER,Niger,0,20101698582,20101698582
-Nigeria,NG,"Africa, South of Sahara",214,NGA,Nigeria,0,81482907202,81482907202
-Sao Tome & Principe,ST,"Africa, South of Sahara",215,STP,Sao Tome Principe,0,1819595847,1819595847
-Senegal,SN,"Africa, South of Sahara",216,SEN,Senegal,0,34191864652,34191864652
-Sierra Leone,SL,"Africa, South of Sahara",217,SLE,Sierra Leone,0,12425563368,12425563368
-Togo,TG,"Africa, South of Sahara",218,TGO,Togo,0,10238511315,10238511315
+China,CN,Far East Asia,6,CHN,China,0,94988161969,94988161969
+"Korea, Democratic Republic of",KP,Far East Asia,7,PRK,N Korea,0,1621046513,1621046513
+Taiwan,TW,Far East Asia,8,TWN,Taiwan,1475940220,3345902892,1869962672
+Cambodia,KH,Far East Asia,10,KHM,Cambodia,0,10398554404,10398554404
+Indonesia,ID,Far East Asia,11,IDN,Indonesia,0,116838761873,116838761873
+Laos,LA,Far East Asia,12,LAO,Laos,0,6224615807,6224615807
+Malaysia,MY,Far East Asia,13,MYS,Malaysia,0,18918713400,18918713400
+Maldives,MV,South & Central Asia,14,MDV,Maldives,0,1014457278,1014457278
+Myanmar,MM,Far East Asia,15,MMR,Myanmar,0,11593523308,11593523308
+Philippines,PH,Far East Asia,16,PHL,Philippines,0,59173331657,59173331657
+Sri Lanka,LK,South & Central Asia,17,LKA,Sri Lanka,0,27007564379,27007564379
+Thailand,TH,Far East Asia,18,THA,Thailand,20376535,44659926443,44639549908
+Timor-Leste,TL,Far East Asia,19,TLS,Timor-Leste,0,3849175053,3849175053
+Viet Nam,VN,Far East Asia,20,VNM,Vietnam,0,45724536275,45724536275
+Fiji,FJ,Oceania,22,FJI,Fiji,0,1874044377,1874044377
+Kiribati,KI,Oceania,23,KIR,Kiribati,0,972802872,972802872
+Marshall Islands,MH,Oceania,24,MHL,Marshall,0,885082725,885082725
+"Micronesia, Federated States of",FM,Oceania,25,FSM,Micronesia,0,1742167040,1742167040
+Papua New Guinea,PG,Oceania,26,PNG,PNG,0,26244453425,26244453425
+Samoa,WS,Oceania,27,WSM,Samoa,0,1396538812,1396538812
+Solomon Islands,SB,Oceania,28,SLB,Solomon,0,3866141772,3866141772
+Tonga,TO,Oceania,29,TON,Tonga,0,912844007,912844007
+Vanuatu,VU,Oceania,30,VUT,Vanuatu,0,1862964739,1862964739
+Armenia,AM,South & Central Asia,33,ARM,Armenia,0,3721594050,3721594050
+Azerbaijan,AZ,South & Central Asia,34,AZE,Azerbaijan,0,3422200646,3422200646
+Georgia,GE,South & Central Asia,35,GEO,Georgia,0,5728511698,5728511698
+Kazakhstan,KZ,South & Central Asia,36,KAZ,Kazakhstan,0,3808482539,3808482539
+Kyrgyz Republic,KG,South & Central Asia,37,KGZ,Kyrgyzstan,0,2931552965,2931552965
+Mongolia,MN,Far East Asia,38,MNG,Mongolia,0,4575709449,4575709449
+Tajikistan,TJ,South & Central Asia,39,TJK,Tajikistan,0,2331388392,2331388392
+Turkmenistan,TM,South & Central Asia,40,TKM,Turkmenistan,0,1062192874,1062192874
+Uzbekistan,UZ,South & Central Asia,41,UZB,Uzbekistan,0,5429880460,5429880460
+Albania,AL,Europe,43,ALB,Albania,0,4598523246,4598523246
+Bosnia-Herzegovina,BA,Europe,44,BIH,Bosnia,0,8505829488,8505829488
+Bulgaria,BG,Europe,45,BGR,Bulgaria,0,2363928204,2363928204
+Croatia,HR,Europe,46,HRV,Croatia,0,1867283051,1867283051
+Czech Republic,CZ,Europe,47,CZE,Czech,358967682,2009984564,1651016882
+Hungary,HU,Europe,48,HUN,Hungary,19932057,2777038888,2757106831
+"Macedonia, FYR",MK,Europe,49,MKD,Macedonia,0,2645382238,2645382238
+Montenegro,ME,Europe,50,MNE,Montenegro,0,347484394,347484394
+Poland,PL,Europe,51,POL,Poland,0,21206440563,21206440563
+Romania,RO,Europe,52,ROU,Romania,6032073,3144135976,3138103903
+Serbia,RS,Europe,53,SRB,Serbia,0,14539795546,14539795546
+Slovak Republic,SK,Europe,54,SVK,Slovakia,57398212,799765096,742366884
+Slovenia,SI,Europe,55,SVN,Slovenia,11406625,172133649,160727024
+Belarus,BY,Europe,57,BLR,Belarus,0,843657200,843657200
+Estonia,EE,Europe,58,EST,Estonia,12600325,228011572,215411247
+Latvia,LV,Europe,59,LVA,Latvia,2298222,355118801,352820579
+Lithuania,LT,Europe,60,LTU,Lithuania,9753684,461095418,451341734
+Moldova,MD,Europe,61,MDA,Moldova,0,1987251007,1987251007
+Russia,RU,Europe,62,RUS,Russian Federation,0,51743394916,51743394916
+Ukraine,UA,Europe,63,UKR,Ukraine,0,7823110205,7823110205
+Brunei,BN,Far East Asia,66,BRN,Brunei,0,21800051,21800051
+Japan,JP,Far East Asia,67,JPN,Japan,468177861632,2081102258,-466096759374
+Korea,KR,Far East Asia,68,KOR,S Korea,16969588930,22798043883,5828454953
+Singapore,SG,Far East Asia,69,SGP,Singapore,0,2149779817,2149779817
+Australia,AU,Oceania,71,AUS,Australia,61377960476,2563647761,-58814312715
+New Zealand,NZ,Oceania,72,NZL,New Zealand,2828794025,225588310,-2603205715
+Austria,AT,Europe,75,AUT,Austria,16028647835,770267419,-15258380416
+Belgium,BE,Europe,76,BEL,Belgium,25808250219,184346233,-25623903986
+Cyprus,CY,Europe,77,CYP,Cyprus,19323922,846226833,826902911
+Denmark,DK,Europe,78,DNK,Denmark,33806082378,166310586,-33639771792
+Finland,FI,Europe,79,FIN,Finland,11035899612,180695493,-10855204119
+France,FR,Europe,80,FRA,France,176479077298,237540854,-176241536444
+Germany,DE,Europe,81,DEU,Germany,253549892105,28702,-253549863403
+Greece,GR,Europe,82,GRC,Greece,1850425569,519377906,-1331047663
+Iceland,IS,Europe,83,ISL,Iceland,96262905,18060045,-78202860
+Ireland,IE,Europe,84,IRL,Ireland,4841822288,934638729,-3907183559
+Israel,IL,Middle East,85,ISR,Israel,0,41510807260,41510807260
+Italy,IT,Europe,86,ITA,Italy,61723689818,2400826417,-59322863401
+Luxembourg,LU,Europe,87,LUX,Luxembourg,2276653848,555039832,-1721614016
+Malta,MT,Europe,88,MLT,Malta,0,858402029,858402029
+Netherlands,NL,Europe,89,NLD,Netherlands,70983450095,0,-70983450095
+Norway,NO,Europe,90,NOR,Norway,43533001071,368001981,-43164999090
+Portugal,PT,Europe,91,PRT,Portugal,9058722679,173416096,-8885306583
+Spain,ES,Europe,92,ESP,Spain,34712974622,517318402,-34195656220
+Sweden,SE,Europe,93,SWE,Sweden,49927281617,59757155,-49867524462
+Switzerland,CH,Europe,94,CHE,Switzerland,26378041660,326783,-26377714877
+United Kingdom,GB,Europe,95,GBR,UK,117041062373,947473957,-116093588416
+Argentina,AR,South America,97,ARG,Argentina,0,14275548747,14275548747
+Chile,CL,South America,98,CHL,Chile,8321508,6448488262,6440166754
+Uruguay,UY,South America,99,URY,Uruguay,0,1270112019,1270112019
+Canada,CA,North & Central America,101,CAN,Canada,70097034441,4068652966,-66028381475
+United States,US,North & Central America,102,USA,USA,659500678874,104524992,-659396153882
+Antigua & Barbuda,AG,North & Central America,105,ATG,Antigua,0,273331731,273331731
+Bahamas,BS,North & Central America,106,BHS,Bahamas,0,138600096,138600096
+Barbados,BB,North & Central America,107,BRB,Barbados,0,299852445,299852445
+Belize,BZ,North & Central America,108,BLZ,Belize,0,946659111,946659111
+Cuba,CU,North & Central America,109,CUB,Cuba,0,2965759128,2965759128
+Dominica,DM,North & Central America,110,DMA,Dominica,0,490379121,490379121
+Dominican Republic,DO,North & Central America,111,DOM,Dominican Rep,0,6913267066,6913267066
+Grenada,GD,North & Central America,112,GRD,Grenada,0,401015214,401015214
+Guyana,GY,South America,113,GUY,Guyana,0,2540066291,2540066291
+Haiti,HT,North & Central America,114,HTI,Haiti,0,13884477632,13884477632
+Jamaica,JM,North & Central America,115,JAM,Jamaica,0,7535680476,7535680476
+St. Lucia,LC,North & Central America,116,LCA,St Lucia,0,497500295,497500295
+St.Vincent & Grenadines,VC,North & Central America,117,VCT,St Vincent,0,347979983,347979983
+Suriname,SR,South America,118,SUR,Suriname,0,2979045324,2979045324
+Trinidad & Tobago,TT,North & Central America,119,TTO,Trinidad Tobago,0,2333794847,2333794847
+Bolivia,BO,South America,121,BOL,Bolivia,0,18697521241,18697521241
+Ecuador,EC,South America,122,ECU,Ecuador,0,7574016206,7574016206
+Peru,PE,South America,123,PER,Peru,0,25190253429,25190253429
+Colombia,CO,South America,125,COL,Colombia,10340249,22678235723,22667895474
+Costa Rica,CR,North & Central America,126,CRI,Costa Rica,0,6085145084,6085145084
+El Salvador,SV,North & Central America,127,SLV,El Salvador,0,12225149525,12225149525
+Guatemala,GT,North & Central America,128,GTM,Guatemala,0,9712297198,9712297198
+Honduras,HN,North & Central America,129,HND,Honduras,0,12049963932,12049963932
+Mexico,MX,North & Central America,130,MEX,Mexico,0,30172074761,30172074761
+Nicaragua,NI,North & Central America,131,NIC,Nicaragua,0,16695692722,16695692722
+Panama,PA,North & Central America,132,PAN,Panama,0,3434959055,3434959055
+Venezuela,VE,South America,133,VEN,Venezuela,0,10754530979,10754530979
+Brazil,BR,South America,135,BRA,Brazil,187035523,31549596147,31362560624
+Paraguay,PY,South America,136,PRY,Paraguay,0,3703654098,3703654098
+Algeria,DZ,"Africa, North of Sahara",139,DZA,Algeria,0,16847629348,16847629348
+Bahrain,BH,Middle East,140,BHR,Bahrain,0,2393488259,2393488259
+Egypt,EG,"Africa, North of Sahara",141,EGY,Egypt,0,99093713294,99093713294
+Iran,IR,Middle East,142,IRN,Iran,0,6027878073,6027878073
+Iraq,IQ,Middle East,143,IRQ,Iraq,0,77971919527,77971919527
+Jordan,JO,Middle East,144,JOR,Jordan,0,24011436848,24011436848
+Kuwait,KW,Middle East,145,KWT,Kuwait,32841864926,7767227628,-25074637298
+Lebanon,LB,Middle East,146,LBN,Lebanon,0,7836039795,7836039795
+Libya,LY,"Africa, North of Sahara",147,LBY,Libya,0,756608975,756608975
+Morocco,MA,"Africa, North of Sahara",148,MAR,Morocco,0,35219053949,35219053949
+Palestinian Adm. Areas,PS,Middle East,149,PSE,Palestine,0,16169507336,16169507336
+Oman,OM,Middle East,150,OMN,Oman,0,4432601551,4432601551
+Qatar,QA,Middle East,151,QAT,Qatar,104519053,730192205,625673152
+Saudi Arabia,SA,Middle East,152,SAU,Saudi Arabia,26735753281,4753584887,-21982168394
+Syria,SY,Middle East,153,SYR,Syria,0,11358424945,11358424945
+Tunisia,TN,"Africa, North of Sahara",154,TUN,Tunisia,0,23084431262,23084431262
+Turkey,TR,Europe,155,TUR,Turkey,0,37389224840,37389224840
+United Arab Emirates,AE,Middle East,156,ARE,UAE,15773180760,288031920,-15485148840
+Yemen,YE,Middle East,157,YEM,Yemen,0,13413949169,13413949169
+Afghanistan,AF,South & Central Asia,160,AFG,Afghanistan,0,47246257466,47246257466
+Bangladesh,BD,South & Central Asia,161,BGD,Bangladesh,0,58418282326,58418282326
+Bhutan,BT,South & Central Asia,162,BTN,Bhutan,0,2241088382,2241088382
+India,IN,South & Central Asia,163,IND,India,3903030186,116492512022,112589481836
+Nepal,NP,South & Central Asia,164,NPL,Nepal,0,13081302368,13081302368
+Pakistan,PK,South & Central Asia,165,PAK,Pakistan,0,67133861597,67133861597
+Angola,AO,"Africa, South of Sahara",168,AGO,Angola,0,9839985172,9839985172
+Central African Republic,CF,"Africa, South of Sahara",169,CAF,C African Rep,0,2641975142,2641975142
+"Congo, Republic of",CG,"Africa, South of Sahara",170,COG,Congo,0,7852036349,7852036349
+"Congo, Democratic Republic of",CD,"Africa, South of Sahara",171,COD,Congo DR,0,30136930806,30136930806
+Equatorial Guinea,GQ,"Africa, South of Sahara",172,GNQ,Eq Guinea,0,904943003,904943003
+Gabon,GA,"Africa, South of Sahara",173,GAB,Gabon,0,4073865396,4073865396
+Burundi,BI,"Africa, South of Sahara",175,BDI,Burundi,0,5033800342,5033800342
+Comoros,KM,"Africa, South of Sahara",176,COM,Comoros,0,950498716,950498716
+Djibouti,DJ,"Africa, South of Sahara",177,DJI,Djibouti,0,2307537889,2307537889
+Eritrea,ER,"Africa, South of Sahara",178,ERI,Eritrea,0,2488666939,2488666939
+Ethiopia,ET,"Africa, South of Sahara",179,ETH,Ethiopia,0,27861221039,27861221039
+Kenya,KE,"Africa, South of Sahara",180,KEN,Kenya,0,32602125417,32602125417
+Madagascar,MG,"Africa, South of Sahara",181,MDG,Madagascar,0,10850551431,10850551431
+Malawi,MW,"Africa, South of Sahara",182,MWI,Malawi,0,11078966988,11078966988
+Mauritius,MU,"Africa, South of Sahara",183,MUS,Mauritius,0,2987662705,2987662705
+Mozambique,MZ,"Africa, South of Sahara",184,MOZ,Mozambique,0,37628378627,37628378627
+Rwanda,RW,"Africa, South of Sahara",185,RWA,Rwanda,0,9610251533,9610251533
+Seychelles,SC,"Africa, South of Sahara",186,SYC,Seychelles,0,770081782,770081782
+Somalia,SO,"Africa, South of Sahara",187,SOM,Somalia,0,10521512342,10521512342
+Tanzania,TZ,"Africa, South of Sahara",189,TZA,Tanzania,0,44360112755,44360112755
+Uganda,UG,"Africa, South of Sahara",190,UGA,Uganda,0,19030942011,19030942011
+Zambia,ZM,"Africa, South of Sahara",191,ZMB,Zambia,0,23847266954,23847266954
+Lesotho,LS,"Africa, South of Sahara",194,LSO,Lesotho,0,2906107718,2906107718
+South Africa,ZA,"Africa, South of Sahara",196,ZAF,S Africa,227435392,15999061300,15771625908
+Swaziland,SZ,"Africa, South of Sahara",197,SWZ,Swaziland,0,1446649754,1446649754
+Zimbabwe,ZW,"Africa, South of Sahara",198,ZWE,Zimbabwe,0,13758775975,13758775975
+Benin,BJ,"Africa, South of Sahara",200,BEN,Benin,0,7070986558,7070986558
+Burkina Faso,BF,"Africa, South of Sahara",201,BFA,Burkina Faso,0,12318970215,12318970215
+Cameroon,CM,"Africa, South of Sahara",202,CMR,Cameroon,0,20686550050,20686550050
+Cape Verde,CV,"Africa, South of Sahara",203,CPV,Cape Verde,0,3749093078,3749093078
+Chad,TD,"Africa, South of Sahara",204,TCD,Chad,0,5378487326,5378487326
+Cote d`Ivoire,CI,"Africa, South of Sahara",205,CIV,Cote d'Ivoire,0,20314273362,20314273362
+Gambia,GM,"Africa, South of Sahara",206,GMB,Gambia,0,1545570305,1545570305
+Ghana,GH,"Africa, South of Sahara",207,GHA,Ghana,0,26324717729,26324717729
+Guinea,GN,"Africa, South of Sahara",208,GIN,Guinea,0,7028569317,7028569317
+Guinea-Bissau,GW,"Africa, South of Sahara",209,GNB,Guinea-Bissau,0,2805860355,2805860355
+Liberia,LR,"Africa, South of Sahara",210,LBR,Liberia,0,6838321588,6838321588
+Mali,ML,"Africa, South of Sahara",211,MLI,Mali,0,15058019238,15058019238
+Mauritania,MR,"Africa, South of Sahara",212,MRT,Mauritania,0,6026110049,6026110049
+Niger,NE,"Africa, South of Sahara",213,NER,Niger,0,9250458609,9250458609
+Nigeria,NG,"Africa, South of Sahara",214,NGA,Nigeria,0,36400005833,36400005833
+Sao Tome & Principe,ST,"Africa, South of Sahara",215,STP,Sao Tome Principe,0,689240697,689240697
+Senegal,SN,"Africa, South of Sahara",216,SEN,Senegal,0,18537998501,18537998501
+Sierra Leone,SL,"Africa, South of Sahara",217,SLE,Sierra Leone,0,5918103376,5918103376
+Togo,TG,"Africa, South of Sahara",218,TGO,Togo,0,4925348702,4925348702
 Bermuda,BM,North & Central America,305,BMD,Bermuda,0,60977095,60977095
 Northern Marianas,MP,Oceania,376,MAR,N Mariana,0,213198981,213198981
-South Sudan,SS,"Africa, South of Sahara",435,SDN,S Sudan,0,4844226369,4844226369
+South Sudan,SS,"Africa, South of Sahara",435,SDN,S Sudan,0,2829065022,2829065022

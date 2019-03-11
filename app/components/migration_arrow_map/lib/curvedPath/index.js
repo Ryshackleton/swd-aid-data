@@ -18,8 +18,6 @@ const getAngledLineFromPoints = (p1, p2, distance, pCenter, perp) => {
     centerY = pCenter[1];
   var angle = Math.atan2(y2 - y1, x2 - x1);
 
-  // console.log(angle*180/Math.PI)
-
   // Draw a normal to the line above
   if (perp) {
     return [

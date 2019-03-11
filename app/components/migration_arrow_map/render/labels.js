@@ -1,4 +1,5 @@
 import chroma from 'chroma-js';
+import { get } from 'lodash';
 
 export default function drawNodeLabels(selection, settings, state) {
   const {
@@ -9,6 +10,7 @@ export default function drawNodeLabels(selection, settings, state) {
     isCartogram,
     labelDefaultOpacity,
     labelPropName,
+    labelLongName,
     radiusAccessor,
     xAccessor,
     yAccessor,
@@ -40,6 +42,19 @@ export default function drawNodeLabels(selection, settings, state) {
     return `translate(${x},${y})scale(${scale})`;
   };
 
+  const textSpacing = fontSize / 2;
+  const getText = (datum) => {
+    const defaultText = get(datum, labelPropName, '');
+    const longText = get(datum, labelLongName);
+    if (longText) {
+      const width = 2 * radiusAccessor(datum);
+      return width < (longText.length * textSpacing)
+        ? defaultText
+        : longText;
+    }
+    return defaultText;
+  };
+
   const enter = join
     .enter()
     .append('text')
@@ -55,7 +70,7 @@ export default function drawNodeLabels(selection, settings, state) {
     .attr('transform', getTransform);
 
   join.merge(enter)
-    .text(datum => (datum[labelPropName] ? datum[labelPropName] : ''))
+    .text(getText)
     .transition()
     .duration(duration)
     .style('fill', getOppositeColor)

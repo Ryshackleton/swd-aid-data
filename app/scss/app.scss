@@ -6,8 +6,8 @@ $narration-area-margin: 2.5%;
 $graph-area-padding: 0;
 $graph-area-margin: 0;
 $graph-background-color: transparent;
-$graph-default-opacity: 0;
-$graph-container-default-opacity: 0;
+$graph-default-opacity: 1;
+$graph-container-default-opacity: 1;
 
 /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
 html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
@@ -15,6 +15,10 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
 /*  apply a natural box layout model to all elements  */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, p, text {
+  font-family: Trebuchet MS, Helvetica, sans-serif;
+}
 
 .flex_vertical_column_centered {
   display: flex;
@@ -25,8 +29,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 }
 
 .article-header {
-  margin-left: 20%;
-  margin-right: 20%;
+  padding-left: 5%;
 }
 
 /*  ------------- SCROLL -------------  */
@@ -51,6 +54,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   padding: 0;
   margin: 0;
   pointer-events: none;
+  width: 100%;
 }
 
 /*  ------------- NARRATION (block) -------------  */
@@ -98,6 +102,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   grid-area: graphArea;
   top: 15vh;
   height: 80vh;
+  width: 100%;
   position: fixed; // fix for ie not properly supporting sticky
   position: sticky;
   padding: 0;

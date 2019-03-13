@@ -1,6 +1,9 @@
+import { identity } from 'lodash';
+
 export default function drawBubbles(selection, settings, state) {
   const {
     isCartogram,
+    createTooltipFromState = identity,
     nodeData,
     bubbleDefaultOpacity,
     xAccessor,
@@ -11,7 +14,11 @@ export default function drawBubbles(selection, settings, state) {
   } = state;
   const {
     transition: { duration },
+    css: { groups: { bubbles: bubblesSelector } },
   } = settings;
+
+  const makeTooltipForDatum = createTooltipFromState(state, `.${bubblesSelector}`);
+
   const bubbles = selection
     .selectAll('circle')
     .data(isCartogram ? nodeData : []);
@@ -28,6 +35,7 @@ export default function drawBubbles(selection, settings, state) {
 
   bubbles
     .merge(enter)
+    .each(makeTooltipForDatum)
     .transition()
     .duration(duration)
     .attr('cx', xAccessor)

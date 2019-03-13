@@ -48,6 +48,7 @@ function getColorAccessor(settings, state) {
     colorRange,
     d3ColorScaleName,
     geographyPropName,
+    legendTickFormatFunction,
   } = state;
   const valueAccessor = d => d[colorPropName];
   const colorExtent = extent(nodeData, valueAccessor);
@@ -62,6 +63,9 @@ function getColorAccessor(settings, state) {
       800,
       10,
       colorLegendTitle,
+      undefined, // use default styles
+      undefined, // use default styles
+      legendTickFormatFunction,
     );
     colorScale = scale;
     colorLegendHtml = legend;

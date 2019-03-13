@@ -1,7 +1,7 @@
+import { identity } from 'lodash';
 // stolen directly from: https://observablehq.com/@trebor/quantized-color-scale
 import { quantize, scaleQuantize } from 'd3';
 import * as chromatic from 'd3-scale-chromatic';
-import { formatWithSuffixToPrecision } from './utils';
 
 export default function quantizeColorScaleFactory(
   scale,
@@ -12,6 +12,7 @@ export default function quantizeColorScaleFactory(
   title = '',
   tickFontStylesString = 'font-family: Trebuchet MS, Helvetica, sans-serif; font-size: 16px;',
   titleFontStylesString = 'font-family: Trebuchet MS, Helvetica, sans-serif; font-size: 20px;',
+  legendTickFormatFunction = identity,
 ) {
   const colorScale = scaleQuantize()
     .domain(scale.range())
@@ -25,7 +26,7 @@ export default function quantizeColorScaleFactory(
   const fixedTickWidth = width / count;
   const ticks = colorScale.range().filter((d, i, a) => i < a.length - 1).map((c, i) => (
     `<div style="${tickFontStylesString}; text-align: center; width:${fixedTickWidth}px;">
-      ${formatWithSuffixToPrecision(0, scale.invert(colorScale.invertExtent(c)[1]))}
+      ${legendTickFormatFunction(scale.invert(colorScale.invertExtent(c)[1]))}
      </div>`
   ));
 

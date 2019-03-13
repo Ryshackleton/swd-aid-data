@@ -1,26 +1,16 @@
 import chroma from 'chroma-js';
 import { scaleLinear, extent } from 'd3';
-import { get, isNaN, isNil } from 'lodash';
+import { get } from 'lodash';
 import tippy from 'tippy.js';
-import { formatWithSuffixToPrecision } from '../../../components/migration_arrow_map/utils/utils';
+import { formatAmt } from './util';
 
-function formatAmt(value, makeAbsoluteValue = true) {
-  if (value === 0 || isNaN(value) || isNil(value)) {
-    return 0;
-  }
-  return makeAbsoluteValue
-    ? formatWithSuffixToPrecision(0, Math.abs(value))
-    : formatWithSuffixToPrecision(0, value);
-}
-
-export default function createTooltipFromState(state, targetSelector) {
+export function createTooltipFromState(state, targetSelector) {
   return function buildTooltipHTML(d) {
     const {
       arrowFlowPropName,
       arrowOriginLabelProp,
       arrowDestnationLabelProp,
       arrowMetadata,
-      colorAccessor,
       colorFromValue,
       colorPropName,
       geographyClassAccessor,
@@ -40,11 +30,6 @@ export default function createTooltipFromState(state, targetSelector) {
     const selfDonated = formatAmt(datum.net_donated);
     const selfReceived = formatAmt(datum.net_received);
 
-    // const color = colorAccessor(datum);
-    // const reverseColor = chroma(color).luminance() < 0.5
-    //   ? chroma(color).brighten(3)
-    //   : chroma(color).darken(3);
-
     const xScale = scaleLinear().domain(extent(conn, c => c[arrowFlowPropName])).range([75, 150]);
     const top5 = conn.map((c) => {
       const val = c[arrowFlowPropName];
@@ -60,15 +45,15 @@ export default function createTooltipFromState(state, targetSelector) {
                           width:${xScale(val)}px;">${otherName} - $${amt}</div>`;
     });
     const donorOrRecip = isOriginFocused ? 'Recipients' : 'Donors';
-    const donatedOrReceived = isOriginFocused ? 'Donated' : 'Received';
+    const donatedOrReceived = isOriginFocused ? 'Net Donation' : 'Net Received';
     const connectionsText = top5.length === 0
       ? `No ${donorOrRecip}`
       : `Top ${top5.length} ${donorOrRecip}`;
 
     const html = `<div>
                     <span><strong>${name}</strong>: $${selfAmt} ${donatedOrReceived}</span>
-                    <div><em>Donated</em>: $${selfDonated}</div>
-                    <div><em>Received</em>: $${selfReceived}</div>
+                    <div><em>Donated: $${selfDonated}</em></div>
+                    <div><em>Received: $${selfReceived}</em></div>
                     <div>${connectionsText}</div>
                     <div class="tooltip-chart">
                       ${top5.join('')}

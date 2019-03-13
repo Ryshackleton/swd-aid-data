@@ -3,7 +3,8 @@ import {
 } from 'd3';
 import './data/narration.csv';
 import './scss/arrow_map_section.scss';
-import createTooltipFromState from './utils/tooltip';
+import { formatAmt } from './utils/util';
+import { createTooltipFromState } from './utils/tooltip';
 
 import FlowArrowMap from '../../components/migration_arrow_map';
 
@@ -235,6 +236,7 @@ export default {
           labelLongName: 'short_name',
           // color legend
           colorLegendTitle: 'Net USD donated (-) or Received (+) in Billions from 1973-2013',
+          legendTickFormatFunction: formatAmt, // format to zero precision
 
           // flow data array
           flowData: arrowData,

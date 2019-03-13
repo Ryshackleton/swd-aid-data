@@ -3,6 +3,7 @@ import {
 } from 'd3';
 import './data/narration.csv';
 import './scss/arrow_map_section.scss';
+import createTooltipFromState from './utils/tooltip';
 
 import FlowArrowMap from '../../components/migration_arrow_map';
 
@@ -233,7 +234,7 @@ export default {
           labelPropName: 'map_id',
           labelLongName: 'short_name',
           // color legend
-          colorLegendTitle: 'Net USD donated (-) or Received (+) in Billions from 1947-2013',
+          colorLegendTitle: 'Net USD donated (-) or Received (+) in Billions from 1973-2013',
 
           // flow data array
           flowData: arrowData,
@@ -241,11 +242,16 @@ export default {
           arrowOriginPropName: 'donor_location_id',
           arrowDestinationPropName: 'recipient_location_id',
           arrowFlowPropName: 'commitment_amount_usd_sum',
+          arrowOriginLabelProp: 'donor',
+          arrowDestnationLabelProp: 'recipient',
           arrowHighlightOpacity: 0.9,
           arrowMidPointWeight: 0.4, // controls curvature of arrows 0 straight, 1 curved
           arrowScaleRangePixels: [10, 50],
           arrowScaleColorRange: ['lightgrey', '#333333'],
           destinationArrowPadding: 0.75,
+
+          // tooltip creator using tippy.js
+          createTooltipFromState,
 
           // starting state
           ...viewStates.geoArrowWebNoColor,

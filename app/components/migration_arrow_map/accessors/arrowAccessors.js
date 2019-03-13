@@ -55,6 +55,10 @@ export const getArrowMetadata = memoize(
         // normalize the mean
         metadataObject.mean.normalize();
 
+        // sort arrows ascending to ensure bigger ones are on top (draw order)
+        metadataObject.connected_arrows = metadataObject.connected_arrows
+          .sort((a, b) => (a[arrowFlowPropName] - b[arrowFlowPropName]));
+
         // compute color scales
         metadataObject.colorScale = scaleLinear()
           .domain(leafFlowExtent)

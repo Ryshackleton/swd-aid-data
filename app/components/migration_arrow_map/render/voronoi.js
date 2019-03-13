@@ -56,6 +56,7 @@ export default function drawVoronoi(selection, settings, state, selections) {
     .data(cells)
     .enter()
     .append('path')
+    .attr('class', d => cleanCssName(d.data[geographyPropName]))
     .attr('d', d => (`M${d.join('L')}Z`))
     .style('pointer-events', 'all')
     .style('fill', 'transparent')
@@ -141,25 +142,31 @@ export default function drawVoronoi(selection, settings, state, selections) {
         .selectAll('path')
         .data(get(arrowMetadata, [nodeLoc, 'connected_arrows'], []));
 
+      const getFill = (datum) => {
+        // lookup color scale from node name
+        const { colorScale } = arrowMetadata[datum[dynamicOrigin]];
+        return colorScale(Math.abs(datum[arrowFlowPropName]));
+      };
+
       const enter = join
         .enter()
         .append('path')
         .attr('class', cleanCssName(nodeLoc))
         .style('pointer-events', 'none')
-        .attr('stroke', 'lightgray')
+        .style('stroke', 'lightgray')
         .style('stroke-width', '0.5px');
 
       join
         .merge(enter)
         .attr('d', arrowPathFunction)
-        .attr('opacity', arrowHighlightOpacity)
-        .attr('fill', (datum) => {
-          // lookup color scale from node name
-          const { colorScale } = arrowMetadata[datum[dynamicOrigin]];
-          return colorScale(Math.abs(datum[arrowFlowPropName]));
-        });
+        .style('fill', getFill)
+        .style('opacity', arrowHighlightOpacity);
 
-      join.exit().remove();
+      join.exit()
+        .transition()
+        .duration(300)
+        .style('opacity', 0)
+        .remove();
     })
       .on('mouseout', (node) => {
         const nodeLoc = node.data[geographyPropName];

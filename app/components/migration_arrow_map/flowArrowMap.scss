@@ -2,3 +2,15 @@
 .colorLegend {
   height: 20%;
 }
+
+.tooltip-chart div {
+  font: 12px sans-serif;
+  background-color: lightgray;
+  border-radius: 3px;
+  text-align: center;
+  padding: 3px;
+  margin: 2px;
+  color: black;
+  text-overflow: ellipsis;
+  overflow: visible;
+}

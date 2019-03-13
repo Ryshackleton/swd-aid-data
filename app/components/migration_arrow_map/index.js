@@ -13,6 +13,7 @@ import { defaultSettings, settingsKeys } from './settings';
 import defaultState from './state';
 
 import './flowArrowMap.scss';
+import 'tippy.js/themes/light-border.css';
 
 export default class FlowArrowMap {
   constructor(node, settings) {

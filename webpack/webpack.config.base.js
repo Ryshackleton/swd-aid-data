@@ -28,7 +28,7 @@ export default new Config().merge({
       {
         from: 'app/resources',
         to: 'resources'
-      },
+      }
     ]),
   ],
   module: {
@@ -107,14 +107,6 @@ export default new Config().merge({
           }
         }
       },
-      {
-        test: /\.(csv|tsv)/,
-        use: {
-          loader: 'csv-loader',
-          options: {
-          }
-        }
-      }
     ]
   },
   resolve: {

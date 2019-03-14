@@ -1,10 +1,10 @@
 import {
   extent, csv, json, max, scaleLinear,
 } from 'd3';
-import './data/narration.csv';
-import './scss/arrow_map_section.scss';
 import { formatAmt } from './utils/util';
 import { createTooltipFromState } from './utils/tooltip';
+
+import './scss/arrow_map_section.scss';
 
 import FlowArrowMap from '../../components/migration_arrow_map';
 
@@ -133,11 +133,11 @@ const viewStates = {
 /** section configuration object with identifier, narration, and data (for the graph)  */
 export default {
   sectionIdentifier: 'arrow_map_section',
-  narration: 'app/containers/arrow_map_section/data/narration.csv',
+  narration: 'dist/resources/data/arrow_map_section_narration.csv',
   data: Promise.all([
-    csv('app/containers/arrow_map_section/data/arrowData.csv'),
-    csv('app/containers/arrow_map_section/data/nodeData.csv'),
-    json('app/containers/arrow_map_section/data/world-topo-no-antarctica.json'),
+    csv('dist/resources/data/arrowData.csv'),
+    csv('dist/resources/data/nodeData.csv'),
+    json('dist/resources/data/world-topo-no-antarctica.json'),
   ]),
 
   convertTriggerToObject: true,

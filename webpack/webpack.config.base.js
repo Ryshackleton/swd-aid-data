@@ -29,10 +29,6 @@ export default new Config().merge({
         from: 'app/resources',
         to: 'resources'
       },
-      {
-        from: 'app/data/static_data_files',
-        to: 'data'
-      },
     ]),
   ],
   module: {

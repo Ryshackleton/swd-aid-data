@@ -7,3 +7,18 @@
   opacity: 1;
 }
 
+.tooltip-inner {
+  font: 14px sans-serif;
+}
+
+.tooltip-chart div {
+  font: 12px sans-serif;
+  background-color: lightgray;
+  border-radius: 3px;
+  text-align: center;
+  padding: 3px;
+  margin: 2px;
+  color: black;
+  text-overflow: ellipsis;
+  overflow: visible;
+}

@@ -2,6 +2,7 @@ import { pick } from 'lodash';
 import renderSvg from './render/svg';
 import buildAccessors from './accessors/buildAccessors';
 import drawArrows from './render/arrows';
+import drawArrowsSelected from './render/arrowsSelect';
 import drawBubbles from './render/bubbles';
 import drawGeography from './render/geography';
 import drawColorLegend from './render/colorLegend';
@@ -13,7 +14,6 @@ import { defaultSettings, settingsKeys } from './settings';
 import defaultState from './state';
 
 import './flowArrowMap.scss';
-import 'tippy.js/themes/light-border.css';
 
 export default class FlowArrowMap {
   constructor(node, settings) {
@@ -34,12 +34,13 @@ export default class FlowArrowMap {
   }
 
   draw() {
-    drawBubbles(this.selections.bubbles, this.settings, this.state);
-    drawGeography(this.selections.geography, this.settings, this.state);
-    drawNodeLabels(this.selections.labels, this.settings, this.state);
-    drawColorLegend(this.selections.colorLegend, this.settings, this.state);
-    drawVoronoi(this.selections.voronoi, this.settings, this.state, this.selections);
-    drawArrows(this.selections.arrows, this.settings, this.state);
+    drawBubbles(this.selections, this.settings, this.state);
+    drawGeography(this.selections, this.settings, this.state);
+    drawNodeLabels(this.selections, this.settings, this.state);
+    drawColorLegend(this.selections, this.settings, this.state);
+    drawVoronoi(this.selections, this.settings, this.state);
+    drawArrows(this.selections, this.settings, this.state);
+    drawArrowsSelected(this.selections, this.settings, this.state);
   }
 
   update(props) {

@@ -3,6 +3,7 @@ import { scaleLinear, extent } from 'd3';
 import { get } from 'lodash';
 import tippy from 'tippy.js';
 import { formatAmt } from './util';
+import 'tippy.js/themes/light-border.css';
 
 export function createTooltipFromState(state, targetSelector) {
   return function buildTooltipHTML(d) {
@@ -63,7 +64,6 @@ export function createTooltipFromState(state, targetSelector) {
 
     const tippyOpts = {
       content: html,
-      // distance: radiusAccessor(datum) || 20,
       theme: 'light-border',
       // followCursor: 'initial', // 'true',
       hideOnClick: true,

@@ -50,10 +50,11 @@ export function createTooltipFromState(state, targetSelector) {
       ? `No ${donorOrRecip}`
       : `Top ${top5.length} ${donorOrRecip}`;
 
-    const html = `<div>
-                    <span><strong>${name}</strong>: $${selfAmt} ${donatedOrReceived}</span>
-                    <div><em>Donated: $${selfDonated}</em></div>
-                    <div><em>Received: $${selfReceived}</em></div>
+    const html = `<div class="tooltip-inner">
+                    <div><strong>${name}</strong></div>
+                    <div>$${selfAmt} ${donatedOrReceived}</div>
+                    <div><em>$${selfDonated} Donated</em></div>
+                    <div><em>$${selfReceived} Received</em></div>
                     <div>${connectionsText}</div>
                     <div class="tooltip-chart">
                       ${top5.join('')}

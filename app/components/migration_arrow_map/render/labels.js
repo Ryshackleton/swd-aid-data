@@ -1,7 +1,10 @@
 import chroma from 'chroma-js';
 import { get } from 'lodash';
 
-export default function drawNodeLabels(selection, settings, state) {
+export default function drawNodeLabels(selections, settings, state) {
+  const {
+    labels: selection,
+  } = selections;
   const {
     colorAccessor,
     nodeData,

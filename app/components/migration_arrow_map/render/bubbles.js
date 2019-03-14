@@ -1,6 +1,9 @@
 import { identity } from 'lodash';
 
-export default function drawBubbles(selection, settings, state) {
+export default function drawBubbles(selections, settings, state) {
+  const {
+    bubbles: selection,
+  } = selections;
   const {
     isCartogram,
     createTooltipFromState = identity,

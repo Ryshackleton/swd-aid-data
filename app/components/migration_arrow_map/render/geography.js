@@ -1,5 +1,8 @@
 
-export default function drawGeography(selection, settings, state) {
+export default function drawGeography(selections, settings, state) {
+  const {
+    geography: selection,
+  } = selections;
   const {
     bubbleDefaultOpacity,
     features,

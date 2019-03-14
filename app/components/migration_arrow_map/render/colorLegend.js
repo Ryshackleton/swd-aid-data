@@ -1,5 +1,8 @@
 
-export default function drawColorLegend(selection, settings, state) {
+export default function drawColorLegend(selections, settings, state) {
+  const {
+    colorLegend: selection,
+  } = selections;
   const {
     colorLegendHtml,
     isDisplayingColorLegend,

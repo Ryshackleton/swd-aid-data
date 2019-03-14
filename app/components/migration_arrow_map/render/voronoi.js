@@ -1,20 +1,21 @@
 import { voronoi } from 'd3';
-import { get } from 'lodash';
+import { highlightNodeFunction, unHighlightNodeFunction } from './arrowsSelect';
 import { cleanCssName } from '../utils/utils';
 
-export default function drawVoronoi(selection, settings, state, selections) {
+export default function drawVoronoi(selections, settings, state) {
+  const {
+    arrows,
+    bubbles,
+    labels,
+    svg,
+    voronoi: selection,
+  } = selections;
   const {
     topoJSONBaseWidth: width,
     topoJSONBaseHeight: height,
     transition: { duration },
   } = settings;
   const {
-    arrowMetadata,
-    arrowDestinationPropName,
-    arrowFlowPropName,
-    arrowOriginPropName,
-    arrowPathFunction,
-    isOriginFocused,
     arrowConnectedGeographiesCssSeletor,
     arrowDefaultOpacity,
     arrowHighlightOpacity,
@@ -29,12 +30,6 @@ export default function drawVoronoi(selection, settings, state, selections) {
     xAccessor,
     yAccessor,
   } = state;
-  const {
-    arrows,
-    bubbles,
-    labels,
-    svg,
-  } = selections;
 
   selection
     .selectAll('path')
@@ -115,60 +110,19 @@ export default function drawVoronoi(selection, settings, state, selections) {
       });
   }
   if (nodeHoverState === 'HOT_BUILD_CONNECTED') {
-    const dynamicOrigin = isOriginFocused
-      ? arrowOriginPropName
-      : arrowDestinationPropName;
+    const highlightNode = highlightNodeFunction(arrows, bubbles, labels, state);
+    const unHighlightNode = unHighlightNodeFunction(arrows, bubbles, state);
 
-    svg.on('mouseout', () => {
-      bubbles.selectAll('circle')
-        .style('opacity', bubbleDefaultOpacity);
-      labels.selectAll('text')
-        .style('opacity', labelDefaultOpacity);
-    });
-
-    paths.on('mouseover', (node) => {
-      const nodeLoc = node.data[geographyPropName];
-
-      const connected = get(arrowMetadata, [nodeLoc, 'connected_loc_opacity'], {});
-      const nodeOpacityFunction = datum => (connected[datum[geographyPropName]]
-        ? connected[datum[geographyPropName]]
-        : bubbleHiddenOpacity);
-      bubbles.selectAll('circle')
-        .style('opacity', nodeOpacityFunction);
-      labels.selectAll('text')
-        .style('opacity', nodeOpacityFunction);
-
-      const join = arrows
-        .selectAll('path')
-        .data(get(arrowMetadata, [nodeLoc, 'connected_arrows'], []));
-
-      const getFill = (datum) => {
-        // lookup color scale from node name
-        const { colorScale } = arrowMetadata[datum[dynamicOrigin]];
-        return colorScale(Math.abs(datum[arrowFlowPropName]));
-      };
-
-      const enter = join
-        .enter()
-        .append('path')
-        .attr('class', cleanCssName(nodeLoc))
-        .style('pointer-events', 'none')
-        .style('stroke', 'lightgray')
-        .style('stroke-width', '0.5px');
-
-      join
-        .merge(enter)
-        .attr('d', arrowPathFunction)
-        .style('fill', getFill)
-        .style('opacity', arrowHighlightOpacity);
-
-      join.exit().remove();
-    })
-      .on('mouseout', (node) => {
-        const nodeLoc = node.data[geographyPropName];
-        arrows.selectAll(`path.${cleanCssName(nodeLoc)}`)
-          .style('opacity', arrowDefaultOpacity)
-          .remove();
+    svg
+      .on('mouseout', () => {
+        bubbles.selectAll('circle')
+          .style('opacity', bubbleDefaultOpacity);
+        labels.selectAll('text')
+          .style('opacity', labelDefaultOpacity);
       });
+
+    paths
+      .on('mouseover', d => highlightNode(d.data[geographyPropName]))
+      .on('mouseout', d => unHighlightNode(d.data[geographyPropName]));
   }
 }

@@ -11,6 +11,7 @@ export const defaultSettings = {
       geography: 'geography',
       bubbles: 'bubbles',
       arrows: 'arrows',
+      arrowsSelect: 'arrowsSelect',
       voronoi: 'voronoi',
       labels: 'labels',
     },

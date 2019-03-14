@@ -1,6 +1,8 @@
-import { cleanCssName } from '../utils/utils';
 
-export default function drawArrows(selection, settings, state) {
+export default function drawArrows(selections, settings, state) {
+  const {
+    arrows: selection,
+  } = selections;
   const {
     arrowMetadata,
     arrowDefaultOpacity,
@@ -21,7 +23,10 @@ export default function drawArrows(selection, settings, state) {
   const join = selection
     .selectAll('path')
     .data(
-      !isDisplayingArrows || nodeHoverState === 'HOT_BUILD_CONNECTED' ? [] : flowData,
+      !isDisplayingArrows
+      || nodeHoverState === 'HOT_BUILD_CONNECTED'
+        ? []
+        : flowData,
     );
 
   const enter = join

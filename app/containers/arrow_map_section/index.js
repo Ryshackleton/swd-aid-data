@@ -1,6 +1,7 @@
 import {
   extent, csv, json, max, scaleLinear,
 } from 'd3';
+import { isEmpty } from 'lodash';
 import { formatAmt } from './utils/util';
 import { createTooltipFromState } from './utils/tooltip';
 
@@ -104,6 +105,30 @@ const viewStates = {
     isOriginFocused: true,
     bubbleRadiusPadding: 10,
     radiusPropName: 'net_donated',
+    nodeHoverState: 'NONE',
+  },
+  cartoArrowDonorHighlightSelected: {
+    arrowConnectedLocationSelection: [], // set by onActivateNarration() based on locations prop
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: true,
+    isDisplayingArrows: false,
+    isDisplayingColorLegend: true,
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    radiusPropName: 'net_donated',
+    nodeHoverState: 'NONE',
+  },
+  cartoArrowRecipientHighlightSelected: {
+    arrowConnectedLocationSelection: [], // set by onActivateNarration() based on locations prop
+    bubbleDefaultOpacity: 0.9,
+    labelDefaultOpacity: 0.9,
+    isCartogram: true,
+    isDisplayingArrows: false,
+    isDisplayingColorLegend: true,
+    isOriginFocused: false,
+    bubbleRadiusPadding: 10,
+    radiusPropName: 'net_received',
     nodeHoverState: 'NONE',
   },
   cartoArrowDonorColorHotBuildConnected: {
@@ -231,6 +256,7 @@ export default {
           labelPropName: 'map_id',
           labelLongName: 'short_name',
           // color legend
+          /* eslint-disable-next-line */
           colorLegendTitle: '<span>Net <span style="color:#67001E;"><strong>donated</strong></span> or \
                              <span style="color:#052F61;"><strong>received</strong></span> \
                              in Billions from 1973-2013</span>',
@@ -307,12 +333,20 @@ export default {
     {
       state: {
         viewState,
+        locationsSelect = '',
       },
       sectionConfig: { graph },
     },
   ) {
     if (viewState && viewStates[viewState]) {
-      graph.update({ chartState: viewStates[viewState] });
+      graph.update({
+        chartState: {
+          ...viewStates[viewState],
+          arrowConnectedLocationSelection: isEmpty(locationsSelect)
+            ? []
+            : locationsSelect.split(','),
+        },
+      });
     }
   },
 };

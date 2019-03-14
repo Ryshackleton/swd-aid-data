@@ -23,6 +23,7 @@ export default function renderSvg(parentNode, settings) {
     arrowLegend: parent.append('div').classed(css.groups.arrowLegend, true),
     geography: svg.append('g').classed(css.groups.geography, true),
     arrows: svg.append('g').classed(css.groups.arrows, true),
+    arrowsSelect: svg.append('g').classed(css.groups.arrowsSelect, true),
     bubbles: svg.append('g').classed(css.groups.bubbles, true),
     voronoi: svg.append('g').classed(css.groups.voronoi, true),
     labels: svg.append('g').classed(css.groups.labels, true),

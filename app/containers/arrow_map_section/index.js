@@ -20,6 +20,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   geoArrowWebNoColor: {
+    arrowDefaultOpacity: 0.2,
     bubbleDefaultOpacity: 0,
     labelDefaultOpacity: 0,
     isCartogram: false,
@@ -32,6 +33,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   geoArrowWebColor: {
+    arrowDefaultOpacity: 0.2,
     bubbleDefaultOpacity: 0,
     labelDefaultOpacity: 0,
     isCartogram: false,
@@ -44,6 +46,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   geoNoArrowColor: {
+    arrowDefaultOpacity: 0.2,
     bubbleDefaultOpacity: 0,
     labelDefaultOpacity: 0,
     isCartogram: false,
@@ -56,6 +59,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   cartoDonorColored: {
+    arrowDefaultOpacity: 0.075,
     bubbleDefaultOpacity: 0.9,
     labelDefaultOpacity: 0.9,
     isCartogram: true,
@@ -67,6 +71,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   cartoRecipientColored: {
+    arrowDefaultOpacity: 0.075,
     bubbleDefaultOpacity: 0.9,
     labelDefaultOpacity: 0.9,
     isCartogram: true,
@@ -78,6 +83,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   cartoArrowRecipientColored: {
+    arrowDefaultOpacity: 0.075,
     bubbleDefaultOpacity: 0.9,
     labelDefaultOpacity: 0.9,
     isCartogram: true,
@@ -89,22 +95,12 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   cartoArrowDonorColored: {
+    arrowDefaultOpacity: 0.075,
     bubbleDefaultOpacity: 0.9,
     labelDefaultOpacity: 0.9,
     isCartogram: true,
     isDisplayingArrows: true,
     isDisplayingColorLegend: true,
-    isOriginFocused: true,
-    bubbleRadiusPadding: 10,
-    radiusPropName: 'net_donated',
-    nodeHoverState: 'NONE',
-  },
-  cartoArrowWeb: {
-    bubbleDefaultOpacity: 0,
-    labelDefaultOpacity: 0,
-    isCartogram: true,
-    isDisplayingArrows: true,
-    isDisplayingColorLegend: false,
     isOriginFocused: true,
     bubbleRadiusPadding: 10,
     radiusPropName: 'net_donated',
@@ -235,7 +231,9 @@ export default {
           labelPropName: 'map_id',
           labelLongName: 'short_name',
           // color legend
-          colorLegendTitle: 'Net USD donated (-) or Received (+) in Billions from 1973-2013',
+          colorLegendTitle: '<span>Net <span style="color:#67001E;"><strong>donated</strong></span> or \
+                             <span style="color:#052F61;"><strong>received</strong></span> \
+                             in Billions from 1973-2013</span>',
           legendTickFormatFunction: formatAmt, // format to zero precision
 
           // flow data array

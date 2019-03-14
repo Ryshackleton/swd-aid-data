@@ -1,4 +1,4 @@
-// import { cleanCssName } from '../utils/utils';
+import { cleanCssName } from '../utils/utils';
 
 export default function drawArrows(selection, settings, state) {
   const {
@@ -20,7 +20,9 @@ export default function drawArrows(selection, settings, state) {
 
   const join = selection
     .selectAll('path')
-    .data(!isDisplayingArrows || nodeHoverState === 'HOT_BUILD_CONNECTED' ? [] : flowData);
+    .data(
+      !isDisplayingArrows || nodeHoverState === 'HOT_BUILD_CONNECTED' ? [] : flowData,
+    );
 
   const enter = join
     .enter()
@@ -29,14 +31,16 @@ export default function drawArrows(selection, settings, state) {
     .style('pointer-events', 'none')
     .attr('stroke', 'lightgray')
     .style('stroke-width', '0.5px')
-    .attr('opacity', arrowDefaultOpacity);
-
-  join.merge(enter)
+    .attr('opacity', arrowDefaultOpacity)
     .attr('fill', (datum) => {
       // lookup color scale from node name
       const { colorScale } = arrowMetadata[datum[dynamicOrigin]];
       return colorScale(Math.abs(datum[arrowFlowPropName]));
-    })
+    });
+
+  join.merge(enter)
+    .transition()
+    .delay((d, i) => (i * 25))
     .attr('d', arrowPathFunction);
 
   join

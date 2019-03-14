@@ -162,11 +162,7 @@ export default function drawVoronoi(selection, settings, state, selections) {
         .style('fill', getFill)
         .style('opacity', arrowHighlightOpacity);
 
-      join.exit()
-        .transition()
-        .duration(300)
-        .style('opacity', 0)
-        .remove();
+      join.exit().remove();
     })
       .on('mouseout', (node) => {
         const nodeLoc = node.data[geographyPropName];

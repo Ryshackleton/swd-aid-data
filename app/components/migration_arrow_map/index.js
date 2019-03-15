@@ -25,6 +25,7 @@ export default class FlowArrowMap {
 
     this.selections = renderSvg(node, this.settings);
 
+    this.resize(false);
     this.update(settings);
   }
 
@@ -50,5 +51,50 @@ export default class FlowArrowMap {
 
     const newState = { ...defaultState, ...this.state, ...props.chartState };
     this.setState(buildAccessors(this.settings, newState), this.draw);
+  }
+
+  resize(update = true) {
+    const {
+      topoJSONBaseWidth: width,
+      topoJSONBaseHeight: height,
+      viewBoxXPan = 0,
+      viewBoxYPan = 0,
+    } = this.settings;
+
+    const {
+      width: parentWidth,
+    } = this.selections.parent.node().getBoundingClientRect();
+
+    const {
+      height: svgHeight,
+      width: svgWidth,
+    } = this.selections.svg.node().getBoundingClientRect();
+
+    this.selections.svg
+      .attr('viewBox', `${viewBoxXPan} ${viewBoxYPan} ${width} ${height}`);
+
+    this.selections.geography
+      .attr('width', parentWidth) // will dynamically resize when other elements are drawn
+      .attr('height', svgHeight)
+      .style('position', 'absolute')
+      .style('top', 0)
+      .style('left', 0)
+      .style('pointer-events', 'none');
+    this.selections.geographyCtx.scale(svgWidth / width, svgHeight / height);
+    this.selections.geographyCtx.translate(-viewBoxXPan, -viewBoxYPan);
+
+    this.selections.arrows
+      .attr('width', parentWidth) // will dynamically resize when other elements are drawn
+      .attr('height', svgHeight)
+      .style('position', 'absolute')
+      .style('top', 0)
+      .style('left', 0)
+      .style('pointer-events', 'none');
+    this.selections.arrowsCtx.scale(svgWidth / width, svgHeight / height);
+    this.selections.arrowsCtx.translate(-viewBoxXPan, -viewBoxYPan);
+
+    if (update) {
+      this.update({ chartState: {} });
+    }
   }
 }

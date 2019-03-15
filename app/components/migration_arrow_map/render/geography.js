@@ -1,10 +1,10 @@
-
+/* global Path2D */
 export default function drawGeography(selections, settings, state) {
   const {
-    geography: selection,
+    geographyCtx,
+    geographyJoin,
   } = selections;
   const {
-    bubbleDefaultOpacity,
     features,
     path,
     topojsonLocationPropName,
@@ -13,37 +13,49 @@ export default function drawGeography(selections, settings, state) {
   const {
     isCartogram,
     colorAccessor,
-    geographyClassAccessor,
   } = state;
 
-  const paths = selection
+  function drawCanvasGeography(d) {
+    geographyCtx.globalAlpha = 1;
+    geographyCtx.strokeStyle = 'gray';
+    geographyCtx.lineWidth = 0.25;
+    geographyCtx.fillStyle = colorAccessor(d) || 'transparent';
+
+    const geographyPath = new Path2D(path(d));
+    geographyCtx.stroke(geographyPath);
+    geographyCtx.fill(geographyPath);
+  }
+
+  if (isCartogram) {
+    geographyJoin
+      .selectAll('path')
+      .transition()
+      .duration(duration / 2)
+      .tween('dummy', () => (t) => {
+        geographyCtx.globalAlpha = 1 - t;
+      })
+      .on('end', () => {
+        geographyCtx.clearRect(0, 0, 10000, 10000);
+        geographyJoin.selectAll('path').remove();
+      });
+    return;
+  }
+
+  geographyCtx.clearRect(0, 0, 10000, 10000);
+  const join = geographyJoin
     .selectAll('path')
     .data(
-      isCartogram ? [] : features,
-      datum => (datum.properties[topojsonLocationPropName]),
+      features,
+      datum => (
+        `${datum.properties[topojsonLocationPropName]}__${colorAccessor(datum) || 'transparent'}`
+      ),
     );
-
-  const enter = paths
+  join
     .enter()
-    .append('path')
-    .attr('class', geographyClassAccessor)
-    .attr('d', path)
-    .style('fill', d => (colorAccessor(d) || 'transparent'))
-    .style('stroke', 'gray')
-    .style('stroke-width', '0.25px')
-    .style('opacity', 0);
-
-  paths
-    .merge(enter)
-    .transition()
-    .duration(duration)
-    .style('opacity', bubbleDefaultOpacity)
-    .style('fill', d => (colorAccessor(d) || 'transparent'));
-
-  paths
+    .append('path');
+  join
+    .each(drawCanvasGeography);
+  join
     .exit()
-    .transition()
-    .duration(duration)
-    .style('opacity', 0)
     .remove();
 }

@@ -349,4 +349,10 @@ export default {
       });
     }
   },
+
+  onResizeFunction: function onResize({ sectionConfig }) {
+    if (sectionConfig.graph) {
+      sectionConfig.graph.resize();
+    }
+  },
 };

@@ -1,7 +1,8 @@
-
+/* global Path2D */
 export default function drawArrows(selections, settings, state) {
   const {
-    arrows: selection,
+    arrowsCtx,
+    arrowsJoin,
   } = selections;
   const {
     arrowMetadata,
@@ -11,44 +12,56 @@ export default function drawArrows(selections, settings, state) {
     arrowOriginPropName,
     arrowPathFunction,
     flowData,
+    nodeHoverState,
     isDisplayingArrows,
     isOriginFocused,
-    nodeHoverState,
   } = state;
+  const {
+    transition: { duration },
+  } = settings;
 
   const dynamicOrigin = isOriginFocused
     ? arrowOriginPropName
     : arrowDestinationPropName;
 
-  const join = selection
-    .selectAll('path')
-    .data(
-      !isDisplayingArrows
-      || nodeHoverState === 'HOT_BUILD_CONNECTED'
-        ? []
-        : flowData,
-    );
+  function drawCanvasArrow(d) {
+    arrowsCtx.globalAlpha = arrowDefaultOpacity;
+    arrowsCtx.strokeStyle = 'lightgray';
+    arrowsCtx.lineWidth = 0.5;
+    const { colorScale } = arrowMetadata[d[dynamicOrigin]];
+    arrowsCtx.fillStyle = colorScale(Math.abs(d[arrowFlowPropName]));
 
-  const enter = join
+    const arrowPath = new Path2D(arrowPathFunction(d));
+    arrowsCtx.stroke(arrowPath);
+    arrowsCtx.fill(arrowPath);
+  }
+
+  if (
+    !isDisplayingArrows
+    || nodeHoverState === 'HOT_BUILD_CONNECTED'
+  ) {
+    arrowsJoin
+      .selectAll('path')
+      .transition()
+      .duration(duration / 2)
+      .tween('dummy', () => (t) => {
+        arrowsCtx.globalAlpha = 1 - t;
+      })
+      .on('end', () => {
+        arrowsCtx.clearRect(0, 0, 10000, 10000);
+        arrowsJoin.selectAll('path').remove();
+      });
+    return;
+  }
+
+  // just start the animation and leave it, don't try to track the selection
+  arrowsJoin
+    .selectAll('path')
+    .data(flowData)
     .enter()
     .append('path')
-    // .attr('class', datum => cleanCssName(datum[dynamicOrigin]))
-    .style('pointer-events', 'none')
-    .attr('stroke', 'lightgray')
-    .style('stroke-width', '0.5px')
-    .attr('opacity', arrowDefaultOpacity)
-    .attr('fill', (datum) => {
-      // lookup color scale from node name
-      const { colorScale } = arrowMetadata[datum[dynamicOrigin]];
-      return colorScale(Math.abs(datum[arrowFlowPropName]));
-    });
-
-  join.merge(enter)
     .transition()
-    .delay((d, i) => (i * 25))
-    .attr('d', arrowPathFunction);
-
-  join
-    .exit()
-    .remove();
+    .duration(duration)
+    .delay((d, i) => (i * 15))
+    .on('end', drawCanvasArrow);
 }

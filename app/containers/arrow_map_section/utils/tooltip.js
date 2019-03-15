@@ -5,7 +5,7 @@ import tippy from 'tippy.js';
 import { formatAmt } from './util';
 import 'tippy.js/themes/light-border.css';
 
-export function createTooltipFromState(state, targetSelector) {
+export default function createTooltipFromState(state, targetSelector) {
   return function buildTooltipHTML(d) {
     const {
       arrowFlowPropName,
@@ -46,7 +46,9 @@ export function createTooltipFromState(state, targetSelector) {
                           width:${xScale(val)}px;">${otherName} - $${amt}</div>`;
     });
     const donorOrRecip = isOriginFocused ? 'Recipients' : 'Donors';
-    const donatedOrReceived = isOriginFocused ? 'Net Donation' : 'Net Received';
+    const donatedOrReceived = datum.recipient_positive_flow < 0
+      ? '<span style="color:#67001E;">Net Donater</span>'
+      : '<span style="color:#052F61;">Net Receiver</span>';
     const connectionsText = top5.length === 0
       ? `No ${donorOrRecip}`
       : `Top ${top5.length} ${donorOrRecip}`;

@@ -3,7 +3,7 @@ import {
 } from 'd3';
 import { isEmpty } from 'lodash';
 import { formatAmt } from './utils/util';
-import { createTooltipFromState } from './utils/tooltip';
+import createTooltipFromState from './utils/tooltip';
 
 import './scss/arrow_map_section.scss';
 
@@ -21,7 +21,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   geoArrowWebNoColor: {
-    arrowDefaultOpacity: 0.2,
+    arrowDefaultOpacity: 0.25,
     bubbleDefaultOpacity: 0,
     labelDefaultOpacity: 0,
     isCartogram: false,
@@ -34,7 +34,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   geoArrowWebColor: {
-    arrowDefaultOpacity: 0.2,
+    arrowDefaultOpacity: 0.25,
     bubbleDefaultOpacity: 0,
     labelDefaultOpacity: 0,
     isCartogram: false,
@@ -305,7 +305,7 @@ export default {
    * @param {object} [params.sectionConfig.elementResizeDetector] - the element-resize-detector object: see https://github.com/wnr/element-resize-detector for usage
    * @returns {void}
    */
-  onScrollFunction: function onScroll({ state, graphId, graphContainerId }) {
+  onScrollFunction: function onScroll(/* { state, graphId, graphContainerId } */) {
   },
 
   /**

@@ -1,9 +1,9 @@
 import { isNaN, isNil } from 'lodash';
 
 export function formatWithSuffixToPrecision(precision, num) {
-  function findPowerOf1000(acc, num) {
-    if (num < 1000) return acc;
-    return findPowerOf1000(acc + 1, num / 1000);
+  function findPowerOf1000(acc, n) {
+    if (n < 1000) return acc;
+    return findPowerOf1000(acc + 1, n / 1000);
   }
 
   const suffixTable = {
@@ -21,7 +21,7 @@ export function formatWithSuffixToPrecision(precision, num) {
   // get corresponding suffix
   const suffix = suffixTable[powerOf1000];
 
-  const theValue = (negativitiy * num / Math.pow(1000, powerOf1000));
+  const theValue = (negativitiy * num / (1000 ** powerOf1000));
   return theValue % 1 !== 0
     ? theValue.toFixed(precision) + suffix
     : theValue.toFixed(0) + suffix;

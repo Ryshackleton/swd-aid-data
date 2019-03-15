@@ -24,7 +24,7 @@ export default function quantizeColorScaleFactory(
                         flex: 1 1 auto; height: ${height}px; background: ${c};"></div>`);
 
   const fixedTickWidth = width / count;
-  const ticks = colorScale.range().filter((d, i, a) => i < a.length - 1).map((c, i) => (
+  const ticks = colorScale.range().filter((d, i, a) => i < a.length - 1).map(c => (
     `<div style="${tickFontStylesString}; text-align: center; width:${fixedTickWidth}px;">
       ${legendTickFormatFunction(scale.invert(colorScale.invertExtent(c)[1]))}
      </div>`

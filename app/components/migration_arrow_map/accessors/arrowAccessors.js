@@ -49,7 +49,10 @@ export const getArrowMetadata = memoize(
 
           return acc;
         }, {
-          mean: new Victor(0, 0), connected_arrows: [], connected_css: [], connected_loc_opacity: {},
+          mean: new Victor(0, 0),
+          connected_arrows: [],
+          connected_css: [],
+          connected_loc_opacity: {},
         });
 
         // normalize the mean

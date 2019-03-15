@@ -4,7 +4,7 @@ import { cleanCssName } from '../utils/utils';
 
 export default function drawVoronoi(selections, settings, state) {
   const {
-    arrows,
+    arrowsSelect,
     bubbles,
     labels,
     svg,
@@ -66,11 +66,11 @@ export default function drawVoronoi(selections, settings, state) {
   if (nodeHoverState === 'HIGHLIGHT_CONNECTED') {
     paths
       .on('mouseover', (polygon) => {
-        arrows.selectAll(`:not(.${cssNameLookup[polygon.data[geographyPropName]]})`)
+        arrowsSelect.selectAll(`:not(.${cssNameLookup[polygon.data[geographyPropName]]})`)
           .transition()
           .duration(duration)
           .style('opacity', 0);
-        arrows.selectAll(`.${cssNameLookup[polygon.data[geographyPropName]]}`)
+        arrowsSelect.selectAll(`.${cssNameLookup[polygon.data[geographyPropName]]}`)
           .transition()
           .duration(duration)
           .style('opacity', arrowHighlightOpacity);
@@ -103,15 +103,15 @@ export default function drawVoronoi(selections, settings, state) {
           .transition()
           .duration(duration)
           .style('opacity', labelDefaultOpacity);
-        arrows.selectAll('*')
+        arrowsSelect.selectAll('*')
           .transition()
           .duration(duration)
           .style('opacity', arrowDefaultOpacity);
       });
   }
   if (nodeHoverState === 'HOT_BUILD_CONNECTED') {
-    const highlightNode = highlightNodeFunction(arrows, bubbles, labels, state);
-    const unHighlightNode = unHighlightNodeFunction(arrows, bubbles, state);
+    const highlightNode = highlightNodeFunction(arrowsSelect, bubbles, labels, state);
+    const unHighlightNode = unHighlightNodeFunction(arrowsSelect, bubbles, state);
 
     svg
       .on('mouseout', () => {

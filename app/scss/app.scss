@@ -1,0 +1,243 @@
+@import 'base.scss';
+
+$narration-area-padding: 2.5%;
+$narration-area-margin: 2.5%;
+
+$graph-area-padding: 0;
+$graph-area-margin: 0;
+$graph-background-color: transparent;
+$graph-default-opacity: 1;
+$graph-container-default-opacity: 1;
+
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+//html { font-size: 60% } // default font size for small screens
+
+/*  apply a natural box layout model to all elements  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, p, text {
+  font-family: Trebuchet MS, Helvetica, sans-serif;
+}
+
+#scroll_area {
+  opacity: 0;
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.lds-ring {
+  max-width: 50%;
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #7e7e7e;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #7e7e7e transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.flex_vertical_column_centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+}
+
+.article-header {
+  padding-left: 5%;
+}
+
+.scroll-down-container {
+  @extend .flex_vertical_column_centered;
+}
+.scroll-down-container h3,
+.scroll-down-container p {
+  margin: 10px 2px 2px 2px;
+}
+
+.article-footer {
+  margin: 0 5% 0 5%;
+}
+
+/*  ------------- SCROLL -------------  */
+.scroll {
+  grid-area: scroll;
+} // end scroll
+
+/*  ------------- SECTION -------------  */
+.section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:  "graphArea"
+  "narrationArea";
+} // end section
+
+/*  ------------- NARRATION LIST -------------  */
+.narration_list {
+  z-index: 4;
+  grid-area: narrationArea;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  width: 100%;
+}
+
+/*  ------------- NARRATION (block) -------------  */
+.narration,
+.narration.active {
+  text-align: center;
+  opacity: 1;
+  margin: 0 30% 0 30%;
+}
+
+#narration_left.narration,
+#narration_left.narration.active {
+  margin: 0 80% 0 1%;
+}
+
+#narration_right.narration,
+#narration_right.narration.active {
+  margin: 0 1% 0 80%;
+}
+
+.narration_list #narration_pointerEventsOn {
+  pointer-events: all;
+}
+
+.narration-content {
+  background: #ebebeb;
+  border: #302321 thin solid;
+  border-radius: 20px;
+  padding: 10px;
+  
+  h2 {
+    padding: 0.5rem 5% 0.5rem 5%;
+  }
+  
+  p {
+    padding: 0.5rem 5% 0.5rem 5%;
+  }
+  
+  .link {
+    padding: 0.5rem 5% 0.5rem 5%;
+  }
+}
+
+/*  ------------- GRAPHS -------------  */
+.graph_container,
+.graph_container.active {
+  @extend .flex_vertical_column_centered;
+  z-index: 3;
+  grid-area: graphArea;
+  top: 15vh;
+  height: 80vh;
+  width: 100%;
+  position: fixed; // fix for ie not properly supporting sticky
+  position: sticky;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: $graph-container-default-opacity;
+  @extend .flex_vertical_column_centered;
+}
+
+.graph_title,
+.graph_caption {
+  width: 80%;
+  color: 'black';
+  text-align: center;
+  font-family: 'AvenirNextMedium';
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  span {
+    display: inline-block;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-self: center;
+  text {
+    height: 3.6rem; // fix height to 2x line height so changes in title size don't trigger resize events
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    margin: 1% 3% 2% 3%;
+  }
+  text:empty {
+    height: 3.6rem; // fix height to 2x line height so changes in title size don't trigger resize events
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+  }
+}
+
+.graph_caption {
+  text {
+    letter-spacing: 0.03em;
+    text-transform: none;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+    margin: 0.5% 5% 0.5% 5%;
+  }
+}
+
+.graph_default {
+  position: relative;
+  @extend .flex_vertical_column_centered;
+  width: 100%;
+  
+  .image_container {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    flex: 1;
+    
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+

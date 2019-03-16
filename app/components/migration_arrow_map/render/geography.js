@@ -17,7 +17,7 @@ export default function drawGeography(selections, settings, state) {
 
   function drawCanvasGeography(d) {
     geographyCtx.globalAlpha = 1;
-    geographyCtx.strokeStyle = 'gray';
+    geographyCtx.strokeStyle = '#5c5c5c';
     geographyCtx.lineWidth = 0.25;
     geographyCtx.fillStyle = colorAccessor(d) || 'transparent';
 

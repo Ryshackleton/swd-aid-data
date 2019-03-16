@@ -31,7 +31,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   geoArrowWebNoColor: {
-    arrowDefaultOpacity: 0.25,
+    arrowDefaultOpacity: 0.15,
     bubbleDefaultOpacity: 0,
     labelDefaultOpacity: 0,
     isCartogram: false,
@@ -44,7 +44,7 @@ const viewStates = {
     nodeHoverState: 'NONE',
   },
   geoArrowWebColor: {
-    arrowDefaultOpacity: 0.25,
+    arrowDefaultOpacity: 0.15,
     bubbleDefaultOpacity: 0,
     labelDefaultOpacity: 0,
     isCartogram: false,
@@ -137,7 +137,7 @@ const viewStates = {
     isDisplayingArrows: false,
     isDisplayingColorLegend: true,
     isOriginFocused: false,
-    bubbleRadiusPadding: 10,
+    bubbleRadiusPadding: 3,
     radiusPropName: 'net_received',
     nodeHoverState: 'NONE',
   },
@@ -236,7 +236,7 @@ export default {
         topojsonLocationPropName: 'loc_id',
         topoJSONBaseWidth: 1000, // width scaling associated with the topojson
         topoJSONBaseHeight: 520, // width scaling associated with the topojson
-        transition: { duration: 700 },
+        transition: { duration: 1000 },
         viewBoxXPan: 0,
         viewBoxYPan: -50,
         chartState: { // initial state

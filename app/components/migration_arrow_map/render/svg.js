@@ -16,6 +16,8 @@ export default function renderSvg(parentNode, settings) {
     .style('pointer-events', 'none');
   const svg = parent.append('svg')
     .attr('width', '100%')
+    .style('position', 'absolute')
+    .style('top', 0)
     .classed(css.svgClass, true);
 
   return {

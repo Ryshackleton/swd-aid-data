@@ -47,7 +47,7 @@ export default function createTooltipFromState(state, targetSelector) {
     });
     const donorOrRecip = isOriginFocused ? 'Recipients' : 'Donors';
     const donatedOrReceived = datum.recipient_positive_flow < 0
-      ? '<span style="color:#67001E;">Net Donater</span>'
+      ? '<span style="color:#67001E;">Net Donor</span>'
       : '<span style="color:#052F61;">Net Receiver</span>';
     const connectionsText = top5.length === 0
       ? `No ${donorOrRecip}`

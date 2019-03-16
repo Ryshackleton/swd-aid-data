@@ -62,6 +62,6 @@ export default function drawArrows(selections, settings, state) {
     .append('path')
     .transition()
     .duration(duration)
-    .delay((d, i) => (i * 15))
+    .delay((d, i) => (i * 10))
     .on('end', drawCanvasArrow);
 }

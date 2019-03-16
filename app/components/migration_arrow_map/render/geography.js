@@ -50,9 +50,14 @@ export default function drawGeography(selections, settings, state) {
         `${datum.properties[topojsonLocationPropName]}__${colorAccessor(datum) || 'transparent'}`
       ),
     );
+
   join
     .enter()
-    .append('path');
+    .append('path')
+    .transition()
+    .delay(100)
+    .on('end', drawCanvasGeography);
+
   join
     .each(drawCanvasGeography);
   join

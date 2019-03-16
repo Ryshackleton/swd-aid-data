@@ -69,7 +69,9 @@ export default function createTooltipFromState(state, targetSelector) {
       theme: 'light-border',
       // followCursor: 'initial', // 'true',
       hideOnClick: true,
+      trigger: 'mouseenter click',
       animation: 'fade',
+      a11y: false,
       delay: 100,
       arrow: true,
     };

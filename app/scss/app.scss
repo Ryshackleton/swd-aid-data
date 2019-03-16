@@ -20,6 +20,61 @@ h1, h2, h3, h4, h5, p, text {
   font-family: Trebuchet MS, Helvetica, sans-serif;
 }
 
+#scroll_area {
+  opacity: 0;
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.lds-ring {
+  max-width: 50%;
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #7e7e7e;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #7e7e7e transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .flex_vertical_column_centered {
   display: flex;
   flex-direction: column;
@@ -30,6 +85,18 @@ h1, h2, h3, h4, h5, p, text {
 
 .article-header {
   padding-left: 5%;
+}
+
+.scroll-down-container {
+  @extend .flex_vertical_column_centered;
+}
+.scroll-down-container h3,
+.scroll-down-container p {
+  margin: 10px 2px 2px 2px;
+}
+
+.article-footer {
+  margin: 0 5% 0 5%;
 }
 
 /*  ------------- SCROLL -------------  */
@@ -73,6 +140,10 @@ h1, h2, h3, h4, h5, p, text {
 #narration_right.narration,
 #narration_right.narration.active {
   margin: 0 1% 0 80%;
+}
+
+.narration_list #narration_pointerEventsOn {
+  pointer-events: all;
 }
 
 .narration-content {

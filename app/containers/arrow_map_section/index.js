@@ -10,6 +10,16 @@ import './scss/arrow_map_section.scss';
 import FlowArrowMap from '../../components/migration_arrow_map';
 
 const viewStates = {
+  noChart: {
+    bubbleDefaultOpacity: 0.0,
+    labelDefaultOpacity: 0.0,
+    isCartogram: false,
+    isDisplayingArrows: false,
+    isDisplayingColorLegend: false,
+    isOriginFocused: true,
+    bubbleRadiusPadding: 10,
+    nodeHoverState: 'NONE',
+  },
   geoNoColor: {
     bubbleDefaultOpacity: 0.9,
     labelDefaultOpacity: 0.9,

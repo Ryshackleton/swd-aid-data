@@ -70,6 +70,9 @@ export default class FlowArrowMap {
       width: svgWidth,
     } = this.selections.svg.node().getBoundingClientRect();
 
+    const scaleX = svgWidth / width;
+    const scaleY = svgHeight / height;
+
     this.selections.svg
       .attr('viewBox', `${viewBoxXPan} ${viewBoxYPan} ${width} ${height}`);
 
@@ -80,7 +83,7 @@ export default class FlowArrowMap {
       .style('top', 0)
       .style('left', 0)
       .style('pointer-events', 'none');
-    this.selections.geographyCtx.scale(svgWidth / width, svgHeight / height);
+    this.selections.geographyCtx.scale(scaleX, scaleY);
     this.selections.geographyCtx.translate(-viewBoxXPan, -viewBoxYPan);
 
     this.selections.arrows
@@ -90,7 +93,7 @@ export default class FlowArrowMap {
       .style('top', 0)
       .style('left', 0)
       .style('pointer-events', 'none');
-    this.selections.arrowsCtx.scale(svgWidth / width, svgHeight / height);
+    this.selections.arrowsCtx.scale(scaleX, scaleY);
     this.selections.arrowsCtx.translate(-viewBoxXPan, -viewBoxYPan);
 
     if (update) {

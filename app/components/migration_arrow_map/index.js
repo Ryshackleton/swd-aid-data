@@ -96,10 +96,6 @@ export default class FlowArrowMap {
     this.selections.arrowsCtx.scale(scaleX, scaleY);
     this.selections.arrowsCtx.translate(-viewBoxXPan, -viewBoxYPan);
 
-    this.selections.colorLegend
-      .style('position', 'absolute')
-      .style('top', `${svgHeight}px`);
-
     if (update) {
       this.update({ chartState: {} });
     }

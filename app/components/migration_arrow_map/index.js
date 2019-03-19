@@ -1,3 +1,4 @@
+/* global window */
 import { pick } from 'lodash';
 import renderSvg from './render/svg';
 import buildAccessors from './accessors/buildAccessors';
@@ -70,25 +71,31 @@ export default class FlowArrowMap {
       width: svgWidth,
     } = this.selections.svg.node().getBoundingClientRect();
 
-    const scaleX = svgWidth / width;
-    const scaleY = svgHeight / height;
+    const pixelRatio = window.devicePixelRatio || 1;
+    const scaleX = svgWidth / width * pixelRatio;
+    const scaleY = svgHeight / height * pixelRatio;
 
     this.selections.svg
       .attr('viewBox', `${viewBoxXPan} ${viewBoxYPan} ${width} ${height}`);
 
     this.selections.geography
-      .attr('width', parentWidth) // will dynamically resize when other elements are drawn
-      .attr('height', svgHeight)
+      .attr('width', parentWidth * pixelRatio) // canvas width & height * pixel ratio (usually 2)
+      .attr('height', svgHeight * pixelRatio)
+      .style('width', `${parentWidth}px`) // css width & height to scale canvas back down
+      .style('height', `${svgHeight}px`)
       .style('position', 'absolute')
       .style('top', 0)
       .style('left', 0)
       .style('pointer-events', 'none');
+
     this.selections.geographyCtx.scale(scaleX, scaleY);
     this.selections.geographyCtx.translate(-viewBoxXPan, -viewBoxYPan);
 
     this.selections.arrows
-      .attr('width', parentWidth) // will dynamically resize when other elements are drawn
-      .attr('height', svgHeight)
+      .attr('width', parentWidth * pixelRatio) // canvas width & height * pixel ratio (usually 2)
+      .attr('height', svgHeight * pixelRatio)
+      .style('width', `${parentWidth}px`) // css width & height to scale canvas back down
+      .style('height', `${svgHeight}px`)
       .style('position', 'absolute')
       .style('top', 0)
       .style('left', 0)

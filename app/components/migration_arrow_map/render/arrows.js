@@ -1,6 +1,7 @@
 /* global Path2D */
 export default function drawArrows(selections, settings, state) {
   const {
+    arrows,
     arrowsCtx,
     arrowsJoin,
   } = selections;
@@ -36,6 +37,8 @@ export default function drawArrows(selections, settings, state) {
     arrowsCtx.fill(arrowPath);
   }
 
+  const { width, height } = arrows.node().getBoundingClientRect();
+
   if (
     !isDisplayingArrows
     || nodeHoverState === 'HOT_BUILD_CONNECTED'
@@ -48,7 +51,7 @@ export default function drawArrows(selections, settings, state) {
         arrowsCtx.globalAlpha = 1 - t;
       })
       .on('end', () => {
-        arrowsCtx.clearRect(0, 0, 10000, 10000);
+        arrowsCtx.clearRect(0, 0, width, height);
         arrowsJoin.selectAll('path').remove();
       });
     return;

@@ -1,6 +1,7 @@
 /* global Path2D */
 export default function drawGeography(selections, settings, state) {
   const {
+    geography,
     geographyCtx,
     geographyJoin,
   } = selections;
@@ -26,6 +27,8 @@ export default function drawGeography(selections, settings, state) {
     geographyCtx.fill(geographyPath);
   }
 
+  const { width, height } = geography.node().getBoundingClientRect();
+
   if (isCartogram) {
     geographyJoin
       .selectAll('path')
@@ -35,13 +38,13 @@ export default function drawGeography(selections, settings, state) {
         geographyCtx.globalAlpha = 1 - t;
       })
       .on('end', () => {
-        geographyCtx.clearRect(0, 0, 10000, 10000);
+        geographyCtx.clearRect(0, 0, width, height);
         geographyJoin.selectAll('path').remove();
       });
     return;
   }
 
-  geographyCtx.clearRect(0, 0, 10000, 10000);
+  geographyCtx.clearRect(0, 0, width, height);
   const join = geographyJoin
     .selectAll('path')
     .data(

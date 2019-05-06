@@ -1,6 +1,6 @@
 # Storytelling with Data AidData Challenge
 
-Created for [this challenge](http://www.storytellingwithdata.com/blog/2019/3/1/swdchallenge-visualize-this-data)
+A scrolling data story created for [this challenge](http://www.storytellingwithdata.com/blog/2019/3/1/swdchallenge-visualize-this-data)
 
 ### Installation
 
